@@ -478,10 +478,10 @@
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
-                                <exclude reference="h9A-PQ-uDa"/>
-                                <exclude reference="7F9-OD-Xsw"/>
                                 <exclude reference="2WQ-Ne-WCu"/>
+                                <exclude reference="7F9-OD-Xsw"/>
                                 <exclude reference="OvB-mS-fO2"/>
+                                <exclude reference="h9A-PQ-uDa"/>
                                 <exclude reference="hS8-Ad-x59"/>
                             </mask>
                         </variation>
