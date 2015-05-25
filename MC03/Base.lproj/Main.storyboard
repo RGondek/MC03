@@ -327,9 +327,6 @@
                                     <color key="titleColor" red="0.98699889519999995" green="0.063979521900000003" blue="0.059483956380000001" alpha="1" colorSpace="calibratedRGB"/>
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
-                                <connections>
-                                    <segue destination="BYZ-38-t0r" kind="show" id="hsm-K2-z2w"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="1" green="0.97585831840000004" blue="0.71637069320000002" alpha="1" colorSpace="calibratedRGB"/>
@@ -422,7 +419,6 @@
         <image name="page1" width="301" height="311"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="hsm-K2-z2w"/>
         <segue reference="CuC-Zf-oco"/>
     </inferredMetricsTieBreakers>
 </document>
