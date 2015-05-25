@@ -38,10 +38,11 @@ class GameScene: SKScene {
     var vc : GameViewController?
     
     //Para uso do timer
+    var promptLabel:SKLabelNode!
     var curString:String = "" //Palavra sendo formada
     var myLabel:SKLabelNode!
     var reButton:SKSpriteNode!
-    var tam:CGFloat = CGFloat(80) //Tamanho dos quadrados
+    var tam:CGFloat = CGFloat(70) //Tamanho dos quadrados
     var cols:Int = 8
     var rows:Int = 8
     
@@ -163,6 +164,13 @@ class GameScene: SKScene {
         
         //self.encheLetras()
         self.encheLetras(seedar(num))
+        
+        promptLabel = SKLabelNode(fontNamed: "Helvetica")
+        promptLabel.text = ""
+        promptLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height*0.8)
+        promptLabel.physicsBody = SKPhysicsBody(rectangleOfSize: promptLabel.frame.size)
+        promptLabel.physicsBody?.dynamic = false
+        self.addChild(promptLabel)
         
         timeLabel = SKLabelNode(fontNamed: "Comic Sans")//AYY
         timeLabel.position = CGPointMake(self.frame.size.width * 0.1, self.frame.size.height * 0.9);

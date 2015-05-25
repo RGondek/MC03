@@ -14,6 +14,8 @@ class Bookworm:GameScene {
     
     var palavrasDoBanco:NSMutableArray!
     var palavrasDoBancoNext:NSMutableArray!
+    var stringsDoBanco:NSMutableArray!
+    var stringsDoBancoNext:NSMutableArray!
     
     //array que guarda as tiles das letras selecionadas no momento
     var letrasSelecionadas:NSMutableArray!
@@ -103,7 +105,7 @@ class Bookworm:GameScene {
     }
     
     override func validaPalavra(palavra: String) {
-        for resposta in palavrasDoBanco {
+        for resposta in stringsDoBanco {
             if resposta.uppercaseString == palavra {
                 score += Int(timeLeft)*10 * count(palavra) * possibleScore;
                 totalScore.text = "\(score)";
@@ -115,8 +117,11 @@ class Bookworm:GameScene {
                 }
                 self.player.fire(self.enemy!, tela: self.telaNode)
                 letrasSelecionadas = NSMutableArray()
+                //stringsDoBanco.removeObject(resposta)
+                self.promptLabel.text = ""
             }
         }
+        
     }
     
     
@@ -198,6 +203,7 @@ class Bookworm:GameScene {
     
     override func trocaLetras() {
         self.palavrasDoBanco = self.palavrasDoBancoNext
+        self.stringsDoBanco = self.stringsDoBancoNext
         self.apagar()
         self.letrasSelecionadas = NSMutableArray()
         for i in 0...self.tabuleiro.grid.columns-1 {
@@ -208,6 +214,7 @@ class Bookworm:GameScene {
             }
         }
         self.preparaProximo()
+        self.promptLabel.text = ""
     }
     
     func preparaProximo(){
@@ -231,7 +238,8 @@ class Bookworm:GameScene {
             let aux = item as! Palavra
             palavrasSeed.addObject(aux.word)
         }
-        palavrasDoBanco = palavrasSeed
+        palavrasDoBanco = seed
+        stringsDoBanco = palavrasSeed
         self.colocaPalavra(palavrasSeed, noTabuleiro:self.tabuleiro)
         for i in 0...self.tabuleiro.grid.columns-1 {
             for j in 0...self.tabuleiro.grid.rows-1 {
@@ -251,7 +259,8 @@ class Bookworm:GameScene {
             let aux = item as! Palavra
             palavrasSeed.addObject(aux.word)
         }
-        palavrasDoBancoNext = palavrasSeed
+        palavrasDoBancoNext = seed
+        stringsDoBancoNext = palavrasSeed
         self.colocaPalavra(palavrasSeed, noTabuleiro: self.proximoTabuleiro)
         for i in 0...self.proximoTabuleiro.grid.columns-1 {
             for j in 0...self.proximoTabuleiro.grid.rows-1 {
@@ -325,6 +334,24 @@ class Bookworm:GameScene {
         return false
         
 
+    }
+    
+    override func update(currentTime: CFTimeInterval) {
+        timeSinceLast = currentTime - self.lastUpdateTimeInterval
+        self.lastUpdateTimeInterval = currentTime;
+        
+        //controles da tela do Lexicus
+        if (enemy != nil){
+            self.enemy!.runBehavior(self)
+            
+            if(enemy?.position.x <= -200){//player.position.x + player.size.width/2){
+                self.gameOver(currentTime);
+            }
+        }
+        
+        if promptLabel.text == ""{
+            promptLabel.text = (palavrasDoBanco.firstObject as! Palavra).prompt as! String
+        }
     }
     
     
