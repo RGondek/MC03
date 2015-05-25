@@ -56,8 +56,8 @@ class CategoryManager {
                     //define as palavras para seedar
                     var cont = num
                     var palavrasSeedadas:NSMutableArray = NSMutableArray()
-                    var arrPalavras = NSMutableArray(array: cat.palavras.allObjects as NSArray)
-                    while cont >= 0 {
+                    var arrPalavras = NSMutableArray(array: cat.palavras.allObjects)
+                    while cont > 0 {
                         let rand = arc4random_uniform(UInt32(arrPalavras.count-1))
                         if (!palavrasSeedadas.containsObject(arrPalavras.objectAtIndex(Int(rand)))) {
                             palavrasSeedadas.addObject(arrPalavras.objectAtIndex(Int(rand)))

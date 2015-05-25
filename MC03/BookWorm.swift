@@ -12,6 +12,9 @@ class Bookworm:GameScene {
     
     var shuffleButton:SKSpriteNode!
     
+    var palavrasDoBanco:NSMutableArray!
+    var palavrasDoBancoNext:NSMutableArray!
+    
     //array que guarda as tiles das letras selecionadas no momento
     var letrasSelecionadas:NSMutableArray!
     
@@ -21,7 +24,7 @@ class Bookworm:GameScene {
     var proximoTabuleiro:Tabuleiro!
     
     override func prep(){
-        self.setupScene(8)
+        self.setupScene(3)
         self.setupLex()
     }
         
@@ -100,7 +103,7 @@ class Bookworm:GameScene {
     }
     
     override func validaPalavra(palavra: String) {
-        for resposta in palavrasTeste {
+        for resposta in palavrasDoBanco {
             if resposta.uppercaseString == palavra {
                 score += Int(timeLeft)*10 * count(palavra) * possibleScore;
                 totalScore.text = "\(score)";
@@ -165,7 +168,7 @@ class Bookworm:GameScene {
             //jesus
             let tileAux = tile as! Tile
             tileAux.isActive = true
-            tile.content!!.alpha = 1.0
+            tileAux.content!.alpha = 1.0
         }
         self.myLabel.text = ""
         letrasSelecionadas = NSMutableArray()
@@ -176,18 +179,25 @@ class Bookworm:GameScene {
         //define as palavras para seedar
         var cont = num
         var palavrasSeedadas:NSMutableArray = NSMutableArray()
-        while cont >= 0 {
-            let rand = arc4random_uniform(UInt32(palavrasTeste.count))
-            if (!palavrasSeedadas.containsObject(palavrasTeste[Int(rand)])) {
-                palavrasSeedadas.addObject(palavrasTeste[Int(rand)])
-                println(palavrasTeste[Int(rand)])
-                cont--
-            }
+//        while cont >= 0 {
+//            let rand = arc4random_uniform(UInt32(palavrasTeste.count))
+//            if (!palavrasSeedadas.containsObject(palavrasTeste[Int(rand)])) {
+//                palavrasSeedadas.addObject(palavrasTeste[Int(rand)])
+//                println(palavrasTeste[Int(rand)])
+//                cont--
+//            }
+//        }
+//        return palavrasSeedadas
+        
+        var palavras = CategoryManager().fetchWordsForCategory(num, categoryName: "Frutas")
+        for item in palavras {
+            palavrasSeedadas.addObject(item as! Palavra)
         }
         return palavrasSeedadas
     }
     
     override func trocaLetras() {
+        self.palavrasDoBanco = self.palavrasDoBancoNext
         self.apagar()
         self.letrasSelecionadas = NSMutableArray()
         for i in 0...self.tabuleiro.grid.columns-1 {
@@ -210,14 +220,19 @@ class Bookworm:GameScene {
                 }
             }
         }
-        self.encheProx(self.seedar(8))
+        self.encheProx(self.seedar(3))
     }
     
     
     //recebe um array com as palavras que devem ser inseridas na grid; as suas letras consecutivas devem estar em tiles vizinhas
     override func encheLetras(seed:NSMutableArray) {
-
-        self.colocaPalavra(seed, noTabuleiro:self.tabuleiro)
+        var palavrasSeed = NSMutableArray()
+        for item in seed {
+            let aux = item as! Palavra
+            palavrasSeed.addObject(aux.word)
+        }
+        palavrasDoBanco = palavrasSeed
+        self.colocaPalavra(palavrasSeed, noTabuleiro:self.tabuleiro)
         for i in 0...self.tabuleiro.grid.columns-1 {
             for j in 0...self.tabuleiro.grid.rows-1 {
                 if (tabuleiro.tileForPos(i, y: j)?.letraPrev == ""){
@@ -231,7 +246,13 @@ class Bookworm:GameScene {
     }
     
     func encheProx(seed:NSMutableArray) {
-        self.colocaPalavra(seed, noTabuleiro: self.proximoTabuleiro)
+        var palavrasSeed = NSMutableArray()
+        for item in seed {
+            let aux = item as! Palavra
+            palavrasSeed.addObject(aux.word)
+        }
+        palavrasDoBancoNext = palavrasSeed
+        self.colocaPalavra(palavrasSeed, noTabuleiro: self.proximoTabuleiro)
         for i in 0...self.proximoTabuleiro.grid.columns-1 {
             for j in 0...self.proximoTabuleiro.grid.rows-1 {
                 if (proximoTabuleiro.tileForPos(i, y: j)?.letraPrev == ""){
