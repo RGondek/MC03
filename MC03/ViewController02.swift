@@ -10,6 +10,8 @@ import UIKit
 
 class ViewController02: UIViewController {
     @IBOutlet var pageView: UIView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblText: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,16 +26,18 @@ class ViewController02: UIViewController {
 
     
     @IBAction func btnEasy(sender: UIButton) {
-        println("EASY!!")
+        lblText.text = ("EASY!!")
     }
     @IBAction func btnMedium(sender: UIButton) {
-        println("MEDIUM!!")
+        lblText.text = ("MEDIUM!!")
     }
     @IBAction func btnHard(sender: UIButton) {
-        println("HARD!!")
+        lblText.text = ("HARD!!")
     }
     
     @IBAction func book1Click(sender: UIButton) {
+        let btn = sender as UIButton
+        lblTitle.text = (btn.titleForState(UIControlState.Normal))
         UIView.animateWithDuration(0.7, animations: { () -> Void in
             self.pageView.alpha = 1
             self.pageView.transform = CGAffineTransformMakeTranslation(0, 175)
