@@ -5,7 +5,7 @@
         <relationship name="palavras" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Palavra" inverseName="categoria" inverseEntity="Palavra" syncable="YES"/>
     </entity>
     <entity name="Palavra" representedClassName="MC03.Palavra" syncable="YES">
-        <attribute name="known" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="known" optional="YES" attributeType="Boolean" defaultValueString="NO" syncable="YES"/>
         <attribute name="prompt" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="promptUS" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="translate" optional="YES" attributeType="String" syncable="YES"/>
@@ -13,7 +13,7 @@
         <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="palavras" inverseEntity="Categoria" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Palavra" positionX="-63" positionY="-18" width="128" height="133"/>
         <element name="Categoria" positionX="171" positionY="42" width="128" height="73"/>
+        <element name="Palavra" positionX="-63" positionY="-18" width="128" height="133"/>
     </elements>
 </model>

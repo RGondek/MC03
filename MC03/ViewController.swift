@@ -39,7 +39,8 @@ class ViewController: UIViewController {
             CategoryManager.sharedInstance.save()
         }
         
-        var arr = CategoryManager.sharedInstance.fetchCategories()
+        var categories = CategoryManager.sharedInstance.fetchCategories()
+        var wordsColor = CategoryManager.sharedInstance.fetchWordsForCategory(3, categoryName: "Cores")
     
         // Do any additional setup after loading the view, typically from a nib.
     }

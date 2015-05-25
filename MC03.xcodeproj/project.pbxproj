@@ -16,7 +16,6 @@
 		D59E01FF1B1389FD002C4CEB /* CategoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E01FC1B1389FD002C4CEB /* CategoryManager.swift */; };
 		D59E02011B1389FD002C4CEB /* WordManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E01FE1B1389FD002C4CEB /* WordManager.swift */; };
 		D59E02041B138A0E002C4CEB /* MC03.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D59E02021B138A0E002C4CEB /* MC03.xcdatamodeld */; };
-		D59E020F1B138D49002C4CEB /* MC03.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D59E020D1B138D49002C4CEB /* MC03.xcdatamodeld */; };
 		D59E02111B138E7C002C4CEB /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E02101B138E7C002C4CEB /* Categoria.swift */; };
 		D59E02131B138E7C002C4CEB /* Palavra.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E02121B138E7C002C4CEB /* Palavra.swift */; };
 		D5AF8DC41B0FD074001C85B3 /* ViewController02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */; };
@@ -46,7 +45,6 @@
 		D59E01FC1B1389FD002C4CEB /* CategoryManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CategoryManager.swift; sourceTree = "<group>"; };
 		D59E01FE1B1389FD002C4CEB /* WordManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WordManager.swift; sourceTree = "<group>"; };
 		D59E02031B138A0E002C4CEB /* MC03.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC03.xcdatamodel; sourceTree = "<group>"; };
-		D59E020E1B138D49002C4CEB /* MC03.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MC03.xcdatamodel; sourceTree = "<group>"; };
 		D59E02101B138E7C002C4CEB /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		D59E02121B138E7C002C4CEB /* Palavra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palavra.swift; sourceTree = "<group>"; };
 		D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController02.swift; sourceTree = "<group>"; };
@@ -99,7 +97,6 @@
 				D58786251B0E587600BD60AE /* Images.xcassets */,
 				D58786271B0E587600BD60AE /* LaunchScreen.xib */,
 				D587861C1B0E587600BD60AE /* Supporting Files */,
-				D59E020D1B138D49002C4CEB /* MC03.xcdatamodeld */,
 			);
 			path = MC03;
 			sourceTree = "<group>";
@@ -248,7 +245,6 @@
 				D587861F1B0E587600BD60AE /* AppDelegate.swift in Sources */,
 				D59E02011B1389FD002C4CEB /* WordManager.swift in Sources */,
 				D59E02041B138A0E002C4CEB /* MC03.xcdatamodeld in Sources */,
-				D59E020F1B138D49002C4CEB /* MC03.xcdatamodeld in Sources */,
 				D59E02131B138E7C002C4CEB /* Palavra.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -467,15 +463,6 @@
 				D59E02031B138A0E002C4CEB /* MC03.xcdatamodel */,
 			);
 			currentVersion = D59E02031B138A0E002C4CEB /* MC03.xcdatamodel */;
-			path = MC03.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-		D59E020D1B138D49002C4CEB /* MC03.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				D59E020E1B138D49002C4CEB /* MC03.xcdatamodel */,
-			);
 			path = MC03.xcdatamodeld;
 			sourceTree = "<group>";
 			versionGroupType = wrapper.xcdatamodel;

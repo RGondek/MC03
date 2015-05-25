@@ -45,4 +45,23 @@ class CategoryManager {
         return Array<Categoria>();
     }
     
+    func fetchWordsForCategory(num:Int, categoryName:String) -> NSMutableArray {
+        let fetchRequest = NSFetchRequest(entityName: CategoryManager.entityName);
+        var error: NSError?
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        
+        if let results = fetchedResults as? [Categoria] {
+            for cat in results{
+                if cat.nome == categoryName {
+                    var words = NSMutableArray(array: cat.palavras.allObjects)
+                    return NSMutableArray(array: words.subarrayWithRange(NSMakeRange(0, num)))
+                }
+            }
+        } else {
+            println("Error while fetching: \(error), \(error!.userInfo)");
+        }
+        
+        return NSMutableArray();
+    }
+    
 }
