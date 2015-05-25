@@ -20,23 +20,27 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        var ws:[Palavra] = []
-        
-        for iA in 0..<categorias.count {
-            var categ = CategoryManager.sharedInstance.newCategory()
-            categ.nome = categorias[iA]
-            ws.removeAll(keepCapacity: false)
-            for iB in 0..<words[iA].count{
-                var palavra = WordManager.sharedInstance.newWord()
-                palavra.word = words[iA][iB]
-                palavra.translate = palavras[iA][iB]
-                palavra.categoria = categ
-                palavra.prompt = prompt[iA][iB]
-                palavra.promptUS = promptIngles[iA][iB]
-                ws.append(palavra)
+        let useDef = NSUserDefaults.standardUserDefaults()
+        if useDef.valueForKey("first") == nil {
+            useDef.setValue("true", forKey: "first")
+            var ws:[Palavra] = []
+            
+            for iA in 0..<categorias.count {
+                var categ = CategoryManager.sharedInstance.newCategory()
+                categ.nome = categorias[iA]
+                ws.removeAll(keepCapacity: false)
+                for iB in 0..<words[iA].count{
+                    var palavra = WordManager.sharedInstance.newWord()
+                    palavra.word = words[iA][iB]
+                    palavra.translate = palavras[iA][iB]
+                    palavra.categoria = categ
+                    palavra.prompt = prompt[iA][iB]
+                    palavra.promptUS = promptIngles[iA][iB]
+                    ws.append(palavra)
+                }
+                categ.palavras = NSSet(array: ws)
+                CategoryManager.sharedInstance.save()
             }
-            categ.palavras = NSSet(array: ws)
-            CategoryManager.sharedInstance.save()
         }
         
         var categories = CategoryManager.sharedInstance.fetchCategories()

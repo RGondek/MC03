@@ -53,8 +53,19 @@ class CategoryManager {
         if let results = fetchedResults as? [Categoria] {
             for cat in results{
                 if cat.nome == categoryName {
-                    var words = NSMutableArray(array: cat.palavras.allObjects)
-                    return NSMutableArray(array: words.subarrayWithRange(NSMakeRange(0, num)))
+                    //define as palavras para seedar
+                    var cont = num
+                    var palavrasSeedadas:NSMutableArray = NSMutableArray()
+                    var arrPalavras = NSMutableArray(array: cat.palavras.allObjects as NSArray)
+                    while cont >= 0 {
+                        let rand = arc4random_uniform(UInt32(arrPalavras.count-1))
+                        if (!palavrasSeedadas.containsObject(arrPalavras.objectAtIndex(Int(rand)))) {
+                            palavrasSeedadas.addObject(arrPalavras.objectAtIndex(Int(rand)))
+                            arrPalavras.removeObjectAtIndex(Int(rand))
+                            cont--
+                        }
+                    }
+                    return palavrasSeedadas
                 }
             }
         } else {
