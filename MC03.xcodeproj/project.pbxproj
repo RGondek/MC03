@@ -27,6 +27,7 @@
 		4E6EE1AD1B1399BF002B3C3A /* PontuacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A91B1399BF002B3C3A /* PontuacaoTableViewCell.swift */; };
 		4E6EE1AE1B1399BF002B3C3A /* PontuacaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EE1AA1B1399BF002B3C3A /* PontuacaoTableViewCell.xib */; };
 		4E6EE1BA1B13BC83002B3C3A /* Pontuacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1B91B13BC83002B3C3A /* Pontuacao.swift */; };
+		4EC860091B14F9390062BA6C /* PontuacaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC860081B14F9390062BA6C /* PontuacaoManager.swift */; };
 		D587861F1B0E587600BD60AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D587861E1B0E587600BD60AE /* AppDelegate.swift */; };
 		D58786211B0E587600BD60AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58786201B0E587600BD60AE /* ViewController.swift */; };
 		D58786241B0E587600BD60AE /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D58786221B0E587600BD60AE /* Main.storyboard */; };
@@ -72,6 +73,7 @@
 		4E6EE1A91B1399BF002B3C3A /* PontuacaoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontuacaoTableViewCell.swift; sourceTree = "<group>"; };
 		4E6EE1AA1B1399BF002B3C3A /* PontuacaoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PontuacaoTableViewCell.xib; sourceTree = "<group>"; };
 		4E6EE1B91B13BC83002B3C3A /* Pontuacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pontuacao.swift; sourceTree = "<group>"; };
+		4EC860081B14F9390062BA6C /* PontuacaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontuacaoManager.swift; sourceTree = "<group>"; };
 		D58786191B0E587600BD60AE /* MC03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D587861D1B0E587600BD60AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D587861E1B0E587600BD60AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -151,6 +153,7 @@
 				4E6EE1A91B1399BF002B3C3A /* PontuacaoTableViewCell.swift */,
 				4E6EE1AA1B1399BF002B3C3A /* PontuacaoTableViewCell.xib */,
 				4E6EE1B91B13BC83002B3C3A /* Pontuacao.swift */,
+				4EC860081B14F9390062BA6C /* PontuacaoManager.swift */,
 			);
 			name = "Pontuação";
 			sourceTree = "<group>";
@@ -357,6 +360,7 @@
 				D59E02041B138A0E002C4CEB /* MC03.xcdatamodeld in Sources */,
 				D59E02131B138E7C002C4CEB /* Palavra.swift in Sources */,
 				4E6EE1A41B13996A002B3C3A /* EncyDetails.swift in Sources */,
+				4EC860091B14F9390062BA6C /* PontuacaoManager.swift in Sources */,
 				159A22D41B13A03C004B023D /* LexicusNode.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

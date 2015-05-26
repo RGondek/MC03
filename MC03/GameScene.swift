@@ -375,12 +375,12 @@ class GameScene: SKScene {
         
     }
     
-    //Força a troca de view
-    func gameOver(){
-        self.vc?.performSegueWithIdentifier("gameOver", sender: score)
-        
-        //self.inval
-    }
+//    //Força a troca de view
+//    func gameOver(){
+//        self.vc?.performSegueWithIdentifier("gameOver", sender: score)
+//        
+//        //self.inval
+//    }
     
     func win(){
         if(!venceu){
@@ -390,6 +390,7 @@ class GameScene: SKScene {
         
     }
     
+    //Força a troca de view
     func gameOver(currentTime: CFTimeInterval) {
         if(!perdeu){
             player.xScale = -1.0
@@ -409,6 +410,10 @@ class GameScene: SKScene {
             lastUpdate = currentTime;
         } else {
             if(currentTime > lastUpdate + 3.0){
+                var pontuacao = PontuacaoManager.sharedInstance.newPontuacao()
+                pontuacao.pontos = self.score;
+                pontuacao.categoria = "Bookworm"
+                PontuacaoManager.sharedInstance.save();
                 self.vc?.performSegueWithIdentifier("gameOver", sender: score);
             }
         }
