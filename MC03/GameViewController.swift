@@ -74,6 +74,7 @@ class GameViewController: UIViewController {
             self.scene.prep()
             self.skView.ignoresSiblingOrder = true
             self.scene.scaleMode = .AspectFill
+            sleep(2)
             
             dispatch_async(dispatch_get_main_queue(), {
                 println("DONE")
@@ -85,7 +86,7 @@ class GameViewController: UIViewController {
 
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if (!(inGame) && ready != nil){
+        if (!(inGame) && ready == true){
             inGame = true
             let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.3)
             self.instructions.removeFromSuperview()

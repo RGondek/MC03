@@ -12,6 +12,8 @@ class Bookworm:GameScene {
     
     var shuffleButton:SKSpriteNode!
     
+    var indiceDica:Int! = 0
+    
     var palavrasDoBanco:NSMutableArray!
     var palavrasDoBancoNext:NSMutableArray!
     var stringsDoBanco:NSMutableArray!
@@ -220,6 +222,7 @@ class Bookworm:GameScene {
         }
         self.preparaProximo()
         self.promptLabel.text = ""
+        self.indiceDica = 0
     }
     
     func preparaProximo(){
@@ -341,6 +344,24 @@ class Bookworm:GameScene {
 
     }
     
+    func darDica(indice:Int){
+        switch (self.diff){
+        case 0:
+            promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
+            break
+        case 1:
+            promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).promptUS as String
+            break
+        case 2:
+            promptLabel.text = ""
+            break
+        default:
+            promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
+            break
+        }
+        self.indiceDica = self.indiceDica + 1
+    }
+    
     override func update(currentTime: CFTimeInterval) {
         timeSinceLast = currentTime - self.lastUpdateTimeInterval
         self.lastUpdateTimeInterval = currentTime;
@@ -355,7 +376,7 @@ class Bookworm:GameScene {
         }
         
         if promptLabel.text == ""{
-            promptLabel.text = (palavrasDoBanco.firstObject as! Palavra).prompt as String
+            self.darDica(self.indiceDica)
         }
     }
     

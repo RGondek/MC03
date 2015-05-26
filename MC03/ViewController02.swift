@@ -27,14 +27,21 @@ class ViewController02: UIViewController {
     
     @IBAction func btnEasy(sender: UIButton) {
         lblText.text = ("EASY!!")
+        GameControlSingleton.sharedInstance.difficulty = 0
         let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
         self.presentViewController(gameView, animated: true, completion: nil)
     }
     @IBAction func btnMedium(sender: UIButton) {
         lblText.text = ("MEDIUM!!")
+        GameControlSingleton.sharedInstance.difficulty = 1
+        let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+        self.presentViewController(gameView, animated: true, completion: nil)
     }
     @IBAction func btnHard(sender: UIButton) {
         lblText.text = ("HARD!!")
+        GameControlSingleton.sharedInstance.difficulty = 2
+        let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+        self.presentViewController(gameView, animated: true, completion: nil)
     }
     
     @IBAction func book1Click(sender: UIButton) {
