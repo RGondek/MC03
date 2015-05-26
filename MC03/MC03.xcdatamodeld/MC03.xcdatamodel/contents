@@ -12,8 +12,14 @@
         <attribute name="word" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="categoria" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Categoria" inverseName="palavras" inverseEntity="Categoria" syncable="YES"/>
     </entity>
+    <entity name="Pontuacao" representedClassName="MC03.Pontuacao" syncable="YES">
+        <attribute name="categoria" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nome" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="pontos" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+    </entity>
     <elements>
         <element name="Categoria" positionX="171" positionY="42" width="128" height="73"/>
         <element name="Palavra" positionX="-63" positionY="-18" width="128" height="133"/>
+        <element name="Pontuacao" positionX="43" positionY="-241" width="128" height="88"/>
     </elements>
 </model>
