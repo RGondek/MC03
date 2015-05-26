@@ -13,6 +13,7 @@ class Bookworm:GameScene {
     var shuffleButton:SKSpriteNode!
     
     var indiceDica:Int! = 0
+    var totalPalavras:Int!
     
     var palavrasDoBanco:NSMutableArray!
     var palavrasDoBancoNext:NSMutableArray!
@@ -210,6 +211,7 @@ class Bookworm:GameScene {
     
     override func trocaLetras() {
         self.palavrasDoBanco = self.palavrasDoBancoNext
+        self.totalPalavras = palavrasDoBanco.count
         self.stringsDoBanco = self.stringsDoBancoNext
         self.apagar()
         self.letrasSelecionadas = NSMutableArray()
@@ -247,6 +249,7 @@ class Bookworm:GameScene {
             palavrasSeed.addObject(aux.word)
         }
         palavrasDoBanco = seed
+        self.totalPalavras = seed.count
         stringsDoBanco = palavrasSeed
         self.colocaPalavra(palavrasSeed, noTabuleiro:self.tabuleiro)
         for i in 0...self.tabuleiro.grid.columns-1 {
@@ -346,7 +349,9 @@ class Bookworm:GameScene {
     
     //troca a dica que aparece no label de prompt em cima
     func darDica(indice:Int){
-        if indice >= palavrasDoBanco.count{
+        
+        //TROCAR ISSO POR UMA VARIAVEL - SE FICAR ITERANDO DURANTE O UPDATE CAUSA EXCEÇÃO
+        if indice >= self.totalPalavras{
             if flagAcabaramLetras == false{
                 flagAcabaramLetras = true
                 self.completarTabuleiro()
@@ -394,10 +399,12 @@ class Bookworm:GameScene {
             }
         }
         
-        if promptLabel.text == ""{
-            //if indiceDica < palavrasDoBanco.count{
+        if self.diff != 2{
+            if promptLabel.text == ""{
+                //if indiceDica < palavrasDoBanco.count{
                 self.darDica(self.indiceDica)
-            //}
+                //}
+            }
         }
     }
     
