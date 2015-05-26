@@ -131,7 +131,7 @@ class GameScene: SKScene {
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:100);
         
         self.addChild(myLabel)
-        reButton = SKSpriteNode(imageNamed: "apple")
+        reButton = SKSpriteNode(imageNamed: "eraser")
         reButton.name = "refresh"
         reButton.size = CGSizeMake(80, 80)
         reButton.physicsBody = SKPhysicsBody(rectangleOfSize: reButton.size)
@@ -175,8 +175,8 @@ class GameScene: SKScene {
         self.addChild(telaNode)
         
         player = LexicusNode(texture: SKTexture(imageNamed: "lex1"), tam: 80)
-        player.size = CGSizeMake(80, 80)
-        player.position = CGPointMake(-telaNode.size.width/2 + CGFloat(50), -telaNode.size.height/2 + CGFloat(50))
+        player.size = CGSizeMake(100, 100)
+        player.position = CGPointMake(-telaNode.size.width/2 + CGFloat(55), -telaNode.size.height/2 + CGFloat(55))
         player.physicsBody = SKPhysicsBody(rectangleOfSize: player.size)
         player.physicsBody?.dynamic = false
 //        player.physicsBody?.categoryBitMask = playerCategory

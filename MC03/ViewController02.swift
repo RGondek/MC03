@@ -27,7 +27,8 @@ class ViewController02: UIViewController {
     
     @IBAction func btnEasy(sender: UIButton) {
         lblText.text = ("EASY!!")
-        self.presentViewController(GameViewController(), animated: true, completion: nil)
+        let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+        self.presentViewController(gameView, animated: true, completion: nil)
     }
     @IBAction func btnMedium(sender: UIButton) {
         lblText.text = ("MEDIUM!!")

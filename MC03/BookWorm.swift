@@ -28,6 +28,11 @@ class Bookworm:GameScene {
     override func prep(){
         self.setupScene(3)
         self.setupLex()
+        self.proximoTabuleiro = Tabuleiro(x: self.cols, y: self.rows, tamanho: self.tam)
+        self.proximoTabuleiro.position = CGPointMake(10000, self.size.height * 0.18)
+        self.addChild(proximoTabuleiro)
+        
+        self.preparaProximo()
     }
         
     override func didMoveToView(view: SKView) {
@@ -37,13 +42,13 @@ class Bookworm:GameScene {
 //        
 //        self.setupLex()
         
-        self.proximoTabuleiro = Tabuleiro(x: self.cols, y: self.rows, tamanho: self.tam)
-        self.proximoTabuleiro.position = CGPointMake(10000, self.size.height * 0.18)
-        self.addChild(proximoTabuleiro)
+//        self.proximoTabuleiro = Tabuleiro(x: self.cols, y: self.rows, tamanho: self.tam)
+//        self.proximoTabuleiro.position = CGPointMake(10000, self.size.height * 0.18)
+//        self.addChild(proximoTabuleiro)
+//        
+//        self.preparaProximo()
         
-        self.preparaProximo()
-        
-        shuffleButton = SKSpriteNode(imageNamed: "apple")
+        shuffleButton = SKSpriteNode(imageNamed: "refresh")
         shuffleButton.name = "shuffle"
         shuffleButton.size = CGSizeMake(80, 80)
         shuffleButton.physicsBody = SKPhysicsBody(rectangleOfSize: reButton.size)

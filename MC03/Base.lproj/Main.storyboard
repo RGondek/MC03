@@ -80,6 +80,27 @@
             </objects>
             <point key="canvasLocation" x="428" y="319"/>
         </scene>
+        <!--Game View Controller-->
+        <scene sceneID="2us-zZ-zhS">
+            <objects>
+                <viewController storyboardIdentifier="gameView" id="hnK-dn-k0h" customClass="GameViewController" customModule="MC03" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="ocD-bn-XqV"/>
+                        <viewControllerLayoutGuide type="bottom" id="FwE-5x-eP8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="t7k-ba-GfQ">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <connections>
+                        <segue destination="K0v-JU-TL6" kind="show" identifier="gameOver" id="hlP-iK-7sJ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W9k-Sk-00Z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1385" y="-687"/>
+        </scene>
         <!--View Controller02-->
         <scene sceneID="oE3-ZD-6cf">
             <objects>
@@ -302,11 +323,11 @@
                         <viewControllerLayoutGuide type="bottom" id="Hpc-bI-qMp"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="Dx2-Pp-cNa">
-                        <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="72" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="uLo-Pd-Bpt">
-                                <rect key="frame" x="0.0" y="60" width="768" height="540"/>
+                                <rect key="frame" x="0.0" y="60" width="600" height="540"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <color key="separatorColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="calibratedRGB"/>
@@ -321,7 +342,7 @@
                                 </prototypes>
                             </tableView>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="pV3-TA-AJ8">
-                                <rect key="frame" x="265" y="17" width="239" height="29"/>
+                                <rect key="frame" x="181" y="17" width="239" height="29"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <segments>
                                     <segment title="Bookworm"/>
@@ -507,5 +528,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="GW3-Wa-ltQ"/>
+        <segue reference="hlP-iK-7sJ"/>
     </inferredMetricsTieBreakers>
 </document>

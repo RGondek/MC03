@@ -31,6 +31,8 @@ class GameViewController: UIViewController {
     var skView:SKView!
     var inGame:Bool! = false
     var instructions:UILabel!
+    var doneLabel:UILabel!
+    var ready:Bool! = false
     
     lazy var scene:GameScene = {
         var aux:GameScene
@@ -58,9 +60,13 @@ class GameViewController: UIViewController {
         
         
         //colocar instruções aqui
-        instructions = UILabel(frame: CGRectMake(300, 300, 300, 30))
-        instructions.text = "LOADING . . ."
+        instructions = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 300, 350, 150))
+        instructions.text = "Tela de Loading - ainda não implementada."
         self.view.addSubview(instructions)
+        
+        self.doneLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 500, 350, 150))
+        self.doneLabel.text = "Carregando..."
+        self.view.addSubview(self.doneLabel)
         
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0), { () -> Void in
@@ -68,15 +74,23 @@ class GameViewController: UIViewController {
             self.scene.prep()
             self.skView.ignoresSiblingOrder = true
             self.scene.scaleMode = .AspectFill
+            
+            dispatch_async(dispatch_get_main_queue(), {
+                println("DONE")
+                self.doneLabel.text = "Carregado! Toque para continuar."
+                self.ready = true
+            })
         })
     }
 
 
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        if !(inGame){
+        if (!(inGame) && ready != nil){
             inGame = true
+            let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.3)
             self.instructions.removeFromSuperview()
-            self.skView.presentScene(self.scene)
+            self.doneLabel.removeFromSuperview()
+            self.skView.presentScene(self.scene, transition: transition)
         }
     }
     
