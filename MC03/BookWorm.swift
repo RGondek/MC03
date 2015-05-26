@@ -39,17 +39,7 @@ class Bookworm:GameScene {
     }
         
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        
-//        self.setupScene(8)
-//        
-//        self.setupLex()
-        
-//        self.proximoTabuleiro = Tabuleiro(x: self.cols, y: self.rows, tamanho: self.tam)
-//        self.proximoTabuleiro.position = CGPointMake(10000, self.size.height * 0.18)
-//        self.addChild(proximoTabuleiro)
-//        
-//        self.preparaProximo()
+
         
         shuffleButton = SKSpriteNode(imageNamed: "refresh")
         shuffleButton.name = "shuffle"
@@ -85,20 +75,25 @@ class Bookworm:GameScene {
                                     //tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
                                     self.eventoToque(tilezinha, locationGrid: locationGrid)
                                 }
-                                else {
+                                else{
+                                    
                                     if letrasVizinhas.containsObject(tilezinha){
-                                        self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                        if count(curString) > 9 {
+                                            self.popScore("Tamanho máximo")
+                                        }
+                                            
+                                        else {
+                                            self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                        }
                                     }
                                     else{
                                         self.apagar()
                                         self.eventoToque(tilezinha, locationGrid: locationGrid)
                                     }
+                                    
                                 }
                             }
                         }
-                        
-
-                        
                     }
                     
                     if body.node!.name == "refresh" {
@@ -222,6 +217,7 @@ class Bookworm:GameScene {
                 tabuleiro.tileForPos(i, y: j)?.isActive = true
             }
         }
+        self.flagAcabaramLetras = false
         self.preparaProximo()
         self.promptLabel.text = ""
         self.indiceDica = 0
@@ -381,7 +377,11 @@ class Bookworm:GameScene {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0), { () -> Void in
             sleep(2)
-            self.trocaLetras()
+            dispatch_async(dispatch_get_main_queue(), {
+                println("DONE")
+                self.trocaLetras()
+            })
+            
         })
     }
     

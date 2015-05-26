@@ -93,14 +93,19 @@ class GameScene: SKScene {
                 if body.node!.name == "letra" {
                     
                     if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
-                        tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
-                        let nodinho = tilezinha.content
-                        let letrinha:String = nodinho!.letra
-                        println(letrinha)
-                        self.curString = "\(curString)\(letrinha)"
-                        self.myLabel.text = curString
-                        self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
-                        myLabel.physicsBody?.dynamic = false
+                        if count(curString) > 10 {
+                            self.popScore("Tamanho máximo")
+                        }
+                        else{
+                            tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
+                            let nodinho = tilezinha.content
+                            let letrinha:String = nodinho!.letra
+                            println(letrinha)
+                            self.curString = "\(curString)\(letrinha)"
+                            self.myLabel.text = curString
+                            self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
+                            myLabel.physicsBody?.dynamic = false
+                        }
                     }
 
                 }
@@ -432,18 +437,6 @@ class GameScene: SKScene {
                 self.gameOver(currentTime);
             }
         }
-        
-        
-        //Controle do timer
-//        if((currentTime - lastUpdate) > 0.5){
-//            if(timeLeft > 0){
-//                lastUpdate = currentTime;
-//                timeLeft -= 0.5;
-//                timeLabel.text = "\(Int(timeLeft))";
-//            } else {
-//                self.gameOver();
-//            }
-//        }
         
     }
     
