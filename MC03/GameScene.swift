@@ -52,6 +52,8 @@ class GameScene: SKScene {
     var totalScore : SKLabelNode!;
     var lastUpdate : NSTimeInterval = 0
     
+    var diff:Int! = 0
+    
     //Pontuação do jogador
     var score = 0;
     var possibleScore = 0;
@@ -122,6 +124,8 @@ class GameScene: SKScene {
     
     func setupScene(num:Int){
         //self.size = view!.frame.size
+        diff = GameControlSingleton.sharedInstance.difficulty
+        
         myLabel = SKLabelNode(fontNamed:"Chalkduster")
         myLabel.name = "label"
         myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)

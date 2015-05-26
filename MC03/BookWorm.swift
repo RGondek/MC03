@@ -12,6 +12,8 @@ class Bookworm:GameScene {
     
     var shuffleButton:SKSpriteNode!
     
+    var indiceDica:Int! = 0
+    
     var palavrasDoBanco:NSMutableArray!
     var palavrasDoBancoNext:NSMutableArray!
     var stringsDoBanco:NSMutableArray!
@@ -220,6 +222,7 @@ class Bookworm:GameScene {
         }
         self.preparaProximo()
         self.promptLabel.text = ""
+        self.indiceDica = 0
     }
     
     func preparaProximo(){
@@ -341,6 +344,43 @@ class Bookworm:GameScene {
 
     }
     
+    //troca a dica que aparece no label de prompt em cima
+    func darDica(indice:Int){
+        if indice >= palavrasDoBanco.count{
+            if flagAcabaramLetras == false{
+                flagAcabaramLetras = true
+                self.completarTabuleiro()
+            }
+        }
+        else{
+            switch (self.diff){
+            case 0:
+                promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
+                break
+            case 1:
+                promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).promptUS as String
+                break
+            case 2:
+                promptLabel.text = ""
+                break
+            default:
+                promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
+                break
+            }
+            self.indiceDica = self.indiceDica + 1
+        }
+    }
+    
+    //chamado quando o jogador acerta toda as palavras colocadas no tabuleiro - colocar animações, e talvez um bonus de pontos aqui
+    func completarTabuleiro(){
+        let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
+        dispatch_async(dispatch_get_global_queue(priority, 0), { () -> Void in
+            sleep(2)
+            self.trocaLetras()
+        })
+    }
+    
+    var flagAcabaramLetras:Bool! = false
     override func update(currentTime: CFTimeInterval) {
         timeSinceLast = currentTime - self.lastUpdateTimeInterval
         self.lastUpdateTimeInterval = currentTime;
@@ -355,7 +395,9 @@ class Bookworm:GameScene {
         }
         
         if promptLabel.text == ""{
-            promptLabel.text = (palavrasDoBanco.firstObject as! Palavra).prompt as String
+            //if indiceDica < palavrasDoBanco.count{
+                self.darDica(self.indiceDica)
+            //}
         }
     }
     
