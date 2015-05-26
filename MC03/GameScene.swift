@@ -89,10 +89,7 @@ class GameScene: SKScene {
             
             if let body = physicsWorld.bodyAtPoint(location) {
                 if body.node!.name == "letra" {
-                    //let nodinho = body.node as! LetraNode
-                    //let letrinha:String = nodinho.letra
                     
-                    //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
                     if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
                         tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
                         let nodinho = tilezinha.content
@@ -103,17 +100,6 @@ class GameScene: SKScene {
                         self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
                         myLabel.physicsBody?.dynamic = false
                     }
-                    
-                    //trata as letras vizinhas à selecionada
-//                    let marker = SKSpriteNode(imageNamed: "Spaceship")
-//                    marker.size = CGSizeMake(10, 10)
-//                    marker.position = locationGrid
-//                    tabuleiro.addChild(marker)
-                    
-                    /*for letra in self.tabuleiro.getNeighbors(tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)) {
-                        //letra.alpha = 0.5
-                    }*/
-                    
 
                 }
                 if body.node!.name == "label" {

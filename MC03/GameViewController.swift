@@ -27,7 +27,7 @@ extension SKNode {
 
 class GameViewController: UIViewController {
     
-    var gameType:Int = 0 //0 Grid, 1 Scramble
+    var gameType:Int = 0 //0 BookWorm, 1 Scramble
     var skView:SKView!
     var inGame:Bool! = false
     var instructions:UILabel!

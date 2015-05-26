@@ -11,7 +11,6 @@ import SpriteKit
 class LetraNode: SKSpriteNode {
     
     var label:SKLabelNode!
-    var labelREMOVER : SKLabelNode!
     var letra:String!
     var timer : NSTimer?
     var timeLeft = 60.00
@@ -32,12 +31,6 @@ class LetraNode: SKSpriteNode {
         label.position = CGPointMake(0,0)
         self.addChild(label)
         
-        //Remover depois:
-//        self.createTimer();
-//        labelREMOVER = SKLabelNode(fontNamed: "Comic Sans")//AYY
-//        labelREMOVER.position = CGPointMake(10, 10)
-//        labelREMOVER.text = "lol"
-//        self.addChild(labelREMOVER);
     }
     
     func createTimer(){
@@ -47,7 +40,6 @@ class LetraNode: SKSpriteNode {
     func mudaTempo(){
         if(timeLeft > 0){
             timeLeft -= 0.5;
-            labelREMOVER.text = "\(Int(timeLeft))";
         } else {
             println("Perdeu lol");
         }

@@ -350,7 +350,7 @@ class Bookworm:GameScene {
         }
         
         if promptLabel.text == ""{
-            promptLabel.text = (palavrasDoBanco.firstObject as! Palavra).prompt as! String
+            promptLabel.text = (palavrasDoBanco.firstObject as! Palavra).prompt as String
         }
     }
     
