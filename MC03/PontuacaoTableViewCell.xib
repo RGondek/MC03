@@ -14,6 +14,9 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="madeira" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-4p-NkK">
+                        <rect key="frame" x="0.0" y="0.0" width="277" height="77"/>
+                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-v4-ReI">
                         <rect key="frame" x="89" y="8" width="164" height="21"/>
                         <constraints>
@@ -41,7 +44,6 @@
                         </constraints>
                     </imageView>
                 </subviews>
-                <color key="backgroundColor" red="0.1473426857" green="0.6641793762" blue="0.95399839389999996" alpha="1" colorSpace="calibratedRGB"/>
                 <constraints>
                     <constraint firstItem="NaS-Sa-9gZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="1hg-Ja-xEb"/>
                     <constraint firstItem="AD9-KC-yZZ" firstAttribute="top" secondItem="UUo-v4-ReI" secondAttribute="bottom" constant="19" id="CTy-Qm-JSe"/>
@@ -65,4 +67,7 @@
             <point key="canvasLocation" x="326" y="329.5"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="madeira" width="2176" height="399"/>
+    </resources>
 </document>
