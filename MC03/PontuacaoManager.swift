@@ -47,12 +47,11 @@ class PontuacaoManager {
     
     func fetchSortedPontuacoes() -> Array<Pontuacao> {
         let fetchRequest = NSFetchRequest(entityName: PontuacaoManager.entityName);
-        //fetchRequest.predicate = NSPredicate(format: <#String#>, <#args: CVarArgType#>...)
         
         var sortDescriptor = NSSortDescriptor(key: "pontos", ascending: false);
         var sortDescriptors = NSArray(object: sortDescriptor);
-        //        var sortDescriptors = NSArray(array: sortDescriptor,);//, copyItems: nil);
         fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+        
         var error: NSError?
         let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
         
