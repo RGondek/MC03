@@ -20,6 +20,7 @@
 		159A22D41B13A03C004B023D /* LexicusNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A22D01B13A03C004B023D /* LexicusNode.swift */; };
 		159A22D61B13A063004B023D /* LetraNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A22D51B13A063004B023D /* LetraNode.swift */; };
 		159A22D71B13A217004B023D /* PontuacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A81B1399BF002B3C3A /* PontuacaoViewController.swift */; };
+		159A22D91B14CB31004B023D /* GameControlSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A22D81B14CB31004B023D /* GameControlSingleton.swift */; };
 		4E6EE1A31B13996A002B3C3A /* EncyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A01B13996A002B3C3A /* EncyTable.swift */; };
 		4E6EE1A41B13996A002B3C3A /* EncyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A11B13996A002B3C3A /* EncyDetails.swift */; };
 		4E6EE1A51B13996A002B3C3A /* EncyDetailsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A21B13996A002B3C3A /* EncyDetailsCell.swift */; };
@@ -63,6 +64,7 @@
 		159A22CF1B13A03C004B023D /* EnemyNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EnemyNode.swift; sourceTree = "<group>"; };
 		159A22D01B13A03C004B023D /* LexicusNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LexicusNode.swift; sourceTree = "<group>"; };
 		159A22D51B13A063004B023D /* LetraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetraNode.swift; sourceTree = "<group>"; };
+		159A22D81B14CB31004B023D /* GameControlSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlSingleton.swift; sourceTree = "<group>"; };
 		4E6EE1A01B13996A002B3C3A /* EncyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyTable.swift; sourceTree = "<group>"; };
 		4E6EE1A11B13996A002B3C3A /* EncyDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyDetails.swift; sourceTree = "<group>"; };
 		4E6EE1A21B13996A002B3C3A /* EncyDetailsCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyDetailsCell.swift; sourceTree = "<group>"; };
@@ -127,6 +129,7 @@
 				159A22CF1B13A03C004B023D /* EnemyNode.swift */,
 				159A22D01B13A03C004B023D /* LexicusNode.swift */,
 				159A22D51B13A063004B023D /* LetraNode.swift */,
+				159A22D81B14CB31004B023D /* GameControlSingleton.swift */,
 			);
 			name = GameView;
 			sourceTree = "<group>";
@@ -331,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D59E01FF1B1389FD002C4CEB /* CategoryManager.swift in Sources */,
+				159A22D91B14CB31004B023D /* GameControlSingleton.swift in Sources */,
 				159A22D71B13A217004B023D /* PontuacaoViewController.swift in Sources */,
 				159A22D31B13A03C004B023D /* EnemyNode.swift in Sources */,
 				D59E02111B138E7C002C4CEB /* Categoria.swift in Sources */,
