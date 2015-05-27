@@ -45,6 +45,14 @@ class ViewController: UIViewController {
         
         var categories = CategoryManager.sharedInstance.fetchCategories()
         var wordsColor = CategoryManager.sharedInstance.fetchWordsForCategory(3, categoryName: "Cores")
+        
+//        // Código pra gerar a loading view a partir do xib
+//        
+//        let loadView = NSBundle.mainBundle().loadNibNamed("HowTo", owner: self, options: nil)[0] as! UIView
+//        loadView.frame = CGRectMake(100, 100, 500, 700)
+//        self.view.addSubview(loadView)
+        
+
     
         // Do any additional setup after loading the view, typically from a nib.
     }
