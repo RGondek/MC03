@@ -80,6 +80,15 @@ class Scramble:GameScene {
         let letra:String = node!.letra
         self.curString = "\(curString)\(letra)"
         self.myLabel.text = curString
+        
+        for vl in scienceVector{
+            if(vl.letra == letra){
+                possibleScore += vl.valor;//Adiciona o valor da letra no possivel valor.
+                println(possibleScore);
+                break;
+            }
+        }
+        
         self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
         myLabel.physicsBody?.dynamic = false
         self.validaPalavra(myLabel.text)
@@ -104,8 +113,13 @@ class Scramble:GameScene {
                 WordManager.sharedInstance.save();
             }
             
-            //self.popScore("👍+8001!")
-            popScore("ACERTOU!")
+            score += Int(timeLeft)*10 * count(palavra) * possibleScore;
+            totalScore.text = "\(score)";
+            self.popScore("\(Int(timeLeft)*10 * count(palavra) * possibleScore)")
+            possibleScore = 0;
+
+//            //self.popScore("👍+8001!")
+//            popScore("ACERTOU!")
             self.player.fire(self.enemy!, tela: self.telaNode)
             self.trocaLetras()
             self.curString = ""

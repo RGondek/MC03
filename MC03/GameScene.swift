@@ -372,18 +372,30 @@ class GameScene: SKScene {
     
     func win(){
         if(!venceu){
+            score = score * (diff + 1);
             venceu = true
             self.myLabel.text = "VENCEU"
             let winScene = WinScene()
             winScene.descobertas = self.descobertas;
             winScene.vc = self.vc
             winScene.score = self.score
+            var pontuacao = PontuacaoManager.sharedInstance.newPontuacao()
+            pontuacao.pontos = self.score;
+            if(vc?.gameType == 0){
+                pontuacao.categoria = "Bookworm"
+            } else if (vc?.gameType == 1){
+                pontuacao.categoria = "Scrambled"
+            } else {
+                pontuacao.categoria = "Missigno"
+            }
+            PontuacaoManager.sharedInstance.save();
             self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
         }
         
     }
     
     //Força a troca de view
+    var fugiu = false;
     func gameOver(currentTime: CFTimeInterval) {
         if(!perdeu){
             player.xScale = -1.0
@@ -402,10 +414,18 @@ class GameScene: SKScene {
             perdeu = true;
             lastUpdate = currentTime;
         } else {
-            if(currentTime > lastUpdate + 3.0){
+            if(currentTime > lastUpdate + 3.0 && !fugiu){
+                score = score * (diff + 1) / 2
+                fugiu = true;
                 var pontuacao = PontuacaoManager.sharedInstance.newPontuacao()
                 pontuacao.pontos = self.score;
-                pontuacao.categoria = "Bookworm"//Tem que ver
+                if(vc?.gameType == 0){
+                    pontuacao.categoria = "Bookworm"
+                } else if (vc?.gameType == 1){
+                    pontuacao.categoria = "Scrambled"
+                } else {
+                    pontuacao.categoria = "Missigno"
+                }
                 PontuacaoManager.sharedInstance.save();
                 //self.vc?.performSegueWithIdentifier("gameOver", sender: score);
                 self.myLabel.text = "FUGIMOS"

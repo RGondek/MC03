@@ -53,8 +53,8 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
             celula.foto.image = UIImage(named: "fotoPadrao");
         } else if (modoJogo.selectedSegmentIndex == 1){
             celula.nome.text! = "Hue";
-            celula.pontos.text = "\(pontos2[indexPath.row])";
-            //celula.pontos.text =  = String(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
+            //celula.pontos.text = "\(pontos2[indexPath.row])";
+            celula.pontos.text = String(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
             celula.foto.image = UIImage(named: "fotoPadrao");
         } else if (modoJogo.selectedSegmentIndex == 2){
             celula.nome.text! = "oaml yyA";
@@ -71,8 +71,8 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         if(modoJogo.selectedSegmentIndex == 0){
             return pBookWorm!.count;
         } else if (modoJogo.selectedSegmentIndex == 1){
-            return pontos2.count;
-            //return pScrambled!.count;
+            //return pontos2.count;
+            return pScrambled!.count;
         } else if (modoJogo.selectedSegmentIndex == 2){
             return pontos3.count;
         } else {

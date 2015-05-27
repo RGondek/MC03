@@ -38,7 +38,7 @@ class WinScene: SKScene {
         
         //win
         if isLose == false{
-            winLabel.text = "Vencemos!"
+            winLabel.text = "Vencemos! Pontuação: \(score)"
             
             let animLegal = SKAction.animateWithTextures([
                 SKTexture(imageNamed: "lex1"),
@@ -51,7 +51,7 @@ class WinScene: SKScene {
             lex.runAction(animAction, withKey: "idle")
         }
         else{
-            winLabel.text = "Fugimos!"
+            winLabel.text = "Fugimos! Pontuação: \(score)"
             
             lex.xScale = -1.0
             let animLegal = SKAction.animateWithTextures([
