@@ -9,6 +9,8 @@
 import SpriteKit
 
 class WinScene: SKScene {
+
+    var isLose:Bool! = false
     
     var lex:SKSpriteNode!
     var winLabel:SKLabelNode!
@@ -27,21 +29,40 @@ class WinScene: SKScene {
         
         winLabel = SKLabelNode(fontNamed: "Helvetica")
         winLabel.position = CGPointMake(self.size.width/2, self.size.height*0.9)
-        winLabel.text = "Vencemos!"
+        //winLabel.text = "Vencemos!"
         self.addChild(winLabel)
-        
-        let animLegal = SKAction.animateWithTextures([
-            SKTexture(imageNamed: "lex1"),
-            SKTexture(imageNamed: "lex2"),
-            SKTexture(imageNamed: "lex3")
-            ], timePerFrame: 0.2)
-        
-        let animAction = SKAction.repeatActionForever(animLegal)
-        
-        lex.runAction(animAction, withKey: "idle")
         
         if(descobertas.count > 0){
             self.displayDescobertas();
+        }
+        
+        //win
+        if isLose == false{
+            winLabel.text = "Vencemos!"
+            
+            let animLegal = SKAction.animateWithTextures([
+                SKTexture(imageNamed: "lex1"),
+                SKTexture(imageNamed: "lex2"),
+                SKTexture(imageNamed: "lex3")
+                ], timePerFrame: 0.2)
+            
+            let animAction = SKAction.repeatActionForever(animLegal)
+            
+            lex.runAction(animAction, withKey: "idle")
+        }
+        else{
+            winLabel.text = "Fugimos!"
+            
+            lex.xScale = -1.0
+            let animLegal = SKAction.animateWithTextures([
+                SKTexture(imageNamed: "lex1"),
+                SKTexture(imageNamed: "lex1b")
+                ], timePerFrame: 0.2)
+            
+            let animAction = SKAction.repeatActionForever(animLegal)
+            
+            lex.runAction(animAction, withKey: "idle")
+            
         }
     }
     
