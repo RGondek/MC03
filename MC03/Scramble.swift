@@ -50,17 +50,21 @@ class Scramble:GameScene {
                 let locationGrid = touch.locationInNode(self.tabuleiro)
                 
                 if let body = physicsWorld.bodyAtPoint(location) {
-                    if body.node!.name == "letra" {
-                        
-                        //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
-                        if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
-                            if tilezinha.isActive == true{
-                            self.eventoToque(tilezinha, locationGrid: locationGrid)
+                    if body.node != nil {
+                        if body.node!.name == "letra" {
+                            
+                            //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
+                            if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
+                                if tilezinha.isActive == true{
+                                    self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                }
                             }
                         }
-                    }
-                    if body.node!.name == "refresh" {
-                        self.apagar()
+                        if body.node!.name != nil{
+                            if body.node!.name == "refresh" {
+                                self.apagar()
+                            }
+                        }
                     }
                 }
             }

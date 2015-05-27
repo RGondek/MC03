@@ -370,6 +370,10 @@ class GameScene: SKScene {
         if(!venceu){
             venceu = true
             self.myLabel.text = "VENCEU"
+            let winScene = WinScene()
+            winScene.vc = self.vc
+            winScene.score = self.score
+            self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
         }
         
     }
