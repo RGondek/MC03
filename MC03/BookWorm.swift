@@ -362,7 +362,7 @@ class Bookworm:GameScene {
                 promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).promptUS as String
                 break
             case 2:
-                promptLabel.text = ""
+                promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(indice) as! Palavra).categoria.nome)"
                 break
             default:
                 promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
@@ -404,6 +404,11 @@ class Bookworm:GameScene {
                 //if indiceDica < palavrasDoBanco.count{
                 self.darDica(self.indiceDica)
                 //}
+            }
+        }
+        else{
+            if promptLabel.text == ""{
+                promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(0) as! Palavra).categoria.nome)"
             }
         }
     }

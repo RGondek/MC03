@@ -131,7 +131,7 @@ class GameScene: SKScene {
         //self.size = view!.frame.size
         diff = GameControlSingleton.sharedInstance.difficulty
         
-        myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel = SKLabelNode(fontNamed:"Helvetica")
         myLabel.name = "label"
         myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
         myLabel.physicsBody?.dynamic = false

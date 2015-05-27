@@ -14,43 +14,16 @@ class Scramble:GameScene {
     var palavrasBanco:NSMutableArray!
     
     var target:String!
+    var targetPalavra:Palavra!
     
     //colocar na super classe depois
     var letrasSelecionadas:NSMutableArray!
     
     
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
         
         self.cols = 5
         self.rows = 3
-        
-//        self.size = view.frame.size
-//        myLabel = SKLabelNode(fontNamed:"Chalkduster")
-//        myLabel.name = "label"
-//        myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
-//        myLabel.physicsBody?.dynamic = false
-//        myLabel.text = curString
-//        myLabel.fontSize = 65;
-//        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:100);
-//        
-//        self.addChild(myLabel)
-//        
-//        prompt = SKLabelNode(fontNamed: "Helvetica")
-//        prompt.position = CGPointMake(self.size.width/2, self.size.height * 0.7)
-//        
-//        self.addChild(prompt)
-//
-//        tabuleiro = Tabuleiro(x: 5, y: 3, tamanho: tam)
-//        tabuleiro.position = CGPointMake(self.size.width/2 - tam*5/2, self.size.height * 0.18)
-//        self.addChild(tabuleiro)
-//        
-//        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Frutas")
-//        
-//        self.encheLetras(seedar(3))
-//        
-//        timeLabel = SKLabelNode(fontNamed: "Comic Sans")//AYY
-//        timeLabel.position = CGPointMake(self.frame.size.width * 0.1, self.frame.size.height * 0.9);
         
         letrasSelecionadas = NSMutableArray()
         
@@ -82,14 +55,6 @@ class Scramble:GameScene {
                         //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
                         if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
                             if tilezinha.isActive == true{
-//                            tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
-//                            let nodinho = tilezinha.content
-//                            let letrinha:String = nodinho!.letra
-//                            self.validaLetra(letrinha)
-//                            self.curString = "\(curString)\(letrinha)"
-//                            self.myLabel.text = curString
-//                            self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
-//                            myLabel.physicsBody?.dynamic = false
                             self.eventoToque(tilezinha, locationGrid: locationGrid)
                             }
                         }
@@ -189,9 +154,10 @@ class Scramble:GameScene {
         //define as palavras para seedar
         var letrasSeedadas:NSMutableArray = NSMutableArray()
         let rand = arc4random_uniform(UInt32(palavrasBanco.count-1))
-        target = (palavrasBanco.objectAtIndex(Int(rand)) as! Palavra).word
-        self.prompt.text = target
-        
+        targetPalavra = palavrasBanco.objectAtIndex(Int(rand)) as! Palavra
+        target = targetPalavra.word.uppercaseString
+        //self.prompt.text = target
+        self.darDica(targetPalavra)
         
         //garante que as letras apareçam na tela
         let letras = Array(target)
@@ -218,6 +184,25 @@ class Scramble:GameScene {
         for i in 0...self.tabuleiro.grid.columns*self.tabuleiro.grid.rows-1 {
             tabuleiro.addLetraNode(i/self.tabuleiro.grid.rows, y: i%self.tabuleiro.grid.rows, letra: letrasFinal[i])
         }
+    }
+    
+    func darDica(word: Palavra){
+        
+        switch (self.diff){
+        case 0:
+            prompt.text = word.prompt as String
+            break
+        case 1:
+            prompt.text = word.promptUS as String
+            break
+        case 2:
+            prompt.text = "Categoria: \(word.categoria.nome)"
+            break
+        default:
+            prompt.text = word.prompt as String
+            break
+        }
+        
     }
     
     
