@@ -124,4 +124,16 @@ class GameViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     
+    func showInstructions(){
+        //instrucoes do BookWorm
+        if gameType == 0 {
+            
+        }
+        
+        //instrucoes do Scramble
+        if gameType == 1 {
+            
+        }
+    }
+    
 }

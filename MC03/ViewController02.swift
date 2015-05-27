@@ -30,36 +30,55 @@ class ViewController02: UIViewController {
     
     @IBAction func btnEasy(sender: UIButton) {
         lblText.text = ("EASY!!")
+        GameControlSingleton.sharedInstance.difficulty = 0
         switch (sender.tag){
+        //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             self.presentViewController(gameView, animated: true, completion: nil)
+        //scramble
         case 1:
             println("Game 2")
+            let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+            gameView.gameType = 1
+            self.presentViewController(gameView, animated: true, completion: nil)
         default:
             println("Another Game")
         }
     }
     @IBAction func btnMedium(sender: UIButton) {
         lblText.text = ("MEDIUM!!")
+        GameControlSingleton.sharedInstance.difficulty = 1
         switch (sender.tag){
+        //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             self.presentViewController(gameView, animated: true, completion: nil)
+        //scramble
         case 1:
             println("Game 2")
+            let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+            gameView.gameType = 1
+            self.presentViewController(gameView, animated: true, completion: nil)
+        //scramble
         default:
             println("Another Game")
         }
     }
     @IBAction func btnHard(sender: UIButton) {
         lblText.text = ("HARD!!")
+        GameControlSingleton.sharedInstance.difficulty = 2
         switch (sender.tag){
+        //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             self.presentViewController(gameView, animated: true, completion: nil)
+        //scramble
         case 1:
             println("Game 2")
+            let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
+            gameView.gameType = 1
+            self.presentViewController(gameView, animated: true, completion: nil)
         default:
             println("Another Game")
         }

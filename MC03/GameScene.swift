@@ -37,7 +37,9 @@ class ValorLetra : NSObject {
 class GameScene: SKScene {
     var vc : GameViewController?
     
-    //Para uso do timer
+    //Palavras que o jogador descobriu nessa rodada.
+    var descobertas:NSMutableArray!
+    
     var promptLabel:SKLabelNode!
     var curString:String = "" //Palavra sendo formada
     var myLabel:SKLabelNode!
@@ -67,10 +69,6 @@ class GameScene: SKScene {
     var player:LexicusNode!
     var telaNode:SKSpriteNode!
 
-
-    
-//    var scienceVector = ["A", "A", "A", "A", "B", "B", "C", "C", "D", "D", "D", "E", "E", "E", "E", "E", "F", "F", "G", "G", "H", "H", "H", "I", "I", "I", "J", "K", "L", "L", "M", "M", "N", "N", "O" , "O", "O", "P", "P", "Q", "R", "R", "S", "S", "S", "T", "T", "T", "T", "U", "U", "V", "W", "W", "X", "Y", "Z"]
-
     var scienceVector = [ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 2, letra: "B"), ValorLetra(valor: 2, letra: "B"), ValorLetra(valor: 2, letra: "C"), ValorLetra(valor: 2, letra: "C"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 2, letra: "F"), ValorLetra(valor: 2, letra: "F"), ValorLetra(valor: 2, letra: "G"), ValorLetra(valor: 2, letra: "G"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 3, letra: "J"), ValorLetra(valor: 3, letra: "K"), ValorLetra(valor: 2, letra: "L"), ValorLetra(valor: 2, letra: "L"), ValorLetra(valor: 2, letra: "M"), ValorLetra(valor: 2, letra: "M"), ValorLetra(valor: 2, letra: "N"), ValorLetra(valor: 2, letra: "N"), ValorLetra(valor: 1, letra: "O") , ValorLetra(valor: 1, letra: "O"), ValorLetra(valor: 1, letra: "O"), ValorLetra(valor: 2, letra: "P"), ValorLetra(valor: 2, letra: "P"), ValorLetra(valor: 3, letra: "Q"), ValorLetra(valor: 2, letra: "R"), ValorLetra(valor: 2, letra: "R"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 2, letra: "U"), ValorLetra(valor: 2, letra: "U"), ValorLetra(valor: 3, letra: "V"), ValorLetra(valor: 2, letra: "W"), ValorLetra(valor: 2, letra: "W"), ValorLetra(valor: 3, letra: "X"), ValorLetra(valor: 3, letra: "Y"), ValorLetra(valor: 3, letra: "Z")];//Puta vida. Conferir se valores estão todos certos
     
     var palavrasTeste = ["English", "Potato", "Pirate", "Lexicus", "Dog", "Car", "Cheese", "Rubens", "Word", "Ayylmao"]
@@ -93,14 +91,19 @@ class GameScene: SKScene {
                 if body.node!.name == "letra" {
                     
                     if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
-                        tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
-                        let nodinho = tilezinha.content
-                        let letrinha:String = nodinho!.letra
-                        println(letrinha)
-                        self.curString = "\(curString)\(letrinha)"
-                        self.myLabel.text = curString
-                        self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
-                        myLabel.physicsBody?.dynamic = false
+                        if count(curString) > 10 {
+                            self.popScore("Tamanho máximo")
+                        }
+                        else{
+                            tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
+                            let nodinho = tilezinha.content
+                            let letrinha:String = nodinho!.letra
+                            println(letrinha)
+                            self.curString = "\(curString)\(letrinha)"
+                            self.myLabel.text = curString
+                            self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
+                            myLabel.physicsBody?.dynamic = false
+                        }
                     }
 
                 }
@@ -123,10 +126,12 @@ class GameScene: SKScene {
     }
     
     func setupScene(num:Int){
+        descobertas = NSMutableArray();
+
         //self.size = view!.frame.size
         diff = GameControlSingleton.sharedInstance.difficulty
         
-        myLabel = SKLabelNode(fontNamed:"Chalkduster")
+        myLabel = SKLabelNode(fontNamed:"Helvetica")
         myLabel.name = "label"
         myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
         myLabel.physicsBody?.dynamic = false
@@ -220,28 +225,11 @@ class GameScene: SKScene {
         enemy = nil
         
         self.enemiesDefeated++
-        if enemiesDefeated >= 5 {
+        if enemiesDefeated >= 2 {
             self.win()
         }
         else{
             self.createEnemy()
-        }
-    }
-    
-    func mudarParaBookworm(seed:NSMutableArray){
-        //Verificar inicio de nova palavra pela letra maiuscula.(?)
-        //Carai backtracking
-        
-        
-    }
-    
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            let locationGrid = touch.locationInNode(self.tabuleiro)
-            if let tile = tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y) {
-                //tile.content?.alpha = 1.0
-            }
         }
     }
     
@@ -375,21 +363,27 @@ class GameScene: SKScene {
         
     }
     
-    //Força a troca de view
-    func gameOver(){
-        self.vc?.performSegueWithIdentifier("gameOver", sender: score)
-        
-        //self.inval
-    }
+//    //Força a troca de view
+//    func gameOver(){
+//        self.vc?.performSegueWithIdentifier("gameOver", sender: score)
+//        
+//        //self.inval
+//    }
     
     func win(){
         if(!venceu){
             venceu = true
             self.myLabel.text = "VENCEU"
+            let winScene = WinScene()
+            winScene.descobertas = self.descobertas;
+            winScene.vc = self.vc
+            winScene.score = self.score
+            self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
         }
         
     }
     
+    //Força a troca de view
     func gameOver(currentTime: CFTimeInterval) {
         if(!perdeu){
             player.xScale = -1.0
@@ -409,7 +403,18 @@ class GameScene: SKScene {
             lastUpdate = currentTime;
         } else {
             if(currentTime > lastUpdate + 3.0){
-                self.vc?.performSegueWithIdentifier("gameOver", sender: score);
+                var pontuacao = PontuacaoManager.sharedInstance.newPontuacao()
+                pontuacao.pontos = self.score;
+                pontuacao.categoria = "Bookworm"//Tem que ver
+                PontuacaoManager.sharedInstance.save();
+                //self.vc?.performSegueWithIdentifier("gameOver", sender: score);
+                self.myLabel.text = "FUGIMOS"
+                let winScene = WinScene()
+                winScene.isLose = true
+                winScene.descobertas = self.descobertas;
+                winScene.vc = self.vc
+                winScene.score = self.score
+                self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
             }
         }
     }
@@ -432,18 +437,6 @@ class GameScene: SKScene {
                 self.gameOver(currentTime);
             }
         }
-        
-        
-        //Controle do timer
-//        if((currentTime - lastUpdate) > 0.5){
-//            if(timeLeft > 0){
-//                lastUpdate = currentTime;
-//                timeLeft -= 0.5;
-//                timeLabel.text = "\(Int(timeLeft))";
-//            } else {
-//                self.gameOver();
-//            }
-//        }
         
     }
     
