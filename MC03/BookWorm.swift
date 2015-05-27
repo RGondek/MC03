@@ -126,6 +126,11 @@ class Bookworm:GameScene {
                 letrasSelecionadas = NSMutableArray()
                 //stringsDoBanco.removeObject(resposta)
                 self.promptLabel.text = ""
+                
+                //Muda pra conhecida no banco:
+                var palavraDoBanco = WordManager.sharedInstance.fetchSpecificWord("word == '\(resposta)'");
+                palavraDoBanco.known = 1;
+                WordManager.sharedInstance.save();
             }
         }
         
@@ -165,9 +170,6 @@ class Bookworm:GameScene {
             letrasVizinhas.addObject(tileVizinha)
         }
     }
-    
-    //rubens: 5400
-    //ayylmao: 8400
     
     func acertaTile(tile:Tile){
         tile.content?.alpha = 0.1

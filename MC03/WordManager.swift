@@ -63,5 +63,41 @@ class WordManager {
         
         return Array<Palavra>();
     }
+    
+    func fetchSpecificWord(predicate: String) -> Palavra {
+        let fetchRequest = NSFetchRequest(entityName: WordManager.entityName);
+        fetchRequest.predicate = NSPredicate(format: predicate)
+        var error: NSError?
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        
+        if let result = fetchedResults?.first as? Palavra {
+            return result;
+        } else {
+            println("Error while fetching: \(error), \(error!.userInfo)");
+        }
+        return Palavra();
+    }
+    
+    //Método futuro.
+    func fetchSortedKnownWords() -> Array<Palavra> {
+        let fetchRequest = NSFetchRequest(entityName: WordManager.entityName);
+        
+        var sortDescriptor = NSSortDescriptor(key: "word", ascending: true);
+        var sortDescriptors = NSArray(object: sortDescriptor);
+        fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+        
+        fetchRequest.predicate = NSPredicate(format: "known == 1")
+        
+        var error: NSError?
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        
+        if let results = fetchedResults as? [Palavra] {
+            return results;
+        } else {
+            println("Error while fetching: \(error), \(error!.userInfo)");
+        }
+        
+        return Array<Palavra>();
+    }
 
 }
