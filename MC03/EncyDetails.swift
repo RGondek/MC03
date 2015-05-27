@@ -11,10 +11,16 @@ import UIKit
 
 class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    var categorias = ["Frutas", "Sei la", "Fantas"];
+    //var categorias = ["Frutas", "Sei la", "Fantas"];
     var palavrasTeste = ["Bananas e Maçãs", "Ayy lmao", "Não é Sukita"];
     var clicado = false; //Possivelmente gambiarra estupida
     var currentDetail = 0;
+    
+    var categorias : NSMutableArray?;
+//    var frutas : NSMutableArray?;
+//    var animais : NSMutableArray?;
+//    var cores : NSMutableArray?;
+    var palavras : NSMutableArray?;
     
     @IBOutlet weak var teste: UILabel!
     var q : String?
@@ -42,6 +48,25 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         
         //teste.text = q;
+        categorias = NSMutableArray(array: CategoryManager.sharedInstance.fetchSortedCategories());
+//        frutas = NSMutableArray();
+//        animais = NSMutableArray();
+//        cores = NSMutableArray();
+        palavras = NSMutableArray();
+        
+        for cat in categorias! {//arrumar
+            palavras?.addObject(NSMutableArray());
+        }
+        
+        for palavra in WordManager.sharedInstance.fetchSortedWords(){
+            if(palavra.categoria.nome == "Animais"){
+                palavras?.objectAtIndex(0).addObject(palavra);
+            } else if(palavra.categoria.nome == "Cores"){
+                palavras?.objectAtIndex(1).addObject(palavra);
+            } else if(palavra.categoria.nome == "Frutas"){
+                palavras?.objectAtIndex(2).addObject(palavra);
+            }
+        }
         
         detailsTV.delegate = self;
         detailsTV.dataSource = self;
@@ -53,25 +78,25 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if(tableView.tag == 0){
-            return categorias.count;
+            return categorias!.count;
         } else {
-            return 2;
+            return palavras!.objectAtIndex(currentDetail).count;
         }
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         if (tableView.tag == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("BasicCell", forIndexPath: indexPath) as! UITableViewCell;
-            cell.textLabel!.text = categorias[indexPath.row];
+            cell.textLabel!.text = ((categorias!.objectAtIndex(indexPath.row)) as! Categoria).nome;
             
             return cell;
         } else {
             var celula = detailsTV.dequeueReusableCellWithIdentifier("EncyDetCell") as! EncyDetailsCell;
             if(clicado){
                 //celula.backgroundColor = UIColor.yellowColor();
-                celula.palavra.text = palavrasTeste[currentDetail];
-                celula.traducao.text = palavrasTeste[currentDetail];
-                celula.dica.text = palavrasTeste[currentDetail];
+                celula.palavra.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).word;
+                celula.traducao.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).translate;
+                celula.dica.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).prompt;
             } else {
                 celula.palavra.text = "";
                 celula.traducao.text = "";

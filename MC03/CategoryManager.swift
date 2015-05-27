@@ -75,4 +75,23 @@ class CategoryManager {
         return NSMutableArray();
     }
     
+    func fetchSortedCategories() -> Array<Categoria> {
+        let fetchRequest = NSFetchRequest(entityName: CategoryManager.entityName);
+        
+        var sortDescriptor = NSSortDescriptor(key: "nome", ascending: true);
+        var sortDescriptors = NSArray(object: sortDescriptor);
+        fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+        
+        var error: NSError?
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        
+        if let results = fetchedResults as? [Categoria] {
+            return results;
+        } else {
+            println("Error while fetching: \(error), \(error!.userInfo)");
+        }
+        
+        return Array<Categoria>();
+    }
+    
 }

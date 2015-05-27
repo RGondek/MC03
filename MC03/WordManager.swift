@@ -44,5 +44,24 @@ class WordManager {
         
         return Array<Palavra>();
     }
+    
+    func fetchSortedWords() -> Array<Palavra> {
+        let fetchRequest = NSFetchRequest(entityName: WordManager.entityName);
+        
+        var sortDescriptor = NSSortDescriptor(key: "word", ascending: true);
+        var sortDescriptors = NSArray(object: sortDescriptor);
+        fetchRequest.sortDescriptors = sortDescriptors as [AnyObject]
+        
+        var error: NSError?
+        let fetchedResults = managedObjectContext.executeFetchRequest(fetchRequest, error: &error) as? [NSManagedObject];
+        
+        if let results = fetchedResults as? [Palavra] {
+            return results;
+        } else {
+            println("Error while fetching: \(error), \(error!.userInfo)");
+        }
+        
+        return Array<Palavra>();
+    }
 
 }
