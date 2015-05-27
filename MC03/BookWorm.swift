@@ -13,6 +13,7 @@ class Bookworm:GameScene {
     var shuffleButton:SKSpriteNode!
     
     var indiceDica:Int! = 0
+    var totalPalavras:Int!
     
     var palavrasDoBanco:NSMutableArray!
     var palavrasDoBancoNext:NSMutableArray!
@@ -38,17 +39,7 @@ class Bookworm:GameScene {
     }
         
     override func didMoveToView(view: SKView) {
-        /* Setup your scene here */
-        
-//        self.setupScene(8)
-//        
-//        self.setupLex()
-        
-//        self.proximoTabuleiro = Tabuleiro(x: self.cols, y: self.rows, tamanho: self.tam)
-//        self.proximoTabuleiro.position = CGPointMake(10000, self.size.height * 0.18)
-//        self.addChild(proximoTabuleiro)
-//        
-//        self.preparaProximo()
+
         
         shuffleButton = SKSpriteNode(imageNamed: "refresh")
         shuffleButton.name = "shuffle"
@@ -84,20 +75,25 @@ class Bookworm:GameScene {
                                     //tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
                                     self.eventoToque(tilezinha, locationGrid: locationGrid)
                                 }
-                                else {
+                                else{
+                                    
                                     if letrasVizinhas.containsObject(tilezinha){
-                                        self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                        if count(curString) > 9 {
+                                            self.popScore("Tamanho máximo")
+                                        }
+                                            
+                                        else {
+                                            self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                        }
                                     }
                                     else{
                                         self.apagar()
                                         self.eventoToque(tilezinha, locationGrid: locationGrid)
                                     }
+                                    
                                 }
                             }
                         }
-                        
-
-                        
                     }
                     
                     if body.node!.name == "refresh" {
@@ -212,6 +208,7 @@ class Bookworm:GameScene {
     
     override func trocaLetras() {
         self.palavrasDoBanco = self.palavrasDoBancoNext
+        self.totalPalavras = palavrasDoBanco.count
         self.stringsDoBanco = self.stringsDoBancoNext
         self.apagar()
         self.letrasSelecionadas = NSMutableArray()
@@ -222,6 +219,7 @@ class Bookworm:GameScene {
                 tabuleiro.tileForPos(i, y: j)?.isActive = true
             }
         }
+        self.flagAcabaramLetras = false
         self.preparaProximo()
         self.promptLabel.text = ""
         self.indiceDica = 0
@@ -249,6 +247,7 @@ class Bookworm:GameScene {
             palavrasSeed.addObject(aux.word)
         }
         palavrasDoBanco = seed
+        self.totalPalavras = seed.count
         stringsDoBanco = palavrasSeed
         self.colocaPalavra(palavrasSeed, noTabuleiro:self.tabuleiro)
         for i in 0...self.tabuleiro.grid.columns-1 {
@@ -348,7 +347,9 @@ class Bookworm:GameScene {
     
     //troca a dica que aparece no label de prompt em cima
     func darDica(indice:Int){
-        if indice >= palavrasDoBanco.count{
+        
+        //TROCAR ISSO POR UMA VARIAVEL - SE FICAR ITERANDO DURANTE O UPDATE CAUSA EXCEÇÃO
+        if indice >= self.totalPalavras{
             if flagAcabaramLetras == false{
                 flagAcabaramLetras = true
                 self.completarTabuleiro()
@@ -363,7 +364,7 @@ class Bookworm:GameScene {
                 promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).promptUS as String
                 break
             case 2:
-                promptLabel.text = ""
+                promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(indice) as! Palavra).categoria.nome)"
                 break
             default:
                 promptLabel.text = (palavrasDoBanco.objectAtIndex(indice) as! Palavra).prompt as String
@@ -378,7 +379,11 @@ class Bookworm:GameScene {
         let priority = DISPATCH_QUEUE_PRIORITY_DEFAULT
         dispatch_async(dispatch_get_global_queue(priority, 0), { () -> Void in
             sleep(2)
-            self.trocaLetras()
+            dispatch_async(dispatch_get_main_queue(), {
+                println("DONE")
+                self.trocaLetras()
+            })
+            
         })
     }
     
@@ -396,10 +401,17 @@ class Bookworm:GameScene {
             }
         }
         
-        if promptLabel.text == ""{
-            //if indiceDica < palavrasDoBanco.count{
+        if self.diff != 2{
+            if promptLabel.text == ""{
+                //if indiceDica < palavrasDoBanco.count{
                 self.darDica(self.indiceDica)
-            //}
+                //}
+            }
+        }
+        else{
+            if promptLabel.text == ""{
+                promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(0) as! Palavra).categoria.nome)"
+            }
         }
     }
     

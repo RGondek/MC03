@@ -162,6 +162,16 @@ class Tabuleiro: SKNode {
         childNode.size = CGSizeMake(self.tam, self.tam)
         self.addChild(childNode)
     }
+    
+    func esvazia(){
+        for i in 0...self.grid.columns-1 {
+            for j in 0...self.grid.rows-1 {
+                grid[i,j]?.isActive = true
+                grid[i,j]?.content?.removeFromParent()
+                grid[i,j]?.content = nil
+            }
+        }
+    }
 
     
 }
