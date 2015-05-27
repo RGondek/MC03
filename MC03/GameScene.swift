@@ -37,7 +37,9 @@ class ValorLetra : NSObject {
 class GameScene: SKScene {
     var vc : GameViewController?
     
-    //Para uso do timer
+    //Palavras que o jogador descobriu nessa rodada.
+    var descobertas:NSMutableArray!
+    
     var promptLabel:SKLabelNode!
     var curString:String = "" //Palavra sendo formada
     var myLabel:SKLabelNode!
@@ -221,7 +223,7 @@ class GameScene: SKScene {
         enemy = nil
         
         self.enemiesDefeated++
-        if enemiesDefeated >= 5 {
+        if enemiesDefeated >= 2 {
             self.win()
         }
         else{
@@ -371,6 +373,7 @@ class GameScene: SKScene {
             venceu = true
             self.myLabel.text = "VENCEU"
             let winScene = WinScene()
+            winScene.descobertas = self.descobertas;
             winScene.vc = self.vc
             winScene.score = self.score
             self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))

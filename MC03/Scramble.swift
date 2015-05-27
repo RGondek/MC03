@@ -19,9 +19,6 @@ class Scramble:GameScene {
     //colocar na super classe depois
     var letrasSelecionadas:NSMutableArray!
     
-    //Palavras que o jogador descobriu nessa rodada.
-    var descobertas:NSMutableArray!
-    
     
     override func didMoveToView(view: SKView) {
         descobertas = NSMutableArray();
@@ -31,7 +28,7 @@ class Scramble:GameScene {
         
         letrasSelecionadas = NSMutableArray()
         
-        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Animais")
+        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Cores")
         prompt = SKLabelNode(fontNamed: "Helvetica")
         prompt.position = CGPointMake(self.size.width/2, self.size.height * 0.7)
         

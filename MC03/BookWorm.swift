@@ -125,8 +125,11 @@ class Bookworm:GameScene {
                 
                 //Muda pra conhecida no banco:
                 var palavraDoBanco = WordManager.sharedInstance.fetchSpecificWord("word == '\(resposta)'");
-                palavraDoBanco.known = 1;
-                WordManager.sharedInstance.save();
+                if(palavraDoBanco.known == 0){
+                    palavraDoBanco.known = 1;
+                    descobertas.addObject(palavraDoBanco.word);
+                    WordManager.sharedInstance.save();
+                }
             }
         }
         
