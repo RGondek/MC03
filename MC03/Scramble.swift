@@ -19,15 +19,19 @@ class Scramble:GameScene {
     //colocar na super classe depois
     var letrasSelecionadas:NSMutableArray!
     
+    //Palavras que o jogador descobriu nessa rodada.
+    var descobertas:NSMutableArray!
+    
     
     override func didMoveToView(view: SKView) {
+        descobertas = NSMutableArray();
         
         self.cols = 5
         self.rows = 3
         
         letrasSelecionadas = NSMutableArray()
         
-        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Frutas")
+        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Animais")
         prompt = SKLabelNode(fontNamed: "Helvetica")
         prompt.position = CGPointMake(self.size.width/2, self.size.height * 0.7)
         
@@ -92,12 +96,20 @@ class Scramble:GameScene {
     
     override func validaPalavra(palavra: String) {
         if palavra == target {
+            //Muda pra conhecida no banco:
+            if(targetPalavra.known == 0){
+                descobertas.addObject(targetPalavra.word);
+                targetPalavra.known = 1;
+                WordManager.sharedInstance.save();
+            }
+            
             //self.popScore("👍+8001!")
             popScore("ACERTOU!")
             self.player.fire(self.enemy!, tela: self.telaNode)
             self.trocaLetras()
             self.curString = ""
             self.myLabel.text = ""
+            
         }
     }
     
