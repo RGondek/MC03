@@ -6,6 +6,7 @@
 //  Copyright (c) 2015 BEPiD. All rights reserved.
 //
 
+import UIKit
 import SpriteKit
 
 extension Array {
@@ -40,6 +41,7 @@ class GameScene: SKScene {
     //Palavras que o jogador descobriu nessa rodada.
     var descobertas:NSMutableArray!
     
+    var homeButton:SKSpriteNode!
     var promptLabel:SKLabelNode!
     var curString:String = "" //Palavra sendo formada
     var myLabel:SKLabelNode!
@@ -191,6 +193,14 @@ class GameScene: SKScene {
 //        player.physicsBody?.categoryBitMask = playerCategory
 //        player.physicsBody?.contactTestBitMask = enemyCategory
         telaNode.addChild(player)
+        
+        homeButton = SKSpriteNode(imageNamed: "home")
+        homeButton.name = "home"
+        homeButton.position = CGPointMake((telaNode.position.x - telaNode.size.width/2)/2, telaNode.position.y)
+        homeButton.size = CGSizeMake((telaNode.position.x - telaNode.size.width/2), (telaNode.position.x - telaNode.size.width/2))
+        homeButton.physicsBody = SKPhysicsBody(rectangleOfSize: homeButton.size)
+        homeButton.physicsBody?.dynamic = false
+        self.addChild(homeButton)
         
         let animLegal = SKAction.animateWithTextures([
             SKTexture(imageNamed: "lex1"),
@@ -369,6 +379,11 @@ class GameScene: SKScene {
 //        
 //        //self.inval
 //    }
+    
+    func goBack(){
+        let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ViewController
+        self.vc?.presentViewController(home, animated: true, completion: nil)
+    }
     
     func win(){
         if(!venceu){

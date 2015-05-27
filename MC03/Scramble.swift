@@ -64,6 +64,9 @@ class Scramble:GameScene {
                                 if body.node!.name == "refresh" {
                                     self.apagar()
                                 }
+                                if body.node!.name == "home" {
+                                    self.goBack()
+                                }
                             }
                         }
                     }

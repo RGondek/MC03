@@ -11,7 +11,7 @@ import UIKit
 class EncyDetailsCell: UITableViewCell {
 
     @IBOutlet weak var palavra: UILabel!
-    
+
     @IBOutlet weak var traducao: UILabel!
     
     @IBOutlet weak var dica: UILabel!

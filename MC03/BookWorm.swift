@@ -102,6 +102,9 @@ class Bookworm:GameScene {
                     if body.node!.name == "shuffle" {
                         self.trocaLetras()
                     }
+                    if body.node!.name == "home" {
+                        self.goBack()
+                    }
                 }
             }
         }

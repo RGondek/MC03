@@ -29,7 +29,7 @@ class ViewController02: UIViewController {
 
     
     @IBAction func btnEasy(sender: UIButton) {
-        lblText.text = ("EASY!!")
+        //lblText.text = ("EASY!!")
         GameControlSingleton.sharedInstance.difficulty = 0
         switch (sender.tag){
         //bookworm
@@ -47,7 +47,7 @@ class ViewController02: UIViewController {
         }
     }
     @IBAction func btnMedium(sender: UIButton) {
-        lblText.text = ("MEDIUM!!")
+        //lblText.text = ("MEDIUM!!")
         GameControlSingleton.sharedInstance.difficulty = 1
         switch (sender.tag){
         //bookworm
@@ -66,7 +66,7 @@ class ViewController02: UIViewController {
         }
     }
     @IBAction func btnHard(sender: UIButton) {
-        lblText.text = ("HARD!!")
+        //lblText.text = ("HARD!!")
         GameControlSingleton.sharedInstance.difficulty = 2
         switch (sender.tag){
         //bookworm
@@ -86,15 +86,17 @@ class ViewController02: UIViewController {
     
     @IBAction func book1Click(sender: UIButton) {
         let btn = sender as UIButton
+        lblTitle.text = "BookWorm"
+        lblText.text = "Forme palavras a partir de letras vizinhas! No fácil, você terá dicas em português. No médio, as dicas serão em inglês. No difícil, não haverá dicas!"
         if self.pageView1.alpha == 0 {
-            lblTitle.text = (btn.titleForState(UIControlState.Normal))
+            //lblTitle.text = (btn.titleForState(UIControlState.Normal))
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 self.pageView1.alpha = 1
                 self.pageView1.transform = CGAffineTransformMakeTranslation(0, 175)
             })
         }
         else {
-            lblTitle.text = (btn.titleForState(UIControlState.Normal))
+            //lblTitle.text = (btn.titleForState(UIControlState.Normal))
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 self.pageView1.alpha = 0
                 self.pageView1.transform = CGAffineTransformMakeTranslation(0, 0)
@@ -104,15 +106,17 @@ class ViewController02: UIViewController {
     
     @IBAction func book2Click(sender: UIButton) {
         let btn = sender as UIButton
+        lblTitle.text = "Scrambled"
+        lblText.text = "Monte a palavra a partir de letras embaralhadas! No fácil, você terá dicas em português. No médio, as dicas serão em inglês. No difícil, não haverá dicas!"
         if self.pageView2.alpha == 0 {
-            lblTitle.text = (btn.titleForState(UIControlState.Normal))
+            //lblTitle.text = (btn.titleForState(UIControlState.Normal))
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 self.pageView2.alpha = 1
                 self.pageView2.transform = CGAffineTransformMakeTranslation(0, 175)
             })
         }
         else {
-            lblTitle.text = (btn.titleForState(UIControlState.Normal))
+            //lblTitle.text = (btn.titleForState(UIControlState.Normal))
             UIView.animateWithDuration(0.7, animations: { () -> Void in
                 self.pageView2.alpha = 0
                 self.pageView2.transform = CGAffineTransformMakeTranslation(0, 0)
