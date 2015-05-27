@@ -11,11 +11,10 @@ import UIKit
 
 class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    //var categorias = ["Frutas", "Sei la", "Fantas"];
-    var palavrasTeste = ["Bananas e Maçãs", "Ayy lmao", "Não é Sukita"];
     var clicado = false; //Possivelmente gambiarra estupida
     var currentDetail = 0;
     
+    @IBOutlet weak var nada: UILabel!
     var categorias : NSMutableArray?;
 //    var frutas : NSMutableArray?;
 //    var animais : NSMutableArray?;
@@ -23,7 +22,6 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     var palavras : NSMutableArray?;
     
     @IBOutlet weak var teste: UILabel!
-    var q : String?
     @IBOutlet weak var detailsTV: UITableView!
     //    var detailItem: AnyObject? {
     //        didSet {
@@ -39,8 +37,8 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     @IBOutlet weak var masterTV: UITableView!
     
     override func viewDidLoad() {
-        q = "HUEHUEHUE";
         super.viewDidLoad();
+//        nada.
         //        self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible;
         //
         //        let value = UIInterfaceOrientation.LandscapeLeft.rawValue;
@@ -58,7 +56,7 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
             palavras?.addObject(NSMutableArray());
         }
         
-        for palavra in WordManager.sharedInstance.fetchSortedWords(){
+        for palavra in WordManager.sharedInstance.fetchSortedKnownWords(){
             if(palavra.categoria.nome == "Animais"){
                 palavras?.objectAtIndex(0).addObject(palavra);
             } else if(palavra.categoria.nome == "Cores"){
@@ -80,6 +78,15 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
         if(tableView.tag == 0){
             return categorias!.count;
         } else {
+            if(palavras!.objectAtIndex(currentDetail).count > 0){
+                detailsTV.hidden = false;
+            } else if (clicado){
+                nada.text = "Nada por aqui. Vai jogar lá, fera!1"
+                detailsTV.hidden = true;
+            } else {
+                nada.text = "Saudades Ibagem"
+                detailsTV.hidden = true;
+            }
             return palavras!.objectAtIndex(currentDetail).count;
         }
     }
