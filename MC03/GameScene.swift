@@ -67,10 +67,6 @@ class GameScene: SKScene {
     var player:LexicusNode!
     var telaNode:SKSpriteNode!
 
-
-    
-//    var scienceVector = ["A", "A", "A", "A", "B", "B", "C", "C", "D", "D", "D", "E", "E", "E", "E", "E", "F", "F", "G", "G", "H", "H", "H", "I", "I", "I", "J", "K", "L", "L", "M", "M", "N", "N", "O" , "O", "O", "P", "P", "Q", "R", "R", "S", "S", "S", "T", "T", "T", "T", "U", "U", "V", "W", "W", "X", "Y", "Z"]
-
     var scienceVector = [ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 1, letra: "A"), ValorLetra(valor: 2, letra: "B"), ValorLetra(valor: 2, letra: "B"), ValorLetra(valor: 2, letra: "C"), ValorLetra(valor: 2, letra: "C"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "D"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 1, letra: "E"), ValorLetra(valor: 2, letra: "F"), ValorLetra(valor: 2, letra: "F"), ValorLetra(valor: 2, letra: "G"), ValorLetra(valor: 2, letra: "G"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "H"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 1, letra: "I"), ValorLetra(valor: 3, letra: "J"), ValorLetra(valor: 3, letra: "K"), ValorLetra(valor: 2, letra: "L"), ValorLetra(valor: 2, letra: "L"), ValorLetra(valor: 2, letra: "M"), ValorLetra(valor: 2, letra: "M"), ValorLetra(valor: 2, letra: "N"), ValorLetra(valor: 2, letra: "N"), ValorLetra(valor: 1, letra: "O") , ValorLetra(valor: 1, letra: "O"), ValorLetra(valor: 1, letra: "O"), ValorLetra(valor: 2, letra: "P"), ValorLetra(valor: 2, letra: "P"), ValorLetra(valor: 3, letra: "Q"), ValorLetra(valor: 2, letra: "R"), ValorLetra(valor: 2, letra: "R"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "S"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 1, letra: "T"), ValorLetra(valor: 2, letra: "U"), ValorLetra(valor: 2, letra: "U"), ValorLetra(valor: 3, letra: "V"), ValorLetra(valor: 2, letra: "W"), ValorLetra(valor: 2, letra: "W"), ValorLetra(valor: 3, letra: "X"), ValorLetra(valor: 3, letra: "Y"), ValorLetra(valor: 3, letra: "Z")];//Puta vida. Conferir se valores estão todos certos
     
     var palavrasTeste = ["English", "Potato", "Pirate", "Lexicus", "Dog", "Car", "Cheese", "Rubens", "Word", "Ayylmao"]
@@ -233,23 +229,6 @@ class GameScene: SKScene {
         }
     }
     
-    func mudarParaBookworm(seed:NSMutableArray){
-        //Verificar inicio de nova palavra pela letra maiuscula.(?)
-        //Carai backtracking
-        
-        
-    }
-    
-    override func touchesEnded(touches: Set<NSObject>, withEvent event: UIEvent) {
-        for touch in (touches as! Set<UITouch>) {
-            let location = touch.locationInNode(self)
-            let locationGrid = touch.locationInNode(self.tabuleiro)
-            if let tile = tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y) {
-                //tile.content?.alpha = 1.0
-            }
-        }
-    }
-    
     func validaPalavra(palavra: String) {
         println(count(palavra));
         for resposta in palavrasTeste {
@@ -391,6 +370,10 @@ class GameScene: SKScene {
         if(!venceu){
             venceu = true
             self.myLabel.text = "VENCEU"
+            let winScene = WinScene()
+            winScene.vc = self.vc
+            winScene.score = self.score
+            self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
         }
         
     }
