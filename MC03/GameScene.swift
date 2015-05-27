@@ -126,6 +126,8 @@ class GameScene: SKScene {
     }
     
     func setupScene(num:Int){
+        descobertas = NSMutableArray();
+
         //self.size = view!.frame.size
         diff = GameControlSingleton.sharedInstance.difficulty
         

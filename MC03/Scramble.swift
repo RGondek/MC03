@@ -21,8 +21,6 @@ class Scramble:GameScene {
     
     
     override func didMoveToView(view: SKView) {
-        descobertas = NSMutableArray();
-        
         self.cols = 5
         self.rows = 3
         
