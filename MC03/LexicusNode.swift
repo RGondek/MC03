@@ -21,6 +21,19 @@ class LexicusNode:SKSpriteNode {
     }
     
     func fire(target:SKSpriteNode, tela:SKNode){
+        let animation = self.actionForKey("idle")
+        self.removeActionForKey("idle")
+        
+        let animLegal = SKAction.animateWithTextures([
+            SKTexture(imageNamed: "lexBook"),
+            SKTexture(imageNamed: "lexBook"),
+            SKTexture(imageNamed: "lex1")
+            ], timePerFrame: 0.5)
+        
+        self.runAction(animLegal, completion: { () -> Void in
+            self.runAction(animation)
+        })
+        
         let projectile = SKSpriteNode(imageNamed: "fanta")
         projectile.size = CGSizeMake(20, 20)
         projectile.position = CGPointMake(self.position.x + 10, self.position.y)

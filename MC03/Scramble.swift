@@ -60,9 +60,11 @@ class Scramble:GameScene {
                                 }
                             }
                         }
-                        if body.node!.name != nil{
-                            if body.node!.name == "refresh" {
-                                self.apagar()
+                        else{
+                            if body.node!.name != nil{
+                                if body.node!.name == "refresh" {
+                                    self.apagar()
+                                }
                             }
                         }
                     }
