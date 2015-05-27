@@ -405,9 +405,16 @@ class GameScene: SKScene {
             if(currentTime > lastUpdate + 3.0){
                 var pontuacao = PontuacaoManager.sharedInstance.newPontuacao()
                 pontuacao.pontos = self.score;
-                pontuacao.categoria = "Bookworm"
+                pontuacao.categoria = "Bookworm"//Tem que ver
                 PontuacaoManager.sharedInstance.save();
-                self.vc?.performSegueWithIdentifier("gameOver", sender: score);
+                //self.vc?.performSegueWithIdentifier("gameOver", sender: score);
+                self.myLabel.text = "FUGIMOS"
+                let winScene = WinScene()
+                winScene.isLose = true
+                winScene.descobertas = self.descobertas;
+                winScene.vc = self.vc
+                winScene.score = self.score
+                self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
             }
         }
     }
