@@ -22,6 +22,7 @@
 		159A22D71B13A217004B023D /* PontuacaoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A81B1399BF002B3C3A /* PontuacaoViewController.swift */; };
 		159A22D91B14CB31004B023D /* GameControlSingleton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A22D81B14CB31004B023D /* GameControlSingleton.swift */; };
 		159A22DB1B16371F004B023D /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 159A22DA1B16371F004B023D /* WinScene.swift */; };
+		159A22DF1B177AA6004B023D /* Enemy.atlas in Resources */ = {isa = PBXBuildFile; fileRef = 159A22DE1B177AA6004B023D /* Enemy.atlas */; };
 		4E5687741B1621CE00674505 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 4E5687731B1621CE00674505 /* home.png */; };
 		4E6EE1A31B13996A002B3C3A /* EncyTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A01B13996A002B3C3A /* EncyTable.swift */; };
 		4E6EE1A41B13996A002B3C3A /* EncyDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A11B13996A002B3C3A /* EncyDetails.swift */; };
@@ -69,6 +70,7 @@
 		159A22D51B13A063004B023D /* LetraNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LetraNode.swift; sourceTree = "<group>"; };
 		159A22D81B14CB31004B023D /* GameControlSingleton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameControlSingleton.swift; sourceTree = "<group>"; };
 		159A22DA1B16371F004B023D /* WinScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
+		159A22DE1B177AA6004B023D /* Enemy.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = Enemy.atlas; sourceTree = "<group>"; };
 		4E5687731B1621CE00674505 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
 		4E6EE1A01B13996A002B3C3A /* EncyTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyTable.swift; sourceTree = "<group>"; };
 		4E6EE1A11B13996A002B3C3A /* EncyDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EncyDetails.swift; sourceTree = "<group>"; };
@@ -190,6 +192,7 @@
 				D587861E1B0E587600BD60AE /* AppDelegate.swift */,
 				D58786201B0E587600BD60AE /* ViewController.swift */,
 				D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */,
+				159A22DE1B177AA6004B023D /* Enemy.atlas */,
 				D59004281B164F3A0096F0C7 /* Main.storyboard */,
 				159A22CB1B13A025004B023D /* Lexicus.atlas */,
 				D58786251B0E587600BD60AE /* Images.xcassets */,
@@ -323,6 +326,7 @@
 				159A22C81B13A00C004B023D /* GameScene.sks in Resources */,
 				4E5687741B1621CE00674505 /* home.png in Resources */,
 				D59004291B164F3A0096F0C7 /* Main.storyboard in Resources */,
+				159A22DF1B177AA6004B023D /* Enemy.atlas in Resources */,
 				D58786291B0E587600BD60AE /* LaunchScreen.xib in Resources */,
 				D58786261B0E587600BD60AE /* Images.xcassets in Resources */,
 				159A22CC1B13A025004B023D /* Lexicus.atlas in Resources */,
