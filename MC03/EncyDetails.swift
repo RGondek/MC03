@@ -105,6 +105,8 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 celula.palavra.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).word;
                 celula.traducao.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).translate;
                 celula.dica.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).prompt;
+                celula.tip.text = ((palavras?.objectAtIndex(currentDetail).objectAtIndex(indexPath.row)) as! Palavra).promptUS;
+                celula.selectionStyle = UITableViewCellSelectionStyle.None;
             } else {
                 celula.palavra.text = "";
                 celula.traducao.text = "";

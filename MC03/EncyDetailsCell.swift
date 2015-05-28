@@ -16,6 +16,7 @@ class EncyDetailsCell: UITableViewCell {
     
     @IBOutlet weak var dica: UILabel!
     
+    @IBOutlet weak var tip: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
