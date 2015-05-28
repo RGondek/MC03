@@ -14,7 +14,7 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     var clicado = false; //Possivelmente gambiarra estupida
     var currentDetail = 0;
     
-    @IBOutlet weak var nada: UILabel!
+//    @IBOutlet weak var nada: UILabel!
     var categorias : NSMutableArray?;
 //    var frutas : NSMutableArray?;
 //    var animais : NSMutableArray?;
@@ -38,7 +38,6 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     
     override func viewDidLoad() {
         super.viewDidLoad();
-//        nada.
         //        self.splitViewController?.preferredDisplayMode = UISplitViewControllerDisplayMode.AllVisible;
         //
         //        let value = UIInterfaceOrientation.LandscapeLeft.rawValue;
@@ -68,9 +67,10 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
         
         detailsTV.delegate = self;
         detailsTV.dataSource = self;
-        
+        detailsTV.backgroundColor = UIColor.clearColor()
         masterTV.delegate = self;
         masterTV.dataSource = self;
+        masterTV.backgroundColor = UIColor.clearColor()
         //self.configureView();
     }
     
@@ -81,10 +81,10 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
             if(palavras!.objectAtIndex(currentDetail).count > 0){
                 detailsTV.hidden = false;
             } else if (clicado){
-                nada.text = "Nada por aqui. Vai jogar lá, fera!1"
+//                nada.text = "Nada por aqui. Vai jogar lá, fera!1"
                 detailsTV.hidden = true;
             } else {
-                nada.text = "Saudades Ibagem"
+//                nada.text = "Saudades Ibagem"
                 detailsTV.hidden = true;
             }
             return palavras!.objectAtIndex(currentDetail).count;
@@ -95,7 +95,8 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
         if (tableView.tag == 0){
             let cell = tableView.dequeueReusableCellWithIdentifier("BasicCell", forIndexPath: indexPath) as! UITableViewCell;
             cell.textLabel!.text = ((categorias!.objectAtIndex(indexPath.row)) as! Categoria).nome;
-            
+            cell.backgroundColor = UIColor.clearColor()
+            cell.selectionStyle = UITableViewCellSelectionStyle.None;//Embelezar isso se achar um jeito mais melhor de bom.
             return cell;
         } else {
             var celula = detailsTV.dequeueReusableCellWithIdentifier("EncyDetCell") as! EncyDetailsCell;
@@ -109,15 +110,34 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 celula.traducao.text = "";
                 celula.dica.text = "";
             }
+            celula.backgroundColor = UIColor.clearColor()
             return celula;
         }
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         if(tableView.tag == 0){
+            let cell = masterTV.cellForRowAtIndexPath(indexPath);
+            cell!.textLabel?.textColor = UIColor.purpleColor();
+            let attStr : NSMutableAttributedString = NSMutableAttributedString(string: cell!.textLabel!.text!);
+            attStr.addAttribute(NSUnderlineStyleAttributeName, value: 1, range: NSRange(location:0,length: attStr.length));
+            cell?.textLabel?.attributedText = attStr;
+            //masterTV.cellForRowAtIndexPath(indexPath)?.textLabel?.attributedText = nil
             currentDetail = indexPath.row;
             clicado = true;
             detailsTV.reloadData();
+        }
+    }
+    
+    func tableView(tableView: UITableView, didDeselectRowAtIndexPath indexPath: NSIndexPath) {
+        if(tableView.tag == 0){
+            let cell = masterTV.cellForRowAtIndexPath(indexPath);
+            cell!.textLabel?.textColor = UIColor.blackColor();
+            
+            //Provavelmente sendo feito de um jeito burro \/
+            let text = cell?.textLabel?.attributedText.string;
+            cell?.textLabel?.attributedText = nil;
+            cell?.textLabel!.text = text;
         }
     }
     
