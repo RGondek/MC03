@@ -332,13 +332,13 @@ class GameScene: SKScene {
         var letrasFinal = Array<LetraNode>()
         //Coloca as letras das palavras seedadas em letrasFinal
         for i in 0...seed.count-1 {
-            let letraAux:LetraNode = LetraNode(texture: SKTexture(imageNamed: "square"), letra: seed.objectAtIndex(i) as! String, tam: self.tam)
+            let letraAux:LetraNode = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: seed.objectAtIndex(i) as! String, tam: self.tam)
             letrasFinal.append(letraAux)
         }
         
         //Completa o vetor letrasFinal pra se adequar ao tamanho do tabuleiro
         for i in seed.count...self.tabuleiro.grid.columns*self.tabuleiro.grid.rows-1 {
-            let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: self.randomLetra(), tam: self.tam)
+            let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
             letrasFinal.append(letraAux)
         }
         
@@ -353,7 +353,7 @@ class GameScene: SKScene {
     func encheLetras() {
         for i in 0...self.tabuleiro.grid.columns-1 {
             for j in 0...self.tabuleiro.grid.rows-1 {
-                let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: self.randomLetra(), tam: self.tam)
+                let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
                 tabuleiro.addLetraNode(i, y: j, letra: letraAux)
             }
         }
@@ -363,7 +363,7 @@ class GameScene: SKScene {
     func trocaLetras() {
         for i in 0...self.tabuleiro.grid.columns-1 {
             for j in 0...self.tabuleiro.grid.rows-1 {
-                let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: self.randomLetra(), tam: self.tam)
+                let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
                 tabuleiro.updateLetraNode(i, y: j, letra: letraAux)
             }
         }
