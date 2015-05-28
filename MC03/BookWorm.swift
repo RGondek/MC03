@@ -220,7 +220,7 @@ class Bookworm:GameScene {
         self.letrasSelecionadas = NSMutableArray()
         for i in 0...self.tabuleiro.grid.columns-1 {
             for j in 0...self.tabuleiro.grid.rows-1 {
-                let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: proximoTabuleiro.tileForPos(i, y: j)?.content!.letra as String!, tam: self.tam)
+                let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: proximoTabuleiro.tileForPos(i, y: j)?.content!.letra as String!, tam: self.tam)
                 tabuleiro.updateLetraNode(i, y: j, letra: letraAux)
                 tabuleiro.tileForPos(i, y: j)?.isActive = true
             }
@@ -260,7 +260,7 @@ class Bookworm:GameScene {
             for j in 0...self.tabuleiro.grid.rows-1 {
                 if (tabuleiro.tileForPos(i, y: j)?.letraPrev == ""){
                     
-                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: self.randomLetra(), tam: self.tam)
+                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
                     tabuleiro.addLetraNode(i, y: j, letra: letraAux)
                     
                 }
@@ -281,7 +281,7 @@ class Bookworm:GameScene {
             for j in 0...self.proximoTabuleiro.grid.rows-1 {
                 if (proximoTabuleiro.tileForPos(i, y: j)?.letraPrev == ""){
                     
-                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: self.randomLetra(), tam: self.tam)
+                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
                     proximoTabuleiro.addLetraNode(i, y: j, letra: letraAux)
                     
                 }
@@ -334,7 +334,7 @@ class Bookworm:GameScene {
             if(tile.letraPrev == ""){ //Verifica se está ocupada
                 tile.letraPrev = String(palavraArr[letra])// as! String;//Seta a tile como ocupada
                 if(colocaX(palavra, letra: letra + 1, neighbors: noTabuleiro.getOrthoNeighborTiles(tile), noTabuleiro:noTabuleiro)){//Continua a recursão
-                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "square"), letra: String(palavraArr[letra]).uppercaseString, tam: self.tam)
+                    let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: String(palavraArr[letra]).uppercaseString, tam: self.tam)
                     noTabuleiro.addLetraNode(tile.x, y: tile.y, letra: letraAux)
                     println(palavraArr[letra]);
                     return true;//Se toda ele conseguiu inserir o resto das palavras, retorna true;
