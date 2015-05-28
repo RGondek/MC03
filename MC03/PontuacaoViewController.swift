@@ -46,20 +46,23 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tv.dequeueReusableCellWithIdentifier("PontCell", forIndexPath: indexPath) as! PontuacaoTableViewCell;
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm";
+        
         
         if(modoJogo.selectedSegmentIndex == 0){
-            celula.nome.text! = "ayy lmao";
+            celula.data.text! = dateFormatter.stringFromDate(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             celula.pontos.text = String(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            celula.foto.image = UIImage(named: "fotoPadrao");
+            //celula.foto.image = UIImage(named: "fotoPadrao");
         } else if (modoJogo.selectedSegmentIndex == 1){
-            celula.nome.text! = "Hue";
+            celula.data.text! = dateFormatter.stringFromDate(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             //celula.pontos.text = "\(pontos2[indexPath.row])";
             celula.pontos.text = String(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            celula.foto.image = UIImage(named: "fotoPadrao");
+            //celula.foto.image = UIImage(named: "fotoPadrao");
         } else if (modoJogo.selectedSegmentIndex == 2){
-            celula.nome.text! = "oaml yyA";
+            celula.data.text! = "NOT IMPLEMENTED";
             celula.pontos.text = "\(pontos3[indexPath.row])";
-            celula.foto.image = UIImage(named: "fotoPadrao");
+            //celula.foto.image = UIImage(named: "fotoPadrao");
         }
         
         //        return celula;

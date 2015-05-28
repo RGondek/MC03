@@ -420,6 +420,7 @@ class GameScene: SKScene {
             } else {
                 pontuacao.categoria = "Missigno"
             }
+            pontuacao.data = NSDate();
             PontuacaoManager.sharedInstance.save();
             self.view?.presentScene(winScene, transition: SKTransition.doorsCloseHorizontalWithDuration(0.5))
         }
