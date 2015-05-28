@@ -93,7 +93,7 @@ class GameScene: SKScene {
                 if body.node!.name == "letra" {
                     
                     if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
-                        if count(curString) > 10 {
+                        if count(curString) > 9 {
                             self.popScore("Tamanho máximo")
                         }
                         else{
@@ -139,9 +139,17 @@ class GameScene: SKScene {
         myLabel.physicsBody?.dynamic = false
         myLabel.text = curString
         myLabel.fontSize = 65;
+        myLabel.fontColor = UIColor.blackColor()
         myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:100);
         
+        let labelBg = SKSpriteNode(imageNamed: "scroll")
+        labelBg.name = "labelBg"
+        labelBg.size = CGSizeMake(self.size.width*0.8, 80)
+        labelBg.position = CGPointMake(myLabel.position.x, myLabel.position.y + 15)
+        
         self.addChild(myLabel)
+        self.addChild(labelBg)
+        
         reButton = SKSpriteNode(imageNamed: "eraser")
         reButton.name = "refresh"
         reButton.size = CGSizeMake(80, 80)
@@ -164,10 +172,19 @@ class GameScene: SKScene {
         
         promptLabel = SKLabelNode(fontNamed: "Helvetica")
         promptLabel.text = ""
+        promptLabel.fontColor = UIColor.blackColor()
         promptLabel.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height*0.8)
         promptLabel.physicsBody = SKPhysicsBody(rectangleOfSize: promptLabel.frame.size)
         promptLabel.physicsBody?.dynamic = false
+        
+        let promptBg = SKSpriteNode(imageNamed: "scroll")
+        promptBg.name = "promptBg"
+        promptBg.size = CGSizeMake(self.size.width*0.8, 80)
+        promptBg.position = CGPointMake(promptLabel.position.x, promptLabel.position.y + 15)
+        
+        self.addChild(promptBg)
         self.addChild(promptLabel)
+        
         
         timeLabel = SKLabelNode(fontNamed: "Comic Sans")//AYY
         timeLabel.position = CGPointMake(self.frame.size.width * 0.1, self.frame.size.height * 0.9);
@@ -217,10 +234,10 @@ class GameScene: SKScene {
     
     func createEnemy(){
         if enemy == nil  && !venceu && !perdeu{
-            enemy = EnemyNode(texture: SKTexture(imageNamed: "churrasqueira"), tam: CGFloat(40))
+            enemy = EnemyNode(texture: SKTexture(imageNamed: "enemy1"), tam: CGFloat(40))
             enemy?.name = "enemy"
             enemy!.size = CGSizeMake(40, 40)
-            enemy!.position = CGPointMake(telaNode.size.width/2 - CGFloat(40), -telaNode.size.height/2 + CGFloat(40))
+            enemy!.position = CGPointMake(telaNode.size.width/2 - CGFloat(40), -telaNode.size.height/2 + CGFloat(20))
             enemy!.physicsBody = SKPhysicsBody(rectangleOfSize: enemy!.size)
             enemy!.physicsBody?.dynamic = false
 //            enemy!.physicsBody?.categoryBitMask = enemyCategory

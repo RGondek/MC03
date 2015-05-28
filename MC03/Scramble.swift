@@ -55,7 +55,12 @@ class Scramble:GameScene {
                             //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
                             if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
                                 if tilezinha.isActive == true{
-                                    self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                    if count(curString) > 9 {
+                                        self.popScore("Tamanho máximo")
+                                    }
+                                    else{
+                                        self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                    }
                                 }
                             }
                         }

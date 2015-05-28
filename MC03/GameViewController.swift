@@ -27,6 +27,7 @@ extension SKNode {
 
 class GameViewController: UIViewController {
     
+    var howToScreen:UIView!
     var gameType:Int = 0 //0 BookWorm, 1 Scramble
     var skView:SKView!
     var inGame:Bool! = false
@@ -58,13 +59,19 @@ class GameViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
+        let nibContents:NSArray = NSBundle.mainBundle().loadNibNamed("HowTo", owner: nil, options: nil)
+        howToScreen = nibContents.lastObject as! UIView
+        howToScreen.frame = (CGRectMake(50, 50, self.view.frame.size.width-100, self.view.frame.size.height-100))
+        self.view.addSubview(howToScreen)
         
         //colocar instruções aqui
-        instructions = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 300, 350, 150))
-        instructions.text = "Tela de Loading - ainda não implementada."
-        self.view.addSubview(instructions)
+//        instructions = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 300, 350, 150))
+//        instructions.text = "Tela de Loading - ainda não implementada."
+//        self.view.addSubview(instructions)
         
-        self.doneLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 500, 350, 150))
+        
+        
+        self.doneLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, self.view.frame.size.height - 200, 350, 150))
         self.doneLabel.text = "Carregando..."
         self.view.addSubview(self.doneLabel)
         
@@ -89,7 +96,8 @@ class GameViewController: UIViewController {
         if (!(inGame) && ready == true){
             inGame = true
             let transition = SKTransition.moveInWithDirection(SKTransitionDirection.Left, duration: 0.3)
-            self.instructions.removeFromSuperview()
+            //self.instructions.removeFromSuperview()
+            self.howToScreen.removeFromSuperview()
             self.doneLabel.removeFromSuperview()
             self.skView.presentScene(self.scene, transition: transition)
         }
