@@ -36,8 +36,21 @@ class EnemyNode:SKSpriteNode {
     
     func avancar(){
         if reloadTime <= 0.0 {
-            let moveAction = SKAction.moveTo(CGPointMake(self.position.x - 80, self.position.y), duration: 0.8)
-            self.runAction(moveAction)
+            let animLegal = SKAction.animateWithTextures([
+                SKTexture(imageNamed: "enemyUp1"),
+                SKTexture(imageNamed: "enemyUp1"),
+                SKTexture(imageNamed: "enemyUp2"),
+                SKTexture(imageNamed: "enemyUp2"),
+                SKTexture(imageNamed: "enemyDown1"),
+                SKTexture(imageNamed: "enemyDown1"),
+                SKTexture(imageNamed: "enemyDown2"),
+                SKTexture(imageNamed: "enemyDown2"),
+                SKTexture(imageNamed: "enemy1")
+                ], timePerFrame: 0.1)
+            self.runAction(animLegal)
+            let jumpAction = SKAction.sequence([SKAction.moveBy(CGVectorMake(-40, 30), duration: 0.4), SKAction.moveBy(CGVectorMake(-40, -30), duration: 0.4)])
+            //let moveAction = SKAction.moveTo(CGPointMake(self.position.x - 80, self.position.y), duration: 0.8)
+            self.runAction(jumpAction)
             self.reloadTime = self.INTERVAL
         }
         

@@ -34,7 +34,7 @@ class LexicusNode:SKSpriteNode {
             self.runAction(animation)
         })
         
-        let projectile = SKSpriteNode(imageNamed: "fanta")
+        let projectile = SKSpriteNode(imageNamed: "projetil")
         projectile.size = CGSizeMake(20, 20)
         projectile.position = CGPointMake(self.position.x + 10, self.position.y)
         projectile.physicsBody = SKPhysicsBody(circleOfRadius: projectile.size.width/2)

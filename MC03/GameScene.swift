@@ -220,7 +220,7 @@ class GameScene: SKScene {
             enemy = EnemyNode(texture: SKTexture(imageNamed: "enemy1"), tam: CGFloat(40))
             enemy?.name = "enemy"
             enemy!.size = CGSizeMake(40, 40)
-            enemy!.position = CGPointMake(telaNode.size.width/2 - CGFloat(40), -telaNode.size.height/2 + CGFloat(40))
+            enemy!.position = CGPointMake(telaNode.size.width/2 - CGFloat(40), -telaNode.size.height/2 + CGFloat(20))
             enemy!.physicsBody = SKPhysicsBody(rectangleOfSize: enemy!.size)
             enemy!.physicsBody?.dynamic = false
 //            enemy!.physicsBody?.categoryBitMask = enemyCategory
