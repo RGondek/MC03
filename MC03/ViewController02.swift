@@ -19,6 +19,8 @@ class ViewController02: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        lblTitle.text = "Selecione um jogo!"
+        lblText.text = "A descrição do jogo aparecerá aqui!"
         // Do any additional setup after loading the view.
     }
 

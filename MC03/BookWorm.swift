@@ -143,6 +143,8 @@ class Bookworm:GameScene {
     
     
     func eventoToque(tile:Tile, locationGrid:CGPoint){
+        let plop = SKAction.playSoundFileNamed("plop.mp3", waitForCompletion: false)
+        self.runAction(plop)
         tile.content?.alpha = 0.5
         tile.isActive = false
         let node = tile.content
