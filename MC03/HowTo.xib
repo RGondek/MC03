@@ -30,7 +30,7 @@
                     </variation>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp8-5s-del">
-                    <rect key="frame" x="372" y="474.5" width="50" height="30"/>
+                    <rect key="frame" x="372" y="475" width="50" height="30"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="50" id="gyQ-Ay-GPB"/>
                         <constraint firstAttribute="height" constant="30" id="mGy-10-BIa"/>
