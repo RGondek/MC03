@@ -408,6 +408,12 @@
                         <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="encyTexture" translatesAutoresizingMaskIntoConstraints="NO" id="zpg-Pq-ckB">
+                                <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
+                            </imageView>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bookmarkTexture" translatesAutoresizingMaskIntoConstraints="NO" id="Yq9-Rx-VLn">
+                                <rect key="frame" x="0.0" y="-7" width="198" height="1050"/>
+                            </imageView>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" ambiguous="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="lYi-nl-kBi" userLabel="Master Table View">
                                 <rect key="frame" x="0.0" y="84" width="192" height="940"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -417,15 +423,15 @@
                                     <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="940" id="uaK-Rm-qKh"/>
                                 </constraints>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="nBh-Eq-KXL" style="IBUITableViewCellStyleDefault" id="fo0-3E-9Tp">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="BasicCell" textLabel="nBh-Eq-KXL" style="IBUITableViewCellStyleDefault" id="fo0-3E-9Tp">
                                         <rect key="frame" x="0.0" y="0.0" width="192" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="fo0-3E-9Tp" id="nQV-aW-Paf">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nBh-Eq-KXL">
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nBh-Eq-KXL">
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <fontDescription key="fontDescription" name="SnellRoundhand-Bold" family="Snell Roundhand" pointSize="25"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -453,18 +459,14 @@
                                     <segue destination="BYZ-38-t0r" kind="show" id="GW3-Wa-ltQ"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nada por aqui. Vai jogar lá, fera!1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I5M-7l-a79">
-                                <rect key="frame" x="265" y="240" width="414" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <tableView clipsSubviews="YES" tag="1" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="130" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="RsY-oY-Wen" userLabel="Details Table View">
-                                <rect key="frame" x="200" y="84" width="568" height="940"/>
+                                <rect key="frame" x="212" y="84" width="556" height="940"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="940" id="yrz-jy-rP9"/>
                                 </constraints>
+                                <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <color key="sectionIndexTrackingBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="EncyDetCell" rowHeight="130" id="zfL-tI-kld" customClass="EncyDetailsCell" customModule="MC03" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="600" height="44"/>
@@ -472,25 +474,26 @@
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="zfL-tI-kld" id="qkd-Uz-hU8">
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-9f-4c1">
-                                                    <rect key="frame" x="8" y="8" width="175" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w85-IR-pjv">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="w85-IR-pjv">
                                                     <rect key="frame" x="8" y="72" width="175" height="50"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AYY123456789101112" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYT-1S-cYs">
-                                                    <rect key="frame" x="205" y="15" width="175" height="100"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="AYY123456789101112" textAlignment="center" lineBreakMode="wordWrap" numberOfLines="3" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NYT-1S-cYs">
+                                                    <rect key="frame" x="205" y="15" width="343" height="100"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="20"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qGz-9f-4c1">
+                                                    <rect key="frame" x="8" y="8" width="175" height="50"/>
+                                                    <fontDescription key="fontDescription" name="Papyrus" family="Papyrus" pointSize="25"/>
                                                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
+                                            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="dica" destination="NYT-1S-cYs" id="Tds-ao-Rl2"/>
@@ -512,7 +515,7 @@
                             <constraint firstItem="9By-R2-P1Y" firstAttribute="top" secondItem="EW1-Vf-7g1" secondAttribute="bottom" id="XLk-2p-7RE"/>
                             <constraint firstItem="RsY-oY-Wen" firstAttribute="top" secondItem="9By-R2-P1Y" secondAttribute="bottom" constant="16" id="h9A-PQ-uDa"/>
                             <constraint firstItem="7jO-tC-rWT" firstAttribute="top" secondItem="lYi-nl-kBi" secondAttribute="bottom" id="hS8-Ad-x59"/>
-                            <constraint firstItem="RsY-oY-Wen" firstAttribute="leading" secondItem="lYi-nl-kBi" secondAttribute="trailing" constant="8" id="lUO-Jb-ENq"/>
+                            <constraint firstItem="RsY-oY-Wen" firstAttribute="leading" secondItem="lYi-nl-kBi" secondAttribute="trailing" constant="20" id="lUO-Jb-ENq"/>
                             <constraint firstAttribute="trailingMargin" secondItem="RsY-oY-Wen" secondAttribute="trailing" constant="-16" id="oZb-02-EGz"/>
                             <constraint firstItem="lYi-nl-kBi" firstAttribute="leading" secondItem="qa2-dT-9LR" secondAttribute="leadingMargin" constant="-16" id="qMD-wS-Vr6"/>
                         </constraints>
@@ -529,7 +532,6 @@
                     <connections>
                         <outlet property="detailsTV" destination="RsY-oY-Wen" id="mJT-6w-mlp"/>
                         <outlet property="masterTV" destination="lYi-nl-kBi" id="dZ1-61-1h7"/>
-                        <outlet property="nada" destination="I5M-7l-a79" id="MoH-6X-CUB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7p1-1p-vW4" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -541,8 +543,10 @@
         <image name="back" width="768" height="1024"/>
         <image name="bnt1" width="353" height="129"/>
         <image name="book1" width="295" height="325"/>
+        <image name="bookmarkTexture" width="326" height="640"/>
         <image name="btn2" width="313" height="206"/>
         <image name="btn3" width="353" height="129"/>
+        <image name="encyTexture" width="472" height="650"/>
         <image name="home" width="640" height="640"/>
         <image name="lex3.png" width="44" height="44"/>
         <image name="madeira" width="2176" height="435"/>
