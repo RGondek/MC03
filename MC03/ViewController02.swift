@@ -127,7 +127,7 @@ class ViewController02: UIViewController {
     }
     
     @IBAction func btnHome(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
 
     /*

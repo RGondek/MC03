@@ -85,7 +85,7 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func btnHome(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popToRootViewControllerAnimated(true)
     }
     
     // MARK: - Change game type

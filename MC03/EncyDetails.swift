@@ -144,7 +144,7 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
     }
     
     @IBAction func btnHome(sender: UIButton) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        self.navigationController?.popViewControllerAnimated(true)
     }
     
     //    override func supportedInterfaceOrientations() -> Int {
