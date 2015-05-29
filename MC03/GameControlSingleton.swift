@@ -7,12 +7,15 @@
 //
 
 import Foundation
+import SpriteKit
 
 class GameControlSingleton: NSObject {
     
     static let sharedInstance = GameControlSingleton()
     
     var difficulty:Int = 0
+    
+    var gameScene:SKScene! = SKScene()
     
     private override init(){
     }

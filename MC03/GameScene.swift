@@ -312,17 +312,17 @@ class GameScene: SKScene {
     
     //Animação da subida da pontuação quando acerta algo
     func popScore(score:String){
-        let scoreLabel = SKLabelNode(fontNamed: "Helvetica")
-        scoreLabel.text = score
-        scoreLabel.position = CGPointMake(self.size.width/2, self.size.height*0.2)
-        scoreLabel.fontColor = UIColor.redColor()
-        let fadeAction = SKAction.fadeOutWithDuration(1.5)
-        let moveAction = SKAction.moveToY(self.size.height*0.8, duration: 1.5)
-        self.addChild(scoreLabel)
-        scoreLabel.runAction(moveAction)
-        scoreLabel.runAction(fadeAction, completion: { () -> Void in
-            scoreLabel.removeFromParent()
-        })
+//        let scoreLabel = SKLabelNode(fontNamed: "Helvetica")
+//        scoreLabel.text = score
+//        scoreLabel.position = CGPointMake(self.size.width/2, self.size.height*0.2)
+//        scoreLabel.fontColor = UIColor.redColor()
+//        let fadeAction = SKAction.fadeOutWithDuration(1.5)
+//        let moveAction = SKAction.moveToY(self.size.height*0.8, duration: 1.5)
+//        self.addChild(scoreLabel)
+//        scoreLabel.runAction(moveAction)
+//        scoreLabel.runAction(fadeAction, completion: { () -> Void in
+//            scoreLabel.removeFromParent()
+//        })
     }
     
     func encheLetras(seed:NSMutableArray) {
@@ -388,7 +388,7 @@ class GameScene: SKScene {
     }
     
     func goBack(){
-        let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ViewController
+        let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
         self.vc?.presentViewController(home, animated: true, completion: nil)
     }
     

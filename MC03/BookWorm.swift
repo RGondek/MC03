@@ -387,6 +387,7 @@ class Bookworm:GameScene {
     
     var flagAcabaramLetras:Bool! = false
     override func update(currentTime: CFTimeInterval) {
+        
         timeSinceLast = currentTime - self.lastUpdateTimeInterval
         self.lastUpdateTimeInterval = currentTime;
         
