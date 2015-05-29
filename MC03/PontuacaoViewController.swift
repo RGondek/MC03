@@ -49,18 +49,18 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm";
         
         
-        if(tipoJogo == 1){
-//            celula.data.text! = dateFormatter.stringFromDate(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
+        if(tipoJogo == 0){
+            celula.data.text! = dateFormatter.stringFromDate(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             celula.pontos.text = String(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
             //celula.foto.image = UIImage(named: "fotoPadrao");
             celula.fundo.image = UIImage(named: "BookSide2")
-        } else if (tipoJogo == 2){
+        } else if (tipoJogo == 1){
             celula.data.text! = dateFormatter.stringFromDate(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             //celula.pontos.text = "\(pontos2[indexPath.row])";
             celula.pontos.text = String(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
             celula.fundo.image = UIImage(named: "BookSide3")
             //celula.foto.image = UIImage(named: "fotoPadrao");
-        } else if (tipoJogo == 0){
+        } else if (tipoJogo == 999){
             celula.data.text! = "NOT IMPLEMENTED";
             celula.pontos.text = "\(pontos3[indexPath.row])";
             //celula.foto.image = UIImage(named: "fotoPadrao");
@@ -72,12 +72,12 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(tipoJogo == 1){
+        if(tipoJogo == 0){
             return pBookWorm!.count;
-        } else if (tipoJogo == 2){
+        } else if (tipoJogo == 1){
             //return pontos2.count;
             return pScrambled!.count;
-        } else if (tipoJogo == 0){
+        } else if (tipoJogo == 999){
             return pontos3.count;
         } else {
             return 0;
