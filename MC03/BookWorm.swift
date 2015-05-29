@@ -57,6 +57,7 @@ class Bookworm:GameScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
+        self.view?.paused = false
         if(!perdeu && !venceu){
             for touch in (touches as! Set<UITouch>) {
                 let location = touch.locationInNode(self)

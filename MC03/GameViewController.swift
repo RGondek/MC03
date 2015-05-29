@@ -78,9 +78,7 @@ class GameViewController: UIViewController {
             self.skView.ignoresSiblingOrder = true
             self.scene.scaleMode = .AspectFill
             sleep(2)
-            
-            GameControlSingleton.sharedInstance.gameScene = self.scene
-            
+                        
             dispatch_async(dispatch_get_main_queue(), {
                 println("DONE")
                 self.doneLabel.text = "Carregado! Toque para continuar."

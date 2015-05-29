@@ -85,7 +85,14 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     @IBAction func btnHome(sender: UIButton) {
-        self.navigationController?.popToRootViewControllerAnimated(true)
+        if self.navigationController?.viewControllers.count > 1 {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else{
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
+            self.presentViewController(home, animated: true, completion: nil)
+        }
+
     }
     
     // MARK: - Change game type

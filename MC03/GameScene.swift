@@ -128,6 +128,10 @@ class GameScene: SKScene {
     }
     
     func setupScene(num:Int){
+        
+        GameControlSingleton.sharedInstance.gameScene = self
+
+        
         descobertas = NSMutableArray();
 
         //self.size = view!.frame.size
