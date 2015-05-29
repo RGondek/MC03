@@ -38,6 +38,9 @@ class WinScene: SKScene {
         
         //win
         if isLose == false{
+            let fanfare = SKAction.playSoundFileNamed("victory.wav", waitForCompletion: false);
+            self.runAction(fanfare);
+            
             winLabel.text = "Vencemos! Pontuação: \(score)"
             
             let animLegal = SKAction.animateWithTextures([

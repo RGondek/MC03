@@ -31,6 +31,8 @@
 		4E6EE1AD1B1399BF002B3C3A /* PontuacaoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1A91B1399BF002B3C3A /* PontuacaoTableViewCell.swift */; };
 		4E6EE1AE1B1399BF002B3C3A /* PontuacaoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4E6EE1AA1B1399BF002B3C3A /* PontuacaoTableViewCell.xib */; };
 		4E6EE1BA1B13BC83002B3C3A /* Pontuacao.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E6EE1B91B13BC83002B3C3A /* Pontuacao.swift */; };
+		4E7228641B18D8AE00DB889A /* magicSmite.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E7228631B18D8AE00DB889A /* magicSmite.wav */; };
+		4E7228661B18E4F300DB889A /* victory.wav in Resources */ = {isa = PBXBuildFile; fileRef = 4E7228651B18E4F300DB889A /* victory.wav */; };
 		4EC860091B14F9390062BA6C /* PontuacaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC860081B14F9390062BA6C /* PontuacaoManager.swift */; };
 		D587861F1B0E587600BD60AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D587861E1B0E587600BD60AE /* AppDelegate.swift */; };
 		D58786211B0E587600BD60AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58786201B0E587600BD60AE /* ViewController.swift */; };
@@ -82,6 +84,8 @@
 		4E6EE1A91B1399BF002B3C3A /* PontuacaoTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontuacaoTableViewCell.swift; sourceTree = "<group>"; };
 		4E6EE1AA1B1399BF002B3C3A /* PontuacaoTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PontuacaoTableViewCell.xib; sourceTree = "<group>"; };
 		4E6EE1B91B13BC83002B3C3A /* Pontuacao.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pontuacao.swift; sourceTree = "<group>"; };
+		4E7228631B18D8AE00DB889A /* magicSmite.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = magicSmite.wav; sourceTree = "<group>"; };
+		4E7228651B18E4F300DB889A /* victory.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = victory.wav; sourceTree = "<group>"; };
 		4EC860081B14F9390062BA6C /* PontuacaoManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PontuacaoManager.swift; sourceTree = "<group>"; };
 		D58786191B0E587600BD60AE /* MC03.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MC03.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D587861D1B0E587600BD60AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -201,7 +205,9 @@
 				D59004281B164F3A0096F0C7 /* Main.storyboard */,
 				159A22CB1B13A025004B023D /* Lexicus.atlas */,
 				D58786251B0E587600BD60AE /* Images.xcassets */,
+				4E7228651B18E4F300DB889A /* victory.wav */,
 				153B75711B17A46400EC5070 /* plop.mp3 */,
+				4E7228631B18D8AE00DB889A /* magicSmite.wav */,
 				4E5687731B1621CE00674505 /* home.png */,
 				D58786271B0E587600BD60AE /* LaunchScreen.xib */,
 				D587861C1B0E587600BD60AE /* Supporting Files */,
@@ -329,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4E7228641B18D8AE00DB889A /* magicSmite.wav in Resources */,
 				4E6EE1AE1B1399BF002B3C3A /* PontuacaoTableViewCell.xib in Resources */,
 				153B75721B17A46400EC5070 /* plop.mp3 in Resources */,
 				159A22C81B13A00C004B023D /* GameScene.sks in Resources */,
@@ -339,6 +346,7 @@
 				D58786291B0E587600BD60AE /* LaunchScreen.xib in Resources */,
 				D58786261B0E587600BD60AE /* Images.xcassets in Resources */,
 				159A22CC1B13A025004B023D /* Lexicus.atlas in Resources */,
+				4E7228661B18E4F300DB889A /* victory.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

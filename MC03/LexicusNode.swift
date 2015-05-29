@@ -21,6 +21,9 @@ class LexicusNode:SKSpriteNode {
     }
     
     func fire(target:SKSpriteNode, tela:SKNode){
+        let magicSound = SKAction.playSoundFileNamed("magicSmite.wav", waitForCompletion: false);
+        self.runAction(magicSound);
+        
         let animation = self.actionForKey("idle")
         self.removeActionForKey("idle")
         
