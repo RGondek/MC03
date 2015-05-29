@@ -10,9 +10,11 @@ import UIKit
 
 class PontuacaoTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var fundo: UIImageView!
+    
     @IBOutlet weak var foto: UIImageView!
 
-    @IBOutlet weak var nome: UILabel!
+    @IBOutlet weak var data: UILabel!
     
     @IBOutlet weak var pontos: UILabel!
     

@@ -10,8 +10,7 @@ import UIKit
 
 class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
-    @IBOutlet weak var modoJogo: UISegmentedControl!
-    
+    var tipoJogo : Int = 0
     var recebe : Int = 0
     var pontos = [0, 1, 2];
     var pBookWorm : NSMutableArray?;
@@ -19,7 +18,7 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     var pontos2 = [100, 200, 1000, 9, 412];
     var pontos3 = [9185, 55555, 1, 124];
     @IBOutlet weak var tv: UITableView!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         tv.delegate = self;
@@ -46,20 +45,25 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tv.dequeueReusableCellWithIdentifier("PontCell", forIndexPath: indexPath) as! PontuacaoTableViewCell;
+        let dateFormatter = NSDateFormatter();
+        dateFormatter.dateFormat = "dd/MM/yyyy - HH:mm";
         
-        if(modoJogo.selectedSegmentIndex == 0){
-            celula.nome.text! = "ayy lmao";
+        
+        if(tipoJogo == 0){
+            celula.data.text! = dateFormatter.stringFromDate(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             celula.pontos.text = String(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            celula.foto.image = UIImage(named: "fotoPadrao");
-        } else if (modoJogo.selectedSegmentIndex == 1){
-            celula.nome.text! = "Hue";
+            //celula.foto.image = UIImage(named: "fotoPadrao");
+            celula.fundo.image = UIImage(named: "BookSide2")
+        } else if (tipoJogo == 1){
+            celula.data.text! = dateFormatter.stringFromDate(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             //celula.pontos.text = "\(pontos2[indexPath.row])";
             celula.pontos.text = String(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            celula.foto.image = UIImage(named: "fotoPadrao");
-        } else if (modoJogo.selectedSegmentIndex == 2){
-            celula.nome.text! = "oaml yyA";
+            celula.fundo.image = UIImage(named: "BookSide3")
+            //celula.foto.image = UIImage(named: "fotoPadrao");
+        } else if (tipoJogo == 999){
+            celula.data.text! = "NOT IMPLEMENTED";
             celula.pontos.text = "\(pontos3[indexPath.row])";
-            celula.foto.image = UIImage(named: "fotoPadrao");
+            //celula.foto.image = UIImage(named: "fotoPadrao");
         }
         
         //        return celula;
@@ -68,12 +72,12 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     }
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if(modoJogo.selectedSegmentIndex == 0){
+        if(tipoJogo == 0){
             return pBookWorm!.count;
-        } else if (modoJogo.selectedSegmentIndex == 1){
+        } else if (tipoJogo == 1){
             //return pontos2.count;
             return pScrambled!.count;
-        } else if (modoJogo.selectedSegmentIndex == 2){
+        } else if (tipoJogo == 999){
             return pontos3.count;
         } else {
             return 0;
@@ -92,11 +96,11 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
     */
     
     
-    // MARK: - Segmented Control
+    // MARK: - Change game type
     
-    @IBAction func trocaModoJogo(sender: AnyObject) {
-        self.tv.reloadData();
+    @IBAction func btnTipoJogo(sender: UIButton) {
+        tipoJogo = sender.tag
+        self.tv.reloadData()
     }
-    
     
 }

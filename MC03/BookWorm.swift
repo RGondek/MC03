@@ -197,15 +197,6 @@ class Bookworm:GameScene {
         //define as palavras para seedar
         var cont = num
         var palavrasSeedadas:NSMutableArray = NSMutableArray()
-//        while cont >= 0 {
-//            let rand = arc4random_uniform(UInt32(palavrasTeste.count))
-//            if (!palavrasSeedadas.containsObject(palavrasTeste[Int(rand)])) {
-//                palavrasSeedadas.addObject(palavrasTeste[Int(rand)])
-//                println(palavrasTeste[Int(rand)])
-//                cont--
-//            }
-//        }
-//        return palavrasSeedadas
         
         var palavras = CategoryManager().fetchWordsForCategory(num, categoryName: "Frutas")
         for item in palavras {
@@ -356,7 +347,6 @@ class Bookworm:GameScene {
     //troca a dica que aparece no label de prompt em cima
     func darDica(indice:Int){
         
-        //TROCAR ISSO POR UMA VARIAVEL - SE FICAR ITERANDO DURANTE O UPDATE CAUSA EXCEÇÃO
         if indice >= self.totalPalavras{
             if flagAcabaramLetras == false{
                 flagAcabaramLetras = true

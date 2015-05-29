@@ -12,7 +12,7 @@ import CoreData
 class Pontuacao: NSManagedObject {
 
     @NSManaged var categoria: String
-    @NSManaged var nome: String
+    @NSManaged var data: NSDate
     @NSManaged var pontos: NSNumber
 
 }

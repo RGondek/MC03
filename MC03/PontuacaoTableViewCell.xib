@@ -14,11 +14,11 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookSide1" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-4p-NkK">
-                        <rect key="frame" x="0.0" y="0.0" width="521" height="72.5"/>
+                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookSide3" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-4p-NkK">
+                        <rect key="frame" x="0.0" y="0.0" width="521" height="73"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD9-KC-yZZ">
-                        <rect key="frame" x="407" y="0.0" width="100" height="72.5"/>
+                        <rect key="frame" x="407" y="0.0" width="100" height="73"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="117" id="4KI-nk-iXb"/>
                             <constraint firstAttribute="width" constant="100" id="KQB-1f-3Bs"/>
@@ -38,8 +38,8 @@
                             <constraint firstAttribute="height" constant="65" id="Qqi-fh-g8l"/>
                         </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nome" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-v4-ReI">
-                        <rect key="frame" x="93" y="0.0" width="294" height="72.5"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-v4-ReI">
+                        <rect key="frame" x="93" y="0.0" width="294" height="73"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="IuG-39-AwQ"/>
                             <constraint firstAttribute="width" constant="164" id="VBW-qs-Tfn"/>
@@ -93,14 +93,15 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="data" destination="UUo-v4-ReI" id="NMm-aS-2w2"/>
                 <outlet property="foto" destination="NaS-Sa-9gZ" id="Cpx-Zl-wdG"/>
-                <outlet property="nome" destination="UUo-v4-ReI" id="7vm-jg-0CX"/>
+                <outlet property="fundo" destination="ct8-4p-NkK" id="B0v-QC-av9"/>
                 <outlet property="pontos" destination="AD9-KC-yZZ" id="wQ1-Fu-OHF"/>
             </connections>
             <point key="canvasLocation" x="453.5" y="329.5"/>
         </tableViewCell>
     </objects>
     <resources>
-        <image name="BookSide1" width="3000" height="734"/>
+        <image name="BookSide3" width="3000" height="734"/>
     </resources>
 </document>
