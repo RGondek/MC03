@@ -159,9 +159,6 @@ class GameScene: SKScene {
         
         self.addChild(reButton)
         
-        //        for i in 1...10 {
-        //            self.criaLetraTeste(randomLetra())
-        //        }
         
         tabuleiro = Tabuleiro(x: cols, y: rows, tamanho: tam)
         tabuleiro.position = CGPointMake(self.size.width/2 - tam * CGFloat(cols) / 2, self.size.height * 0.18)
@@ -390,13 +387,6 @@ class GameScene: SKScene {
         
     }
     
-//    //Força a troca de view
-//    func gameOver(){
-//        self.vc?.performSegueWithIdentifier("gameOver", sender: score)
-//        
-//        //self.inval
-//    }
-    
     func goBack(){
         let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! ViewController
         self.vc?.presentViewController(home, animated: true, completion: nil)
@@ -443,7 +433,6 @@ class GameScene: SKScene {
             player.removeActionForKey("idle")
             player.runAction(animAction, withKey: "escapar")
             player.runAction(SKAction.moveTo(CGPointMake(player.position.x - 1000, player.position.y), duration: 15.0))
-            //self.runAction(SKAction.playSoundFileNamed("putaVida.mp3", waitForCompletion: false));
             perdeu = true;
             lastUpdate = currentTime;
         } else {
@@ -459,6 +448,7 @@ class GameScene: SKScene {
                 } else {
                     pontuacao.categoria = "Missigno"
                 }
+                pontuacao.data = NSDate();
                 PontuacaoManager.sharedInstance.save();
                 //self.vc?.performSegueWithIdentifier("gameOver", sender: score);
                 self.myLabel.text = "FUGIMOS"

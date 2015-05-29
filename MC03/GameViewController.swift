@@ -64,11 +64,6 @@ class GameViewController: UIViewController {
         howToScreen.frame = (CGRectMake(50, 50, self.view.frame.size.width-100, self.view.frame.size.height-100))
         self.view.addSubview(howToScreen)
         
-        //colocar instruções aqui
-//        instructions = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, 300, 350, 150))
-//        instructions.text = "Tela de Loading - ainda não implementada."
-//        self.view.addSubview(instructions)
-        
         
         
         self.doneLabel = UILabel(frame: CGRectMake(self.view.frame.size.width/2 - 175, self.view.frame.size.height - 200, 350, 150))
@@ -128,8 +123,7 @@ class GameViewController: UIViewController {
         skView.presentScene(nil)
         var pontuacao = segue.destinationViewController as! PontuacaoViewController
         pontuacao.recebe = sender as! Int
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+        pontuacao.tipoJogo = self.gameType
     }
     
     func showInstructions(){

@@ -128,8 +128,6 @@ class Scramble:GameScene {
             self.popScore("\(Int(timeLeft)*10 * count(palavra) * possibleScore)")
             possibleScore = 0;
 
-//            //self.popScore("👍+8001!")
-//            popScore("ACERTOU!")
             self.player.fire(self.enemy!, tela: self.telaNode)
             self.trocaLetras()
             self.curString = ""
