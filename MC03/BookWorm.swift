@@ -57,6 +57,7 @@ class Bookworm:GameScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
+        self.view?.paused = false
         if(!perdeu && !venceu){
             for touch in (touches as! Set<UITouch>) {
                 let location = touch.locationInNode(self)
@@ -387,6 +388,7 @@ class Bookworm:GameScene {
     
     var flagAcabaramLetras:Bool! = false
     override func update(currentTime: CFTimeInterval) {
+        
         timeSinceLast = currentTime - self.lastUpdateTimeInterval
         self.lastUpdateTimeInterval = currentTime;
         

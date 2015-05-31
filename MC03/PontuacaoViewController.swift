@@ -84,17 +84,16 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         }
     }
     
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using segue.destinationViewController.
-    // Pass the selected object to the new view controller.
+    @IBAction func btnHome(sender: UIButton) {
+        if self.navigationController?.viewControllers.count > 1 {
+            self.navigationController?.popViewControllerAnimated(true)
+        }
+        else{
+            let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
+            self.presentViewController(home, animated: true, completion: nil)
+        }
+
     }
-    */
-    
     
     // MARK: - Change game type
     

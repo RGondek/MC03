@@ -92,6 +92,7 @@
                     </mask>
                 </variation>
             </tableViewCellContentView>
+            <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="data" destination="UUo-v4-ReI" id="NMm-aS-2w2"/>
                 <outlet property="foto" destination="NaS-Sa-9gZ" id="Cpx-Zl-wdG"/>

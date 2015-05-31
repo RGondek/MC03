@@ -143,7 +143,9 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
         }
     }
     
-    
+    @IBAction func btnHome(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     //    override func supportedInterfaceOrientations() -> Int {
     //        return Int(UIInterfaceOrientationMask.LandscapeLeft.rawValue)

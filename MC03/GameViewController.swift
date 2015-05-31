@@ -53,6 +53,7 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        
         skView = SKView()
         skView.frame.size = self.view.frame.size
         self.view.addSubview(skView)
@@ -77,7 +78,7 @@ class GameViewController: UIViewController {
             self.skView.ignoresSiblingOrder = true
             self.scene.scaleMode = .AspectFill
             sleep(2)
-            
+                        
             dispatch_async(dispatch_get_main_queue(), {
                 println("DONE")
                 self.doneLabel.text = "Carregado! Toque para continuar."

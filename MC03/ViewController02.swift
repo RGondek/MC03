@@ -125,6 +125,10 @@ class ViewController02: UIViewController {
             })
         }
     }
+    
+    @IBAction func btnHome(sender: UIButton) {
+        self.navigationController?.popViewControllerAnimated(true)
+    }
 
     /*
     // MARK: - Navigation
