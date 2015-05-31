@@ -58,6 +58,8 @@ class Bookworm:GameScene {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
         if(self.view!.paused){
+            var pausedTime = NSDate().timeIntervalSinceDate(self.pauseTime)
+            self.lastUpdateTimeInterval = self.lastUpdateTimeInterval + pausedTime
             self.view?.paused = false;
             self.pauseScreen.hidden = true;
             self.pauseLabel.hidden = true;
@@ -397,11 +399,14 @@ class Bookworm:GameScene {
     
     var flagAcabaramLetras:Bool! = false
     override func update(currentTime: CFTimeInterval) {
+        
+        timeSinceLast = currentTime - self.lastUpdateTimeInterval
+        self.lastUpdateTimeInterval = currentTime;
+        
         //Arrumar problema do lastUpdate enquanto pausado
         if(!self.view!.paused){
             
-            timeSinceLast = currentTime - self.lastUpdateTimeInterval
-            self.lastUpdateTimeInterval = currentTime;
+            
             
             //controles da tela do Lexicus
             if (enemy != nil){
