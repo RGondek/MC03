@@ -42,6 +42,9 @@ class Scramble:GameScene {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
+        if(self.view!.paused){
+            self.view?.paused = false;
+        } else {
         if (!perdeu && !venceu){
             
             for touch in (touches as! Set<UITouch>) {
@@ -72,12 +75,16 @@ class Scramble:GameScene {
                                 if body.node!.name == "home" {
                                     self.goBack()
                                 }
+                                if body.node!.name == "pause" {
+                                    self.pausaJogo();
+                                }
                             }
                         }
                     }
                 }
             }
         }
+    }
     }
     
     func eventoToque(tile:Tile, locationGrid:CGPoint){

@@ -57,54 +57,61 @@ class Bookworm:GameScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         /* Called when a touch begins */
-        self.view?.paused = false
-        if(!perdeu && !venceu){
-            for touch in (touches as! Set<UITouch>) {
-                let location = touch.locationInNode(self)
-                let locationGrid = touch.locationInNode(self.tabuleiro)
-                
-                if let body = physicsWorld.bodyAtPoint(location) {
-                    if body.node!.name == "letra" {
-                        //let nodinho = body.node as! LetraNode
-                        //let letrinha:String = nodinho.letra
-                        
-                        //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
-                        if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
-                            if tilezinha.isActive == true{
-                                
-                                if self.curString == ""{
-                                    //tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
-                                    self.eventoToque(tilezinha, locationGrid: locationGrid)
-                                }
-                                else{
+        if(self.view!.paused){
+            self.view?.paused = false;
+        } else {
+            self.view?.paused = false
+            if(!perdeu && !venceu){
+                for touch in (touches as! Set<UITouch>) {
+                    let location = touch.locationInNode(self)
+                    let locationGrid = touch.locationInNode(self.tabuleiro)
+                    
+                    if let body = physicsWorld.bodyAtPoint(location) {
+                        if body.node!.name == "letra" {
+                            //let nodinho = body.node as! LetraNode
+                            //let letrinha:String = nodinho.letra
+                            
+                            //buscando a letra pela posição do toque na grid, e nao no bodyAtPoint
+                            if let tilezinha = self.tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y){
+                                if tilezinha.isActive == true{
                                     
-                                    if letrasVizinhas.containsObject(tilezinha){
-                                        if count(curString) > 9 {
-                                            self.popScore("Tamanho máximo")
-                                        }
-                                            
-                                        else {
-                                            self.eventoToque(tilezinha, locationGrid: locationGrid)
-                                        }
-                                    }
-                                    else{
-                                        self.apagar()
+                                    if self.curString == ""{
+                                        //tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!.content?.alpha = 0.5
                                         self.eventoToque(tilezinha, locationGrid: locationGrid)
                                     }
-                                    
+                                    else{
+                                        
+                                        if letrasVizinhas.containsObject(tilezinha){
+                                            if count(curString) > 9 {
+                                                self.popScore("Tamanho máximo")
+                                            }
+                                                
+                                            else {
+                                                self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                            }
+                                        }
+                                        else{
+                                            self.apagar()
+                                            self.eventoToque(tilezinha, locationGrid: locationGrid)
+                                        }
+                                        
+                                    }
                                 }
                             }
                         }
-                    }
-                    
-                    if body.node!.name == "refresh" {
-                        self.apagar()
-                    }
-                    if body.node!.name == "shuffle" {
-                        self.trocaLetras()
-                    }
-                    if body.node!.name == "home" {
-                        self.goBack()
+                        
+                        if body.node!.name == "refresh" {
+                            self.apagar()
+                        }
+                        if body.node!.name == "shuffle" {
+                            self.trocaLetras()
+                        }
+                        if body.node!.name == "home" {
+                            self.goBack()
+                        }
+                        if body.node!.name == "pause" {
+                            self.pausaJogo();
+                        }
                     }
                 }
             }
@@ -388,29 +395,32 @@ class Bookworm:GameScene {
     
     var flagAcabaramLetras:Bool! = false
     override func update(currentTime: CFTimeInterval) {
-        
-        timeSinceLast = currentTime - self.lastUpdateTimeInterval
-        self.lastUpdateTimeInterval = currentTime;
-        
-        //controles da tela do Lexicus
-        if (enemy != nil){
-            self.enemy!.runBehavior(self)
+        //Arrumar problema do lastUpdate enquanto pausado
+        if(!self.view!.paused){
             
-            if(enemy?.position.x <= -200){//player.position.x + player.size.width/2){
-                self.gameOver(currentTime);
+            timeSinceLast = currentTime - self.lastUpdateTimeInterval
+            self.lastUpdateTimeInterval = currentTime;
+            
+            //controles da tela do Lexicus
+            if (enemy != nil){
+                self.enemy!.runBehavior(self)
+                
+                if(enemy?.position.x <= -200){//player.position.x + player.size.width/2){
+                    self.gameOver(currentTime);
+                }
             }
-        }
-        
-        if self.diff != 2{
-            if promptLabel.text == ""{
-                //if indiceDica < palavrasDoBanco.count{
-                self.darDica(self.indiceDica)
-                //}
+            
+            if self.diff != 2{
+                if promptLabel.text == ""{
+                    //if indiceDica < palavrasDoBanco.count{
+                    self.darDica(self.indiceDica)
+                    //}
+                }
             }
-        }
-        else{
-            if promptLabel.text == ""{
-                promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(0) as! Palavra).categoria.nome)"
+            else{
+                if promptLabel.text == ""{
+                    promptLabel.text = "Categoria: \((palavrasDoBanco.objectAtIndex(0) as! Palavra).categoria.nome)"
+                }
             }
         }
     }

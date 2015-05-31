@@ -41,6 +41,7 @@ class GameScene: SKScene {
     //Palavras que o jogador descobriu nessa rodada.
     var descobertas:NSMutableArray!
     
+    var pauseButton:SKSpriteNode!
     var homeButton:SKSpriteNode!
     var promptLabel:SKLabelNode!
     var curString:String = "" //Palavra sendo formada
@@ -109,14 +110,20 @@ class GameScene: SKScene {
                     }
 
                 }
+                
                 if body.node!.name == "label" {
                     let nodelinho: SKLabelNode = body.node! as! SKLabelNode
                     //consultarDicionario(nodelinho.text)
                     validaPalavra(nodelinho.text)
                     curString = ""
                 }
+                
                 if body.node!.name == "refresh" {
                     self.trocaLetras()
+                }
+                
+                if body.node!.name == "pause" {
+                    self.pausaJogo();
                 }
             }
             
@@ -154,6 +161,7 @@ class GameScene: SKScene {
         self.addChild(myLabel)
         self.addChild(labelBg)
         
+        //Botão de ReRoll
         reButton = SKSpriteNode(imageNamed: "eraser")
         reButton.name = "refresh"
         reButton.size = CGSizeMake(80, 80)
@@ -162,6 +170,15 @@ class GameScene: SKScene {
         reButton.position = CGPointMake(50, 50)
         
         self.addChild(reButton)
+        
+        //Botao de Pause
+        pauseButton = SKSpriteNode(imageNamed: "pauseBeta");
+        pauseButton.name = "pause";
+        pauseButton.size = CGSizeMake(80, 80);
+        pauseButton.physicsBody = SKPhysicsBody(rectangleOfSize: pauseButton.size);
+        pauseButton.physicsBody?.dynamic = false;
+        pauseButton.position = CGPointMake(self.size.width / 2, self.size.height * 0.05);
+        self.addChild(pauseButton);
         
         
         tabuleiro = Tabuleiro(x: cols, y: rows, tamanho: tam)
@@ -259,6 +276,11 @@ class GameScene: SKScene {
         else{
             self.createEnemy()
         }
+    }
+    
+    func pausaJogo(){
+        println("AYY");
+        self.view?.paused = true;
     }
     
     func validaPalavra(palavra: String) {
@@ -472,16 +494,18 @@ class GameScene: SKScene {
     var prevSeconds:Int = -1
     
     override func update(currentTime: CFTimeInterval) {
+        if(!self.view!.paused){
         
-        timeSinceLast = currentTime - self.lastUpdateTimeInterval
-        self.lastUpdateTimeInterval = currentTime;
-        
-        //controles da tela do Lexicus
-        if (enemy != nil){
-            self.enemy!.runBehavior(self)
+            timeSinceLast = currentTime - self.lastUpdateTimeInterval
+            self.lastUpdateTimeInterval = currentTime;
             
-            if(enemy?.position.x <= -200){//player.position.x + player.size.width/2){
-                self.gameOver(currentTime);
+            //controles da tela do Lexicus
+            if (enemy != nil){
+                self.enemy!.runBehavior(self)
+                
+                if(enemy?.position.x <= -200){//player.position.x + player.size.width/2){
+                    self.gameOver(currentTime);
+                }
             }
         }
         

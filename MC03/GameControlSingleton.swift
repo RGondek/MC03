@@ -20,6 +20,10 @@ class GameControlSingleton: NSObject {
     private override init(){
     }
     
+    func forcaPausa(){
+        (gameScene as! GameScene).pausaJogo();
+    }
+    
     
     
 }
