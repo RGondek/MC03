@@ -44,6 +44,8 @@ class Scramble:GameScene {
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if(self.view!.paused){
             self.view?.paused = false;
+            self.pauseScreen.hidden = true;
+            self.pauseLabel.hidden = true;
         } else {
         if (!perdeu && !venceu){
             

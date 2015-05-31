@@ -59,8 +59,10 @@ class Bookworm:GameScene {
         /* Called when a touch begins */
         if(self.view!.paused){
             self.view?.paused = false;
+            self.pauseScreen.hidden = true;
+            self.pauseLabel.hidden = true;
         } else {
-            self.view?.paused = false
+            //self.view?.paused = false
             if(!perdeu && !venceu){
                 for touch in (touches as! Set<UITouch>) {
                     let location = touch.locationInNode(self)

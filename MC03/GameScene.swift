@@ -38,6 +38,10 @@ class ValorLetra : NSObject {
 class GameScene: SKScene {
     var vc : GameViewController?
     
+    //Pause Screen
+    var pauseScreen:SKSpriteNode!
+    var pauseLabel:SKLabelNode!
+    
     //Palavras que o jogador descobriu nessa rodada.
     var descobertas:NSMutableArray!
     
@@ -138,6 +142,23 @@ class GameScene: SKScene {
         
         GameControlSingleton.sharedInstance.gameScene = self
 
+        pauseScreen = SKSpriteNode(color: UIColor.darkGrayColor(), size: self.size);
+        pauseScreen.position = CGPointMake(self.size.width / 2, self.size.height / 2);
+        pauseScreen.name = "pauseScreen";
+        //pauseScreen.physicsBody = SKPhysicsBody(rectangleOfSize: pauseScreen.frame.size);
+        //pauseScreen.physicsBody?.dynamic = false;
+        pauseScreen.zPosition = 10;
+        pauseScreen.hidden = true;
+        self.addChild(pauseScreen);
+        
+        pauseLabel = SKLabelNode(text: "Jogo pausado! Toque na tela para continuar");
+        pauseLabel.position = CGPointMake(self.size.width/2, self.size.height/2);
+        pauseLabel.fontName = "Helvetica";
+        pauseLabel.fontSize = 32;
+        pauseLabel.fontColor = UIColor.whiteColor();
+        pauseLabel.zPosition = 11;
+        pauseLabel.hidden = true;
+        self.addChild(pauseLabel);
         
         descobertas = NSMutableArray();
 
@@ -280,6 +301,8 @@ class GameScene: SKScene {
     
     func pausaJogo(){
         println("AYY");
+        self.pauseScreen.hidden = false;
+        self.pauseLabel.hidden = false;
         self.view?.paused = true;
     }
     
