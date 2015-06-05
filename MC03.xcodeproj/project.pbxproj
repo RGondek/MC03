@@ -36,7 +36,6 @@
 		4EC860091B14F9390062BA6C /* PontuacaoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4EC860081B14F9390062BA6C /* PontuacaoManager.swift */; };
 		D587861F1B0E587600BD60AE /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D587861E1B0E587600BD60AE /* AppDelegate.swift */; };
 		D58786211B0E587600BD60AE /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58786201B0E587600BD60AE /* ViewController.swift */; };
-		D58786261B0E587600BD60AE /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D58786251B0E587600BD60AE /* Images.xcassets */; };
 		D58786291B0E587600BD60AE /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = D58786271B0E587600BD60AE /* LaunchScreen.xib */; };
 		D58786351B0E587600BD60AE /* MC03Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D58786341B0E587600BD60AE /* MC03Tests.swift */; };
 		D59004291B164F3A0096F0C7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D59004281B164F3A0096F0C7 /* Main.storyboard */; };
@@ -47,6 +46,7 @@
 		D59E02111B138E7C002C4CEB /* Categoria.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E02101B138E7C002C4CEB /* Categoria.swift */; };
 		D59E02131B138E7C002C4CEB /* Palavra.swift in Sources */ = {isa = PBXBuildFile; fileRef = D59E02121B138E7C002C4CEB /* Palavra.swift */; };
 		D5AF8DC41B0FD074001C85B3 /* ViewController02.swift in Sources */ = {isa = PBXBuildFile; fileRef = D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */; };
+		D5FBA9291B20C463004138DA /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D5FBA9281B20C463004138DA /* Images.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -91,7 +91,6 @@
 		D587861D1B0E587600BD60AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D587861E1B0E587600BD60AE /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D58786201B0E587600BD60AE /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		D58786251B0E587600BD60AE /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		D58786281B0E587600BD60AE /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		D587862E1B0E587600BD60AE /* MC03Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MC03Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D58786331B0E587600BD60AE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -104,6 +103,7 @@
 		D59E02101B138E7C002C4CEB /* Categoria.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Categoria.swift; sourceTree = "<group>"; };
 		D59E02121B138E7C002C4CEB /* Palavra.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Palavra.swift; sourceTree = "<group>"; };
 		D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ViewController02.swift; sourceTree = "<group>"; };
+		D5FBA9281B20C463004138DA /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,8 +203,8 @@
 				D5AF8DC31B0FD074001C85B3 /* ViewController02.swift */,
 				159A22DE1B177AA6004B023D /* Enemy.atlas */,
 				D59004281B164F3A0096F0C7 /* Main.storyboard */,
+				D5FBA9281B20C463004138DA /* Images.xcassets */,
 				159A22CB1B13A025004B023D /* Lexicus.atlas */,
-				D58786251B0E587600BD60AE /* Images.xcassets */,
 				4E7228651B18E4F300DB889A /* victory.wav */,
 				153B75711B17A46400EC5070 /* plop.mp3 */,
 				4E7228631B18D8AE00DB889A /* magicSmite.wav */,
@@ -337,13 +337,13 @@
 				4E7228641B18D8AE00DB889A /* magicSmite.wav in Resources */,
 				4E6EE1AE1B1399BF002B3C3A /* PontuacaoTableViewCell.xib in Resources */,
 				153B75721B17A46400EC5070 /* plop.mp3 in Resources */,
+				D5FBA9291B20C463004138DA /* Images.xcassets in Resources */,
 				159A22C81B13A00C004B023D /* GameScene.sks in Resources */,
 				4E5687741B1621CE00674505 /* home.png in Resources */,
 				D590042D1B16763B0096F0C7 /* HowTo.xib in Resources */,
 				D59004291B164F3A0096F0C7 /* Main.storyboard in Resources */,
 				159A22DF1B177AA6004B023D /* Enemy.atlas in Resources */,
 				D58786291B0E587600BD60AE /* LaunchScreen.xib in Resources */,
-				D58786261B0E587600BD60AE /* Images.xcassets in Resources */,
 				159A22CC1B13A025004B023D /* Lexicus.atlas in Resources */,
 				4E7228661B18E4F300DB889A /* victory.wav in Resources */,
 			);
