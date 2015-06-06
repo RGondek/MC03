@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="43"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BookSide3" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-4p-NkK">
+                    <imageView userInteractionEnabled="NO" alpha="0.59999999999999964" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blueTitle" translatesAutoresizingMaskIntoConstraints="NO" id="ct8-4p-NkK">
                         <rect key="frame" x="0.0" y="0.0" width="521" height="73"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pontos" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AD9-KC-yZZ">
@@ -23,7 +23,7 @@
                             <constraint firstAttribute="width" constant="117" id="4KI-nk-iXb"/>
                             <constraint firstAttribute="width" constant="100" id="KQB-1f-3Bs"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="24"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="24"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -31,20 +31,13 @@
                             </mask>
                         </variation>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="NaS-Sa-9gZ">
-                        <rect key="frame" x="8" y="4" width="65" height="65"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="65" id="0J3-Pe-mXc"/>
-                            <constraint firstAttribute="height" constant="65" id="Qqi-fh-g8l"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UUo-v4-ReI">
-                        <rect key="frame" x="93" y="0.0" width="294" height="73"/>
+                        <rect key="frame" x="38" y="0.0" width="349" height="73"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="IuG-39-AwQ"/>
                             <constraint firstAttribute="width" constant="164" id="VBW-qs-Tfn"/>
                         </constraints>
-                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="24"/>
+                        <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="24"/>
                         <nil key="highlightedColor"/>
                         <variation key="default">
                             <mask key="constraints">
@@ -55,14 +48,12 @@
                     </label>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="NaS-Sa-9gZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-4" id="1hg-Ja-xEb"/>
                     <constraint firstItem="ct8-4p-NkK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="22g-DZ-1Rd"/>
                     <constraint firstItem="UUo-v4-ReI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="6HN-la-bAm"/>
                     <constraint firstAttribute="bottomMargin" secondItem="ct8-4p-NkK" secondAttribute="bottom" id="A2r-PV-lye"/>
                     <constraint firstItem="AD9-KC-yZZ" firstAttribute="top" secondItem="UUo-v4-ReI" secondAttribute="bottom" constant="19" id="CTy-Qm-JSe"/>
                     <constraint firstItem="AD9-KC-yZZ" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="GFU-3V-BmZ"/>
                     <constraint firstAttribute="trailing" secondItem="ct8-4p-NkK" secondAttribute="trailing" id="GaT-dw-mdd"/>
-                    <constraint firstItem="UUo-v4-ReI" firstAttribute="leading" secondItem="NaS-Sa-9gZ" secondAttribute="trailing" constant="20" id="HrO-e0-0oM"/>
                     <constraint firstItem="ct8-4p-NkK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Lp0-IA-EEW"/>
                     <constraint firstAttribute="centerY" secondItem="UUo-v4-ReI" secondAttribute="centerY" id="Qcx-st-8tI"/>
                     <constraint firstItem="UUo-v4-ReI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="S0E-SG-J67"/>
@@ -70,13 +61,12 @@
                     <constraint firstAttribute="centerY" secondItem="AD9-KC-yZZ" secondAttribute="centerY" id="TOi-6J-NEP"/>
                     <constraint firstItem="ct8-4p-NkK" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="UCj-fO-8PK"/>
                     <constraint firstAttribute="trailingMargin" secondItem="ct8-4p-NkK" secondAttribute="trailing" id="Vc8-aW-Q6z"/>
-                    <constraint firstItem="AD9-KC-yZZ" firstAttribute="leading" secondItem="NaS-Sa-9gZ" secondAttribute="trailing" constant="16" id="Vxc-Xm-85G"/>
                     <constraint firstAttribute="trailing" secondItem="AD9-KC-yZZ" secondAttribute="trailing" constant="14" id="WNG-MW-NY1"/>
-                    <constraint firstItem="NaS-Sa-9gZ" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="XaC-Bk-O8B"/>
                     <constraint firstAttribute="bottom" secondItem="ct8-4p-NkK" secondAttribute="bottom" id="aA9-Eb-Kdx"/>
                     <constraint firstItem="ct8-4p-NkK" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="jIw-bg-rTJ"/>
                     <constraint firstItem="AD9-KC-yZZ" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" id="nAT-nk-UM2"/>
                     <constraint firstItem="AD9-KC-yZZ" firstAttribute="leading" secondItem="UUo-v4-ReI" secondAttribute="trailing" constant="20" id="pZP-5z-MAn"/>
+                    <constraint firstItem="UUo-v4-ReI" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="30" id="x3b-40-emY"/>
                     <constraint firstAttribute="bottom" secondItem="UUo-v4-ReI" secondAttribute="bottom" id="xaA-3X-VjL"/>
                 </constraints>
                 <variation key="default">
@@ -88,14 +78,12 @@
                         <exclude reference="S0E-SG-J67"/>
                         <exclude reference="CTy-Qm-JSe"/>
                         <exclude reference="GFU-3V-BmZ"/>
-                        <exclude reference="Vxc-Xm-85G"/>
                     </mask>
                 </variation>
             </tableViewCellContentView>
             <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
             <connections>
                 <outlet property="data" destination="UUo-v4-ReI" id="NMm-aS-2w2"/>
-                <outlet property="foto" destination="NaS-Sa-9gZ" id="Cpx-Zl-wdG"/>
                 <outlet property="fundo" destination="ct8-4p-NkK" id="B0v-QC-av9"/>
                 <outlet property="pontos" destination="AD9-KC-yZZ" id="wQ1-Fu-OHF"/>
             </connections>
@@ -103,6 +91,6 @@
         </tableViewCell>
     </objects>
     <resources>
-        <image name="BookSide3" width="3000" height="734"/>
+        <image name="blueTitle" width="768" height="165"/>
     </resources>
 </document>

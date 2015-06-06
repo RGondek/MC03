@@ -43,6 +43,8 @@ class Scramble:GameScene {
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
         if(self.view!.paused){
+            var pausedTime = NSDate().timeIntervalSinceDate(self.pauseTime)
+            self.lastUpdateTimeInterval = self.lastUpdateTimeInterval + pausedTime
             self.view?.paused = false;
             self.pauseScreen.hidden = true;
             self.pauseLabel.hidden = true;

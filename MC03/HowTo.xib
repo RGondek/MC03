@@ -2,25 +2,24 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
-        <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="467" height="552"/>
+            <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="pageHowTo" translatesAutoresizingMaskIntoConstraints="NO" id="cYd-tT-xbT">
-                    <rect key="frame" x="0.0" y="0.0" width="467" height="552"/>
+                    <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                 </imageView>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="NOME DO JOGO" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oQ0-be-nBW">
-                    <rect key="frame" x="50" y="35" width="377" height="30"/>
+                    <rect key="frame" x="100" y="70" width="588" height="75"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="30" id="NUL-ru-mMW"/>
-                        <constraint firstAttribute="height" constant="30" id="hRx-yo-TLN"/>
+                        <constraint firstAttribute="height" constant="75" id="hRx-yo-TLN"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="30"/>
+                    <fontDescription key="fontDescription" name="AmericanTypewriter-Bold" family="American Typewriter" pointSize="60"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                     <variation key="default">
@@ -30,48 +29,27 @@
                     </variation>
                 </label>
                 <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vp8-5s-del">
-                    <rect key="frame" x="372" y="475" width="50" height="30"/>
+                    <rect key="frame" x="613" y="904.5" width="75" height="50"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="50" id="gyQ-Ay-GPB"/>
-                        <constraint firstAttribute="height" constant="30" id="mGy-10-BIa"/>
+                        <constraint firstAttribute="width" constant="75" id="gyQ-Ay-GPB"/>
+                        <constraint firstAttribute="height" constant="50" id="mGy-10-BIa"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="15"/>
+                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
                     <state key="normal" title="PLAY">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="21" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R7E-ge-LY2">
-                    <rect key="frame" x="50" y="295" width="372" height="162"/>
+                    <rect key="frame" x="90" y="153" width="598" height="736"/>
                     <attributedString key="attributedText">
                         <fragment>
-                            <string key="content">Sausage short loin cow, pork chop sirloin spare ribs swine ham hock beef ribs bresaola pork turkey. Fatback chicken biltong brisket short ribs. Alcatra venison biltong shankle meatball tenderloin pork belly flank tri-tip andouille pancetta pork chop landjaeger shank frankfurter. Tail tenderloin ham hock pork loin drumstick ribeye. Short loin bresaola shoulder, shank meatball pork loin kevin doner prosciutto alcatra meatloaf rump brisket short ribs.</string>
+                            <string key="content">Sausage short loin cow, pork chop sirloin spare ribs swine ham hock beef ribs bresaola pork turkey. Fatback chicken biltong brisket short ribs. Alcatra venison biltong shankle meatball tenderloin pork belly flank tri-tip andouille pancetta pork chop landjaeger shank frankfurter. Tail tenderloin ham hock pork loin drumstick ribeye. Short loin bresaola shoulder, shank meatball pork loin </string>
                             <attributes>
                                 <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
                                 <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
-                                <font key="NSFont" size="20" name="MarkerFelt-Thin"/>
+                                <font key="NSFont" size="40" name="AmericanTypewriter"/>
                                 <real key="NSKern" value="0.0"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="3" firstLineHeadIndent="25" minimumLineHeight="25" defaultTabInterval="35">
-                                    <tabStops/>
-                                </paragraphStyle>
-                                <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
-                                <real key="NSStrokeWidth" value="0.0"/>
-                            </attributes>
-                        </fragment>
-                    </attributedString>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" numberOfLines="21" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZn-sN-jNE">
-                    <rect key="frame" x="255" y="85" width="167" height="210"/>
-                    <attributedString key="attributedText">
-                        <fragment>
-                            <string key="content">Bacon ipsum dolor amet quis lorem nostrud cupim excepteur shankle. Rump exercitation swine turducken frankfurter kevin. Bacon andouille shoulder ea ad sint. Minim venison non jowl, officia short loin turducken bacon.</string>
-                            <attributes>
-                                <color key="NSBackgroundColor" red="1" green="1" blue="1" alpha="0.0" colorSpace="deviceRGB"/>
-                                <color key="NSColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
-                                <font key="NSFont" size="20" name="MarkerFelt-Thin"/>
-                                <real key="NSKern" value="0.0"/>
-                                <font key="NSOriginalFont" size="20" name="MarkerFelt-Thin"/>
-                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="3" firstLineHeadIndent="25" minimumLineHeight="25" defaultTabInterval="36">
+                                <paragraphStyle key="NSParagraphStyle" alignment="justified" lineBreakMode="wordWrapping" baseWritingDirection="leftToRight" lineSpacing="3" firstLineHeadIndent="50" minimumLineHeight="25" defaultTabInterval="35">
                                     <tabStops/>
                                 </paragraphStyle>
                                 <color key="NSStrokeColor" red="0.20000000000000001" green="0.20000000000000001" blue="0.20000000000000001" alpha="1" colorSpace="deviceRGB"/>
@@ -82,68 +60,45 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Carregando..." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NAh-g2-9YA">
-                    <rect key="frame" x="50" y="477" width="312" height="25"/>
+                    <rect key="frame" x="90" y="909" width="513" height="40"/>
                     <constraints>
-                        <constraint firstAttribute="height" constant="25" id="xX9-Ad-bGS"/>
+                        <constraint firstAttribute="height" constant="40" id="xX9-Ad-bGS"/>
                     </constraints>
-                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="17"/>
+                    <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="25"/>
                     <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="apple" translatesAutoresizingMaskIntoConstraints="NO" id="xsB-IQ-q6Z">
-                    <rect key="frame" x="60" y="85" width="175" height="200"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="175" id="5ka-6Z-D1K"/>
-                        <constraint firstAttribute="height" constant="200" id="7ZE-c2-B07"/>
-                        <constraint firstAttribute="width" secondItem="xsB-IQ-q6Z" secondAttribute="height" multiplier="32:35" id="An5-XG-ZJr"/>
-                    </constraints>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="An5-XG-ZJr"/>
-                        </mask>
-                    </variation>
-                </imageView>
             </subviews>
             <constraints>
-                <constraint firstItem="oQ0-be-nBW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="2zL-0J-eUx"/>
+                <constraint firstItem="oQ0-be-nBW" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="100" id="2zL-0J-eUx"/>
                 <constraint firstItem="cYd-tT-xbT" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="3EA-Ye-8wb"/>
-                <constraint firstItem="R7E-ge-LY2" firstAttribute="top" secondItem="OZn-sN-jNE" secondAttribute="bottom" id="3eQ-Ca-RlZ"/>
-                <constraint firstItem="oQ0-be-nBW" firstAttribute="leading" secondItem="xsB-IQ-q6Z" secondAttribute="leading" constant="-10" id="4pt-3p-jxb"/>
-                <constraint firstItem="OZn-sN-jNE" firstAttribute="leading" secondItem="xsB-IQ-q6Z" secondAttribute="trailing" constant="20" id="6Yf-lf-hFf"/>
+                <constraint firstItem="R7E-ge-LY2" firstAttribute="top" secondItem="oQ0-be-nBW" secondAttribute="bottom" constant="8" id="68y-lx-W9R"/>
                 <constraint firstAttribute="bottom" secondItem="Vp8-5s-del" secondAttribute="bottom" constant="40" id="8eO-Zb-sRC"/>
-                <constraint firstItem="oQ0-be-nBW" firstAttribute="trailing" secondItem="OZn-sN-jNE" secondAttribute="trailing" constant="5" id="95Q-pY-gZY"/>
-                <constraint firstItem="OZn-sN-jNE" firstAttribute="height" secondItem="xsB-IQ-q6Z" secondAttribute="height" id="9iU-5B-52Z"/>
                 <constraint firstItem="Vp8-5s-del" firstAttribute="leading" secondItem="NAh-g2-9YA" secondAttribute="trailing" constant="10" id="C1R-JW-oyf"/>
-                <constraint firstAttribute="bottom" secondItem="NAh-g2-9YA" secondAttribute="bottom" constant="50" id="DM1-RE-sQ9"/>
+                <constraint firstAttribute="bottom" secondItem="NAh-g2-9YA" secondAttribute="bottom" constant="75" id="DM1-RE-sQ9"/>
                 <constraint firstItem="cYd-tT-xbT" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="LDw-zN-URz"/>
                 <constraint firstItem="R7E-ge-LY2" firstAttribute="trailing" secondItem="Vp8-5s-del" secondAttribute="trailing" id="Ngq-Z7-pbC"/>
-                <constraint firstItem="oQ0-be-nBW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="35" id="Pes-4x-gpj"/>
+                <constraint firstItem="oQ0-be-nBW" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="70" id="Pes-4x-gpj"/>
                 <constraint firstAttribute="centerX" secondItem="NAh-g2-9YA" secondAttribute="centerX" id="Tqx-b8-QRa"/>
                 <constraint firstItem="NAh-g2-9YA" firstAttribute="leading" secondItem="R7E-ge-LY2" secondAttribute="leading" id="U1D-Rh-lA6"/>
-                <constraint firstAttribute="trailing" secondItem="R7E-ge-LY2" secondAttribute="trailing" constant="45" id="b57-a4-Cc9"/>
+                <constraint firstAttribute="trailing" secondItem="R7E-ge-LY2" secondAttribute="trailing" constant="80" id="b57-a4-Cc9"/>
                 <constraint firstAttribute="bottom" secondItem="cYd-tT-xbT" secondAttribute="bottom" id="bXG-ux-m5F"/>
                 <constraint firstAttribute="trailing" secondItem="cYd-tT-xbT" secondAttribute="trailing" id="cl6-0C-pwI"/>
                 <constraint firstItem="NAh-g2-9YA" firstAttribute="centerY" secondItem="Vp8-5s-del" secondAttribute="centerY" id="dOC-Fp-HXm"/>
-                <constraint firstItem="xsB-IQ-q6Z" firstAttribute="top" secondItem="oQ0-be-nBW" secondAttribute="bottom" constant="20" id="gkI-Db-nGW"/>
                 <constraint firstAttribute="centerX" secondItem="R7E-ge-LY2" secondAttribute="centerX" id="hgh-ei-GDr"/>
-                <constraint firstItem="R7E-ge-LY2" firstAttribute="top" secondItem="xsB-IQ-q6Z" secondAttribute="bottom" constant="10" id="iFj-NP-7w1"/>
                 <constraint firstItem="NAh-g2-9YA" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="40" id="mHO-r2-TZt"/>
-                <constraint firstAttribute="trailing" secondItem="oQ0-be-nBW" secondAttribute="trailing" constant="40" id="nAi-iT-KUO"/>
-                <constraint firstItem="R7E-ge-LY2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="50" id="nPS-8K-T8T"/>
-                <constraint firstItem="OZn-sN-jNE" firstAttribute="top" secondItem="xsB-IQ-q6Z" secondAttribute="top" id="ofb-XF-T19"/>
+                <constraint firstAttribute="trailing" secondItem="oQ0-be-nBW" secondAttribute="trailing" constant="80" id="nAi-iT-KUO"/>
+                <constraint firstItem="R7E-ge-LY2" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="90" id="nPS-8K-T8T"/>
                 <constraint firstAttribute="trailing" secondItem="Vp8-5s-del" secondAttribute="trailing" constant="40" id="okn-lW-KQn"/>
                 <constraint firstAttribute="centerX" secondItem="oQ0-be-nBW" secondAttribute="centerX" id="pBW-df-hfl"/>
-                <constraint firstItem="R7E-ge-LY2" firstAttribute="leading" secondItem="xsB-IQ-q6Z" secondAttribute="leading" constant="-10" id="qkv-jL-yVy"/>
                 <constraint firstItem="R7E-ge-LY2" firstAttribute="top" secondItem="oQ0-be-nBW" secondAttribute="bottom" constant="20" id="va2-G1-gKe"/>
                 <constraint firstItem="NAh-g2-9YA" firstAttribute="bottom" secondItem="Vp8-5s-del" secondAttribute="bottom" id="xPA-Xn-LF9"/>
                 <constraint firstItem="NAh-g2-9YA" firstAttribute="top" secondItem="R7E-ge-LY2" secondAttribute="bottom" constant="20" id="zCp-Sc-mgP"/>
-                <constraint firstItem="OZn-sN-jNE" firstAttribute="trailing" secondItem="R7E-ge-LY2" secondAttribute="trailing" id="zFm-H8-T32"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <variation key="default">
                 <mask key="constraints">
                     <exclude reference="pBW-df-hfl"/>
-                    <exclude reference="9iU-5B-52Z"/>
                     <exclude reference="hgh-ei-GDr"/>
                     <exclude reference="va2-G1-gKe"/>
                     <exclude reference="Tqx-b8-QRa"/>
@@ -157,7 +112,6 @@
         </view>
     </objects>
     <resources>
-        <image name="apple" width="697" height="781"/>
         <image name="pageHowTo" width="318" height="311"/>
     </resources>
 </document>

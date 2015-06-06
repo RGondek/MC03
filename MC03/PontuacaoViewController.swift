@@ -38,11 +38,6 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         // Do any additional setup after loading the view.
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         var celula = tv.dequeueReusableCellWithIdentifier("PontCell", forIndexPath: indexPath) as! PontuacaoTableViewCell;
         let dateFormatter = NSDateFormatter();
@@ -52,22 +47,16 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         if(tipoJogo == 0){
             celula.data.text! = dateFormatter.stringFromDate(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
             celula.pontos.text = String(((pBookWorm!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            //celula.foto.image = UIImage(named: "fotoPadrao");
-            celula.fundo.image = UIImage(named: "BookSide2")
+            celula.fundo.image = UIImage(named: "greenTitle")
         } else if (tipoJogo == 1){
             celula.data.text! = dateFormatter.stringFromDate(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).data);
-            //celula.pontos.text = "\(pontos2[indexPath.row])";
             celula.pontos.text = String(((pScrambled!.objectAtIndex(indexPath.row)) as! Pontuacao).pontos.integerValue);
-            celula.fundo.image = UIImage(named: "BookSide3")
-            //celula.foto.image = UIImage(named: "fotoPadrao");
+            celula.fundo.image = UIImage(named: "blueTitle")
         } else if (tipoJogo == 999){
             celula.data.text! = "NOT IMPLEMENTED";
             celula.pontos.text = "\(pontos3[indexPath.row])";
-            //celula.foto.image = UIImage(named: "fotoPadrao");
         }
         
-        //        return celula;
-        //UITableViewCell(style: <#UITableViewCellStyle#>, reuseIdentifier: <#String?#>)
         return celula;
     }
     
@@ -75,7 +64,6 @@ class PontuacaoViewController: UIViewController, UITableViewDataSource, UITableV
         if(tipoJogo == 0){
             return pBookWorm!.count;
         } else if (tipoJogo == 1){
-            //return pontos2.count;
             return pScrambled!.count;
         } else if (tipoJogo == 999){
             return pontos3.count;

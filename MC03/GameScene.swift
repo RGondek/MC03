@@ -61,6 +61,8 @@ class GameScene: SKScene {
     var totalScore : SKLabelNode!;
     var lastUpdate : NSTimeInterval = 0
     
+    var pauseTime:NSDate!
+    
     var diff:Int! = 0
     
     //Pontuação do jogador
@@ -301,6 +303,7 @@ class GameScene: SKScene {
     
     func pausaJogo(){
         println("AYY");
+        self.pauseTime = NSDate()
         self.pauseScreen.hidden = false;
         self.pauseLabel.hidden = false;
         self.view?.paused = true;
@@ -517,10 +520,14 @@ class GameScene: SKScene {
     var prevSeconds:Int = -1
     
     override func update(currentTime: CFTimeInterval) {
+        
+        timeSinceLast = currentTime - self.lastUpdateTimeInterval
+        self.lastUpdateTimeInterval = currentTime;
+
         if(!self.view!.paused){
         
-            timeSinceLast = currentTime - self.lastUpdateTimeInterval
-            self.lastUpdateTimeInterval = currentTime;
+//            timeSinceLast = currentTime - self.lastUpdateTimeInterval
+//            self.lastUpdateTimeInterval = currentTime;
             
             //controles da tela do Lexicus
             if (enemy != nil){
