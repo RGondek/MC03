@@ -42,8 +42,9 @@
                                 <rect key="frame" x="0.0" y="0.0" width="768" height="1024"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="tailTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qUz-Eu-saL">
-                                <rect key="frame" x="232" y="704" width="500" height="120"/>
+                                <rect key="frame" x="134" y="704" width="500" height="120"/>
                                 <constraints>
+                                    <constraint firstAttribute="width" constant="500" id="CBY-ub-zXl"/>
                                     <constraint firstAttribute="height" constant="120" id="ZH5-RO-sId"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="60"/>
@@ -55,7 +56,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fv2-X5-Jlp">
-                                <rect key="frame" x="232" y="220" width="500" height="120"/>
+                                <rect key="frame" x="134" y="220" width="500" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="500" id="9U5-bt-XD1"/>
                                     <constraint firstAttribute="height" constant="120" id="hMh-xh-0Xh"/>
@@ -69,9 +70,10 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J9g-DG-Drd">
-                                <rect key="frame" x="232" y="452" width="500" height="120"/>
+                                <rect key="frame" x="84" y="452" width="600" height="120"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="120" id="ZFj-oN-hgb"/>
+                                    <constraint firstAttribute="width" constant="600" id="gnl-Cg-rba"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="AmericanTypewriter" family="American Typewriter" pointSize="80"/>
                                 <state key="normal" title="JOGAR" backgroundImage="btn2">
@@ -85,18 +87,30 @@
                         <color key="backgroundColor" red="0.20000000298023224" green="0.20000000298023224" blue="0.20000000298023224" alpha="1" colorSpace="calibratedRGB"/>
                         <constraints>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="qUz-Eu-saL" secondAttribute="bottom" constant="200" id="B09-Hq-Byw"/>
+                            <constraint firstAttribute="centerX" secondItem="J9g-DG-Drd" secondAttribute="centerX" id="Bvp-GM-xXL"/>
                             <constraint firstAttribute="bottom" secondItem="zpg-Pq-ckB" secondAttribute="bottom" id="DQu-5E-g5B"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fv2-X5-Jlp" secondAttribute="trailing" constant="20" id="Gv0-HH-rwB"/>
                             <constraint firstItem="J9g-DG-Drd" firstAttribute="width" secondItem="qUz-Eu-saL" secondAttribute="width" id="NhM-ga-TgQ"/>
                             <constraint firstItem="fv2-X5-Jlp" firstAttribute="width" secondItem="J9g-DG-Drd" secondAttribute="width" id="NsB-Ik-qzx"/>
                             <constraint firstItem="zpg-Pq-ckB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="SYY-mv-hAf"/>
                             <constraint firstItem="zpg-Pq-ckB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="URP-5E-lN7"/>
+                            <constraint firstAttribute="centerX" secondItem="qUz-Eu-saL" secondAttribute="centerX" id="XtK-EF-yNn"/>
                             <constraint firstAttribute="centerY" secondItem="J9g-DG-Drd" secondAttribute="centerY" id="bLE-Jh-oUP"/>
+                            <constraint firstAttribute="centerX" secondItem="fv2-X5-Jlp" secondAttribute="centerX" id="bSR-Hs-5AE"/>
                             <constraint firstItem="J9g-DG-Drd" firstAttribute="trailing" secondItem="qUz-Eu-saL" secondAttribute="trailing" id="mbY-OB-snL"/>
                             <constraint firstAttribute="trailing" secondItem="zpg-Pq-ckB" secondAttribute="trailing" id="ofH-S1-Byg"/>
                             <constraint firstItem="fv2-X5-Jlp" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="200" id="owL-bN-j62"/>
                             <constraint firstItem="J9g-DG-Drd" firstAttribute="trailing" secondItem="fv2-X5-Jlp" secondAttribute="trailing" id="rYv-KF-bKq"/>
                         </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="Gv0-HH-rwB"/>
+                                <exclude reference="NsB-Ik-qzx"/>
+                                <exclude reference="NhM-ga-TgQ"/>
+                                <exclude reference="mbY-OB-snL"/>
+                                <exclude reference="rYv-KF-bKq"/>
+                            </mask>
+                        </variation>
                     </view>
                     <navigationItem key="navigationItem" id="ReH-WY-Scl"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="iPad"/>

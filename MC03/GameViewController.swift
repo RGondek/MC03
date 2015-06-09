@@ -60,8 +60,16 @@ class GameViewController: UIViewController {
         
         self.view.backgroundColor = UIColor.whiteColor()
         
-        let nibContents:NSArray = NSBundle.mainBundle().loadNibNamed("HowTo", owner: nil, options: nil)
+        let nibContents:NSArray
+        
+        if gameType == 0 {
+            nibContents = NSBundle.mainBundle().loadNibNamed("HowTo", owner: nil, options: nil)
+        }
+        else {
+            nibContents = NSBundle.mainBundle().loadNibNamed("HowTo2", owner: nil, options: nil)
+        }
         howToScreen = nibContents.lastObject as! UIView
+        
         howToScreen.frame = (CGRectMake(50, 50, self.view.frame.size.width-100, self.view.frame.size.height-100))
         self.view.addSubview(howToScreen)
         

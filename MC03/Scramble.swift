@@ -28,7 +28,9 @@ class Scramble:GameScene {
         
         self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Cores")
         prompt = SKLabelNode(fontNamed: "Helvetica")
-        prompt.position = CGPointMake(self.size.width/2, self.size.height * 0.7)
+        prompt.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height*0.8)
+        prompt.fontColor = UIColor.blackColor()
+        
         
         self.addChild(prompt)
 
