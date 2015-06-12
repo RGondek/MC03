@@ -174,8 +174,8 @@ class Bookworm:GameScene {
         }
         
         self.validaPalavra(myLabel.text)
-        self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
-        myLabel.physicsBody?.dynamic = false
+//        self.myLabel.physicsBody = SKPhysicsBody(rectangleOfSize: myLabel.frame.size)
+//        myLabel.physicsBody?.dynamic = false
         
         for letra in self.tabuleiro.getOrthoNeighbors(tabuleiro.tileForCoord(locationGrid.x, y: locationGrid.y)!) {
             //letra.alpha = 0.5

@@ -181,8 +181,9 @@ class GameScene: SKScene {
         labelBg.size = CGSizeMake(self.size.width*0.8, 80)
         labelBg.position = CGPointMake(myLabel.position.x, myLabel.position.y + 15)
         
-        self.addChild(myLabel)
         self.addChild(labelBg)
+        labelBg.zPosition = -9000
+        self.addChild(myLabel)
         
         //Botão de ReRoll
         reButton = SKSpriteNode(imageNamed: "eraser")
@@ -235,6 +236,7 @@ class GameScene: SKScene {
         totalScore.position = CGPointMake(self.frame.size.width * 0.9, self.frame.size.height * 0.9);
         totalScore.text = "0";
         self.addChild(totalScore);
+        totalScore.hidden = true
     }
     
     func setupLex(){
@@ -293,7 +295,9 @@ class GameScene: SKScene {
         enemy = nil
         
         self.enemiesDefeated++
-        if enemiesDefeated >= 2 {
+        
+        //Numero de inimigos que precisa derrotar
+        if enemiesDefeated >= 5 {
             self.win()
         }
         else{
