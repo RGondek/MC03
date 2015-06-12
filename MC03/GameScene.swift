@@ -195,12 +195,12 @@ class GameScene: SKScene {
         self.addChild(reButton)
         
         //Botao de Pause
-        pauseButton = SKSpriteNode(imageNamed: "pauseBeta");
+        pauseButton = SKSpriteNode(imageNamed: "pause");
         pauseButton.name = "pause";
         pauseButton.size = CGSizeMake(80, 80);
         pauseButton.physicsBody = SKPhysicsBody(rectangleOfSize: pauseButton.size);
         pauseButton.physicsBody?.dynamic = false;
-        pauseButton.position = CGPointMake(self.size.width / 2, self.size.height * 0.05);
+        pauseButton.position = CGPointMake(self.size.width / 2, self.size.height * 0.04);
         self.addChild(pauseButton);
         
         
