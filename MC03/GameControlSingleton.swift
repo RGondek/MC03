@@ -21,7 +21,9 @@ class GameControlSingleton: NSObject {
     }
     
     func forcaPausa(){
-        (gameScene as! GameScene).pausaJogo();
+        if gameScene.isKindOfClass(MC03.GameScene) {
+            (gameScene as! GameScene).pausaJogo();
+        }
     }
     
     
