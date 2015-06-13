@@ -37,13 +37,13 @@ class ViewController02: UIViewController {
         //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         //scramble
         case 1:
             println("Game 2")
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             gameView.gameType = 1
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         default:
             println("Another Game")
         }
@@ -55,13 +55,13 @@ class ViewController02: UIViewController {
         //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         //scramble
         case 1:
             println("Game 2")
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             gameView.gameType = 1
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         //scramble
         default:
             println("Another Game")
@@ -74,13 +74,13 @@ class ViewController02: UIViewController {
         //bookworm
         case 0:
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         //scramble
         case 1:
             println("Game 2")
             let gameView = self.storyboard?.instantiateViewControllerWithIdentifier("gameView") as! GameViewController
             gameView.gameType = 1
-            self.presentViewController(gameView, animated: true, completion: nil)
+            self.navigationController?.pushViewController(gameView, animated: true)
         default:
             println("Another Game")
         }
