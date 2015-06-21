@@ -10,11 +10,11 @@ import UIKit
 
 class ViewController: UIViewController {
 
-    let categorias = ["Frutas", "Animais", "Cores"]
-    let words = [["Apple", "Pineapple", "Pear", "Banana", "Strawberry"],["Bear", "Dog", "Cat", "Fish", "Platypus"],["Red", "Blue", "Yellow", "Green", "Orange"]]
-    let palavras = [["Maçã", "Abacaxi", "Pêra", "Banana", "Morango"],["Urso", "Cachorro", "Gato", "Peixe", "Ornitorrinco"],["Vermelho", "Azul", "Amarelo", "Verde", "Laranja"]]
-    let prompt = [["Ótima fruta para fazer tortas", "Tem coroa mas não é rei", "?, uva, maçã ou salada mista", "Macacos gostam dessa fruta", "Fruta vermelha que fica uma delícia com chocolate"],["De pelúcia ou Polar", "É o melhor amigo do homem", "Bebe leite e adora caçar ratos", "Vive em baixo d'água", "Mistura de Pato com castor"],["Cor da maçã", "Cor do céu", "Cor do ouro", "Cor da grama", "Cor da Tangerina"]]
-    let promptIngles = [["Great to make pies", "Has a crown, but isn't a king", "P + part of you that listen to music", "Monkeys like this fruit", "A red fruit that is delicious with chocolate"],["It can be Furry or Gummy", "Man's best friend", "Drink milk and love to chase mice", "Lives underwater", "Duck + Beaver"],["The color of the apple", "The color of the sky", "The color of gold", "The color of grass", "The color of a tangerine"]]
+    let categorias = ["Frutas", "Animais", "Cores", "Objetos"]
+    let words = [["Apple", "Pineapple", "Pear", "Banana", "Strawberry", "Grape"],["Bear", "Dog", "Cat", "Fish", "Platypus", "Spider"],["Red", "Blue", "Yellow", "Green", "Orange", "Pink"],["Pillow", "Fan", "Door"]]
+    let palavras = [["Maçã", "Abacaxi", "Pêra", "Banana", "Morango", "Uva"],["Urso", "Cachorro", "Gato", "Peixe", "Ornitorrinco", "Aranha"],["Vermelho", "Azul", "Amarelo", "Verde", "Laranja", "Rosa"], ["Travesseiro", "Ventilador", "Porta"]]
+    let prompt = [["Ótima fruta para fazer tortas", "Tem coroa mas não é rei", "?, uva, maçã ou salada mista", "Macacos gostam dessa fruta", "Fruta vermelha que fica uma delícia com chocolate", "Fruta roxa ou verde. Pode ser usada para fazer geléia"],["De pelúcia ou Polar", "É o melhor amigo do homem", "Bebe leite e adora caçar ratos", "Vive em baixo d'água", "Mistura de Pato com castor", "Tem oito pernas e faz teias"],["Cor da maçã", "Cor do céu", "Cor do ouro", "Cor da grama", "Cor da Tangerina", "Cor do flamingo"], ["Usado para deitar a cabeça enquanto dormimos", "Faz ventos nos dias quentes", "Abre e fecha. Deixa entrar ou sair"] ]
+    let promptIngles = [["Great to make pies", "Has a crown, but isn't a king", "P + part of you that listen to music", "Monkeys like this fruit", "A red fruit that is delicious with chocolate", "A purple or green fruit. Can be used to make jam."],["It can be Furry or Gummy", "Man's best friend", "Drink milk and love to chase mice", "Lives underwater", "Duck + Beaver", "Has eigth legs and makes web"],["The color of the apple", "The color of the sky", "The color of gold", "The color of grass", "The color of a tangerine", "Flamingo's color"], ["Used to lay down our heads when we sleep", "Makes winds on hot days", "Opens and closes. Lets get in or out"]]
     
     
     override func viewDidLoad() {

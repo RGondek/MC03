@@ -210,7 +210,7 @@ class Bookworm:GameScene {
         var cont = num
         var palavrasSeedadas:NSMutableArray = NSMutableArray()
         
-        var palavras = CategoryManager().fetchWordsForCategory(num, categoryName: "Frutas")
+        var palavras = CategoryManager().fetchWordsForRandomCategory(num);
         for item in palavras {
             palavrasSeedadas.addObject(item as! Palavra)
         }

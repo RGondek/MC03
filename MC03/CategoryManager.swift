@@ -45,6 +45,12 @@ class CategoryManager {
         return Array<Categoria>();
     }
     
+    func fetchWordsForRandomCategory(num:Int) -> NSMutableArray {
+        let categorias = self.fetchCategories();
+        let rand = arc4random_uniform(UInt32(categorias.count-1));
+        return self.fetchWordsForCategory(num, categoryName: (categorias[Int(rand)]).nome);
+    }
+    
     func fetchWordsForCategory(num:Int, categoryName:String) -> NSMutableArray {
         let fetchRequest = NSFetchRequest(entityName: CategoryManager.entityName);
         var error: NSError?
