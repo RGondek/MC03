@@ -62,6 +62,8 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 palavras?.objectAtIndex(1).addObject(palavra);
             } else if(palavra.categoria.nome == "Frutas"){
                 palavras?.objectAtIndex(2).addObject(palavra);
+            } else if(palavra.categoria.nome == "Objetos"){
+                palavras?.objectAtIndex(3).addObject(palavra);
             }
         }
         
@@ -111,6 +113,7 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 celula.palavra.text = "";
                 celula.traducao.text = "";
                 celula.dica.text = "";
+                celula.tip.text = "";
             }
             celula.backgroundColor = UIColor.clearColor()
             return celula;

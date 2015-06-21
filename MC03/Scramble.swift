@@ -26,7 +26,7 @@ class Scramble:GameScene {
         
         letrasSelecionadas = NSMutableArray()
         
-        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForCategory(5, categoryName: "Cores")
+        self.palavrasBanco = CategoryManager.sharedInstance.fetchWordsForRandomCategory(5)
         prompt = SKLabelNode(fontNamed: "Helvetica")
         prompt.position = CGPointMake(CGRectGetMidX(self.frame), self.size.height*0.8)
         prompt.fontColor = UIColor.blackColor()
