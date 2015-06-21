@@ -36,7 +36,7 @@ class ValorLetra : NSObject {
 }
 
 class GameScene: SKScene {
-    var vc : GameViewController?
+    weak var vc : GameViewController?
     
     //Pause Screen
     var pauseScreen:SKSpriteNode!
@@ -445,7 +445,7 @@ class GameScene: SKScene {
     
     func goBack(){
         let home = UIStoryboard(name: "Main", bundle: nil).instantiateInitialViewController() as! UINavigationController
-        self.vc?.presentViewController(home, animated: true, completion: nil)
+        self.vc?.navigationController?.popViewControllerAnimated(true)
     }
     
     func win(){

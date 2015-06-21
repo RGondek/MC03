@@ -70,7 +70,11 @@ class WinScene: SKScene {
     }
     
     override func touchesBegan(touches: Set<NSObject>, withEvent event: UIEvent) {
-        self.vc?.performSegueWithIdentifier("gameOver", sender: score);
+        self.vc?.performSegueWithIdentifier("gameOverPush", sender: score);
+//        var pontuacao = UIStoryboard(name: "Main", bundle: nil).instantiateViewControllerWithIdentifier("pontuacao") as! PontuacaoViewController
+//        //pontuacao.recebe = sender as! Int
+//        pontuacao.tipoJogo = self.vc.gameType
+//        self.vc.navigationController?.popToViewController(pontuacao, animated: true)
     }
     
     func displayDescobertas(){
