@@ -250,6 +250,11 @@ class Scramble:GameScene {
             prompt.text = word.prompt as String
             break
         }
+        if(count(prompt.text) > 25){
+            prompt.fontSize = 24;
+        } else {
+            prompt.fontSize = 32;//Tamanho padrão
+        }
         
     }
     
