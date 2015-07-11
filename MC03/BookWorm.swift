@@ -381,6 +381,11 @@ class Bookworm:GameScene {
                 break
             }
             self.indiceDica = self.indiceDica + 1
+            if(count(promptLabel.text) > 25){
+                promptLabel.fontSize = 24;
+            } else {
+                promptLabel.fontSize = 32;//Tamanho padrão
+            }
         }
     }
     

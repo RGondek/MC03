@@ -47,7 +47,7 @@ class CategoryManager {
     
     func fetchWordsForRandomCategory(num:Int) -> NSMutableArray {
         let categorias = self.fetchCategories();
-        let rand = arc4random_uniform(UInt32(categorias.count-1));
+        let rand = arc4random_uniform(UInt32(categorias.count));
         return self.fetchWordsForCategory(num, categoryName: (categorias[Int(rand)]).nome);
     }
     
