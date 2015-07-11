@@ -221,11 +221,11 @@ class Scramble:GameScene {
     override func encheLetras(seed:NSMutableArray) {
         var letrasFinal = Array<LetraNode>()
         for i in 0...seed.count-1 {
-            let letraAux:LetraNode = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: seed.objectAtIndex(i) as! String, tam: self.tam)
+            let letraAux:LetraNode = LetraNode(texture: SKTexture(imageNamed: "bloco"), letra: seed.objectAtIndex(i) as! String, tam: self.tam)
             letrasFinal.append(letraAux)
         }
         for i in seed.count...(self.tabuleiro.grid.columns*self.tabuleiro.grid.rows)-1 {
-            let letraAux = LetraNode(texture: SKTexture(imageNamed: "tile"), letra: self.randomLetra(), tam: self.tam)
+            let letraAux = LetraNode(texture: SKTexture(imageNamed: "bloco"), letra: self.randomLetra(), tam: self.tam)
             letrasFinal.append(letraAux)
         }
         letrasFinal = letrasFinal.shuffled()
