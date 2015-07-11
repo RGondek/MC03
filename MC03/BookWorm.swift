@@ -46,7 +46,7 @@ class Bookworm:GameScene {
         shuffleButton.size = CGSizeMake(80, 80)
         shuffleButton.physicsBody = SKPhysicsBody(rectangleOfSize: reButton.size)
         shuffleButton.physicsBody?.dynamic = false
-        shuffleButton.position = CGPointMake(self.size.width - 50, 50)
+        shuffleButton.position = CGPointMake(self.size.width - 80, 70)
         
         self.addChild(shuffleButton)
         

@@ -144,6 +144,11 @@ class GameScene: SKScene {
         
         GameControlSingleton.sharedInstance.gameScene = self
 
+        var bgImg = SKSpriteNode(texture: SKTexture(imageNamed: "bg"))
+        bgImg.position = CGPointMake(self.size.width/2, self.size.height/2)
+        bgImg.size = CGSizeMake(self.size.width, self.size.height)
+        self.addChild(bgImg)
+        
         pauseScreen = SKSpriteNode(color: UIColor.darkGrayColor(), size: self.size);
         pauseScreen.position = CGPointMake(self.size.width / 2, self.size.height / 2);
         pauseScreen.name = "pauseScreen";
@@ -174,7 +179,7 @@ class GameScene: SKScene {
         myLabel.text = curString
         myLabel.fontSize = 65;
         myLabel.fontColor = UIColor.blackColor()
-        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:100);
+        myLabel.position = CGPoint(x:CGRectGetMidX(self.frame), y:130);
         
         let labelBg = SKSpriteNode(imageNamed: "scroll")
         labelBg.name = "labelBg"
@@ -191,7 +196,7 @@ class GameScene: SKScene {
         reButton.size = CGSizeMake(80, 80)
         reButton.physicsBody = SKPhysicsBody(rectangleOfSize: reButton.size)
         reButton.physicsBody?.dynamic = false
-        reButton.position = CGPointMake(50, 50)
+        reButton.position = CGPointMake(80, 70)
         
         self.addChild(reButton)
         
@@ -201,12 +206,12 @@ class GameScene: SKScene {
         pauseButton.size = CGSizeMake(80, 80);
         pauseButton.physicsBody = SKPhysicsBody(rectangleOfSize: pauseButton.size);
         pauseButton.physicsBody?.dynamic = false;
-        pauseButton.position = CGPointMake(self.size.width / 2, self.size.height * 0.04);
+        pauseButton.position = CGPointMake(self.size.width / 2, 70);
         self.addChild(pauseButton);
         
         
         tabuleiro = Tabuleiro(x: cols, y: rows, tamanho: tam)
-        tabuleiro.position = CGPointMake(self.size.width/2 - tam * CGFloat(cols) / 2, self.size.height * 0.18)
+        tabuleiro.position = CGPointMake(self.size.width/2 - tam * CGFloat(cols) / 2, self.size.height * 0.2)
         self.addChild(tabuleiro)
         
         //self.encheLetras()
