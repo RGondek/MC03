@@ -60,10 +60,12 @@ class EncyDetails: UIViewController, UITableViewDataSource, UITableViewDelegate 
                 palavras?.objectAtIndex(0).addObject(palavra);
             } else if(palavra.categoria.nome == "Cores"){
                 palavras?.objectAtIndex(1).addObject(palavra);
-            } else if(palavra.categoria.nome == "Frutas"){
+            } else if(palavra.categoria.nome == "Esportes"){
                 palavras?.objectAtIndex(2).addObject(palavra);
-            } else if(palavra.categoria.nome == "Objetos"){
+            }else if(palavra.categoria.nome == "Frutas"){
                 palavras?.objectAtIndex(3).addObject(palavra);
+            } else if(palavra.categoria.nome == "Objetos"){
+                palavras?.objectAtIndex(4).addObject(palavra);
             }
         }
         
